@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.bandForm{
+width:300px;
+}
+#table{ 
+display: table;
+width:265px;
+}
+.row{
+display: table-row;
+}
+p{
+display: table-cell; 
+border:solid 1px gray; 
+padding: 3px; 
+}
+ 
+
+
+</style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Band</title>
 </head>
 <body>
 
-	<div id="bandMain">
+	<div id="bandMain" class="bandForm">
 		<fieldset id="bandMain">
 			<legend>BAND</legend>
 			나의밴드목록 <select id="mySelect" autofocus>
@@ -25,11 +45,11 @@
 		</fieldset>
 	</div>
 
-	<div id="bandInfo" style='display: none'>
+	<div id="bandInfo" style='display: none'class="bandForm">
 		<fieldset>
 			<legend>밴드정보</legend>
 			밴드명 <br> 리더 <br> 밴드원 <br> 설명 <br>
-			<textarea rows="4" cols="40">
+			<textarea rows="4" cols="35" >
 At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
 </textarea>
 			<br> <input type="button" id="signIn" value="가입"> <input
@@ -41,7 +61,7 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
 
 
 
-	<div id="bandMake" style='display: none'>
+	<div id="bandMake" style='display: none'class="bandForm">
 		<fieldset>
 			<legend>밴드만들기</legend>
 			밴드명 <input type="text" id="bandName" placeholder="Write for name..">
@@ -55,7 +75,7 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
 				<option>6</option>
 				<option>7</option>
 			</select> <br> 밴드설명<br>
-			<textarea rows="4" cols="40">
+			<textarea rows="4" cols="35" >
 At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
 </textarea>
 			<br> <input type="button" id="makeBand" value="Summit">
@@ -63,27 +83,27 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
 		</fieldset>
 	</div>
 
-	<div id="bandSearchResult" style='display: none'>
+	<div id="bandSearchResult" style='display: none'class="bandForm">
 		<fieldset>
 			<legend>검색결과</legend>
-			<table>
-				<tr>
-					<th>이름</th>
-					<th>인원</th>
-					<th>설명</th>
-				</tr>
-				<tr>
-					<td>기타사랑</td>
-					<td>2</td>
-					<td>수원모임</td>
-				</tr>
-
-				<tr>
-					<td>기타짱</td>
-					<td>6</td>
-					<td>기타를 좋아합니다</td>
-				</tr>
-			</table>
+			
+<div id="table">
+ <div class="row">
+  <p>이름</p>
+  <p>인원</p>
+  <p>설명</p>
+ </div>
+ <div class="row">
+  <p>기타사랑</p>
+  <p>2</p>
+  <p>수원모임</p>
+ </div>
+  <div class="row">
+  <p>기타짱</p>
+  <p>6</p>
+  <p>기타를 좋아합니다</p>
+ </div>
+			
 		</fieldset>
 	</div>
 

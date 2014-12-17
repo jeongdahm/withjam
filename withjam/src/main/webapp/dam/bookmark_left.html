@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <style>
+#table{ 
+display: table;
+width:300px;
+}
+.row{
+display: table-row;
+}
+p{
+display: table-cell; 
+border:solid 1px gray; 
+padding: 3px; 
+}
+.play{
+width:40px;
+}
+.title{
+width:230;
+}
+.del{
+width:30;
+}
+ 
+ 
+
+
+ </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>bookMark</title>
 </head>
 <body>
 
+
+<div id="table">
+ <div class="row">
+  <p class="play"><span>듣기</span></p>
+  <p class="title">곡명</p>
+  <p class="del">삭제</p>
+ </div>
+ <div class="row">
+  <p class="play"><span class="glyphicon glyphicon-play"></span> </p>
+  <p class="title">에헤라디야</p>
+  <p class="del"><button>del</button></p>
+ </div>
+ <div class="row">
+  <p class="play"><span class="glyphicon glyphicon-play"></span> </p>
+  <p class="title">오호라디야야야야</p>
+  <p class="del"><button>del</button></p>
+ </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

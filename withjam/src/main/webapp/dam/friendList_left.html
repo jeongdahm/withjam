@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<style>
+
+#friendInfo {
+
+height:90px;
+width :300px;
+border: solid 2px Orange;
+margin-bottom: 10px;
+border-radius : 0.5em
+	
+}
+#photo{
+float:left;
+width:90px;
+height:90px;
+border: solid 2px red; 
+border-top-left-radius:0.5em;
+border-bottom-left-radius:0.5em;
+ 
+}
+#userId{
+width:210px;
+height:30px;
+margin-left: 91px;
+width: 200px;
+border: solid 2px blue;
+border-top-right-radius:0.5em;
+}
+#usermsg{
+	width:200px;
+	height:55px;
+	margin-left: 91px;
+ 
+	border: solid 2px green;
+	border-bottom-right-radius:0.5em;
+}
+
+
+</style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>friendList</title>
 </head>
 <body>
+<div id="friendInfo">
+		<div id="photo"><img src="c.jpg" height="87px" width="87px"></div>
+		<div id="userId"> 
+			 <li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" >FriendName1<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+                <li id="delete" onclick="delete()">친구삭제</li>
+    			</ul>
+    	</li>
+		</div>
+		<div id="usermsg">message</div>
 
+</div>
+
+
+<div id="friendInfo">
+		<div id="photo"><img src="c.jpg" height="87px" width="87px"></div>
+		<div id="userId">FriendName2</div>
+		<div id="usermsg"> message</div>
+</div>
+
+<div id="friendInfo">
+		<div id="photo"><img src="c.jpg" height="87px" width="87px"></div>
+		<div id="userId">FriendName3</div>
+		<div id="usermsg"> message</div>
+</div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   
 
 </body>
+<script>
+function delete() {
+	document.getElementById("delete").style.display = "";
+
+}
+</script>
 </html>
