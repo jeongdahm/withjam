@@ -1,0 +1,56 @@
+<div id="effect">
+	<div class='signup' class='container'>
+
+		<div class='signhead'>친구목록</div>
+
+		<div id='signupDiv'>
+
+			<div id="selectable">
+				<div class="selectable2">
+					<div class='fPhoto'></div>
+					<div class='fName'><h3>이름</h3></div>
+					<div class='fComment'><h3>코멘트</h3></div>
+				</div>
+				
+				
+				<div class="selectable2">
+					<div class='fPhoto'  id='fPhoto1'><img src='image/faceImg.jpg'></div>
+					<div id = 'fName' class='fName'>길동</div>
+					<div class='fComment'>방가방가</div>
+				</div>
+				
+				<div class="selectable2">
+					<div class='fPhoto'  id='fPhoto2'><img src='image/faceImg2.jpg'></div>
+					<div class='fName'>tom</div>
+					<div class='fComment'>nice to meet you</div>
+				</div>
+				<div class="selectable2">
+					<div class='fPhoto'  id='fPhoto3'><img src='image/faceImg4.png'></div>
+					<div class='fName'>alice</div>
+					<div class='fComment'>hi man</div>
+				</div>
+				<div class="selectable2">
+					<div class='fPhoto'  id='fPhoto4'><img src='image/faceImg5.jpg'></div>
+					<div class='fName'>judie</div>
+					<div class='fComment'>hi everyone</div>
+				</div>
+				<div class="selectable2">
+					<div class='fPhoto'  id='fPhoto5'><img src='image/faceImg6.jpg'></div>
+					<div class='fName'>boksul</div>
+					<div class='fComment'>yo man!</div>
+				</div> 
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+$(".fName").click(function() {
+	$(".toggler").load("friendView.html");
+	runEffect(); 
+/* 	alert('test'); */
+});
+</script>
