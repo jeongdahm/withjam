@@ -10,17 +10,54 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<style type="text/css">
+<style type="text/css"> 
+
+.divBG{
+	background-color: #eef;
+}
+.divBG2{
+	background-color: #eee;
+	border-radius: 5px;
+	border:1px solid #ccf;
+}
+
+.btns{
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.tb5 {
+	/* border:2px solid #111; */
+	border-radius:10px;
+	height: 22px;
+	width: 470px;
+}
+textarea {
+	width:500px;
+	overflow:visible;
+	
+	/* border: 2px solid #000000; */
+	border-radius: 10px;
+} 
+
+.shadow{
+	box-shadow:2px 2px 5px #08088A;
+}
+.divRadius{
+	border-radius: 4px;
+}
 
 .divPadding{
 	padding: 10px;
 }
 .accordion {
 	width: 100%;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
-.testBorder {
-	width: 100%;
+.testBorder2 {
 	border: 1px solid red;
 }
 #profileImg {
@@ -28,9 +65,40 @@
 	height: 30px;
 }
 
+
+.styled-select select {
+       background: transparent;
+       width: 120px;
+       padding: 5px;
+       font-size: 16px;
+
+       border: 1;
+       border-radius: 5;
+       height: 22px;
+       -webkit-appearance: none;
+       -moz-appearance:none;
+       appearance: none;
+       }
+
+.styled-select {
+       width: 123px;
+       height: 22px;
+       overflow: hidden;
+       background: url(img/cmbbox.png) no-repeat;
+       border: 1;
+       }
+
+
+
 </style>
 <script type="text/javascript">
+//textarea 크기 조절관련
+function resize(obj) {
+	  obj.style.height = "1px";
+	  obj.style.height = (20+obj.scrollHeight)+"px";
+	}
 
+//jplayer 관련
 $(document).ready(function(){
 
 	$("#jquery_jplayer_1").jPlayer({
@@ -53,6 +121,7 @@ $(document).ready(function(){
 	});
 });
 
+//accodian 방식 관련..
 	$(function() {
 		$(".submenu").hide();
 		$(".write").click(function() {
@@ -60,7 +129,6 @@ $(document).ready(function(){
 			$(this).next('.submenu:hidden').slideDown("middle");
 			return false;
 		})
-
 		$(".submenu2").hide();
 		$(".write2").click(function() {
 			$(".submenu2:visible").slideUp("middle");
@@ -70,20 +138,24 @@ $(document).ready(function(){
 
 	});
 </script>
-<div class="accordion bg02" >
+<div class="accordion divRadius shadow divBG" >
 	<p class="write divPadding">Write & Record</p>
 	<div class="submenu bg01">
+	
+	<div class=" divPadding">
 		<!-- 제목  -->
-		<div class="title divPadding">
+		<div class="title divRadius">
 			<div>
 				<label>Title </label>
-				<input type="text" name="title" size="40">
+				<input class="tb5" type="text" name="title" size="40">
 			</div>
 		</div>
+		</div>
+		
 		
 		<!-- 녹음  -->
-		<div class="recoding accordion bg02 ">
-			<p class="write2 divPadding">Recording</p>
+		<div class="recoding accordion divBG2">
+			<p class="write2 divPadding ">Recording</p>
 			<div class="submenu2 divPadding">
 			
 			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -124,32 +196,43 @@ $(document).ready(function(){
 			</div>
 		</div>
 
+
+
+	<div class="divPadding">
+	<div class=" divRadius">
+
 		<!-- 내용  -->
-		<div class="content divPadding">
-			<textarea rows="5" cols="67" name="contents"></textarea>
+		<div class="content">
+			<textarea onkeyup="resize(this)"></textarea>
+			<!-- <textarea rows="5" cols="67" name="contents"></textarea> -->
 		</div>
 		
+		
+		
 		<!-- 나머지 -->
-		<div class="option divPadding">
+		<div class="option">
 			
 			<div>
 				<label>태그</label>
-				<input type="text" name="tag" size="30"> 
+				<input class="tb5" type="text" name="tag" size="30"> 
 			</div>
+			<br>
 			<div>
-			<label>제한</label> <select name="band">
+			<label>참여 제한</label> <select name="band" class="styled-select">
 					<option value="">없음</option>
 					<option value="band1">밴드1</option>
 					<option value="band2">밴드2</option>
 				</select>
 
 				<div style="float: right;">
-				<input type="checkbox" name="option" value="secret">비밀글 쓰기 
-				<input type="checkbox" name="option" value="main">메인에 노출
-				<button id='btnInsert' type='button'>등록</button>
+				<input type="checkbox" name="option" value="secret">비밀글 
+				<input type="checkbox" name="option" value="main">메인
+				<button id='btnInsert' type='button' class="btns">등록</button>
 				</div>
 			</div>
 			
+		</div>
+		</div>
 		</div>
 	</div>
 </div>
