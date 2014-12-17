@@ -73,7 +73,7 @@
 }
 
 #signupDiv {
-	width: 80%; 
+	width: 80%;
 	margin: auto;
 	margin-top: 30px;
 }
@@ -117,51 +117,46 @@ lavel {
 	display: inline-block;
 }
 
-.selectable2{
-    width: 100%;
-    height: 50px;
-    background-color: white;
+.selectable2 {
+	width: 100%;
+	height: 50px;
+	background-color: white;
 }
 
-  
-.fPhoto{
-  float: left;
-  border : red solid 1px;
-  height: 100%;
-  width: 50px;
-  margin-bottom: 5px;
-}  
-
-.fName{
-  float: left;
-  border : red solid 1px;
-  height: 100%;
-  width: 70px;
-  margin-bottom: 5px;
-} 
-
-
-.fComment{
-  float: left;
-  border : red solid 1px;
-  height: 100%;
-  width: 54%;
-  margin-bottom: 5px;
-} 
- 
-.fPhoto img{
-  width: 100%;
-  height: 100%;
+.fPhoto {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 50px;
+	margin-bottom: 5px;
 }
 
- 
+.fName {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 70px;
+	margin-bottom: 5px;
+}
+
+.fComment {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 54%;
+	margin-bottom: 5px;
+}
+
+.fPhoto img {
+	width: 100%;
+	height: 100%;
+}
 </style>
 
 <script src='js/jquery-1.11.1.js'></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src='js/bootstrap.js'></script>
-
 
 </head>
 <body>
@@ -176,7 +171,18 @@ lavel {
 
 	<div id='left-side' class='container'>
 		<div id='left-content' class='container'>
+		
+		
+			<button id="button1" class="ui-state-default ui-corner-all">회원 가입</button>
 
+			<button id='button2' class="ui-state-default ui-corner-all">로그인</button>
+
+			<button id='button3' class="ui-state-default ui-corner-all">내 친구</button>
+			
+			<button id='button4' class="ui-state-default ui-corner-all">내 밴드</button>
+			
+			
+			
 			<div class="toggler"></div>
 
 
@@ -188,13 +194,6 @@ lavel {
 	<div id='right-side'>
 		<div id='right-content'></div>
 	</div>
-    
-	<button id="button1" class="ui-state-default ui-corner-all">sign
-		up</button>
-
-	<button id='button2'>login</button>
-	
-	<button id='button3'>friend</button>
 
 	<script type="text/javascript">
 		$("#button1").click(function() {
@@ -206,12 +205,16 @@ lavel {
 			$(".toggler").load("login.html");
 			runEffect();
 		});
-		
+
 		$("#button3").click(function() {
 			$(".toggler").load("friendList.html");
 			runEffect();
 		});
 		
+		$("#button4").click(function() {
+			$(".toggler").load("mybend.html");
+			runEffect();
+		});
 
 		// run the currently selected effect
 		function runEffect() {
@@ -224,11 +227,7 @@ lavel {
 			// run the effect
 			$("#effect").toggle('explode', options, 500);
 		};
-		
-		
-
 	</script>
-
 
 </body>
 </html>
