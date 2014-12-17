@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel='stylesheet' href='css/bootstrap.min.css'>
+<link rel='stylesheet' href='css/bootstrap-theme.min.css'>
+
+<title>Insert title here</title>
+<style>
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+.testBorder {
+	width: 100%;
+	border: 1px solid red;
+}
+
+</style>
+
+</head>
+<body>
+		<div class="testBorder" >
+			<div class="testBorder " style="width: 100px; text-align:center;">
+			<div class="testBorder" style="width: 100px; height: 30px;">
+				<img id="profileImg" src="../img/temp.jpg">
+				<label>작성자</label>
+			</div>
+				<label>2014.12.15</label>
+			</div>
+			<div>
+				<label>댓글의 내용 입니다.</label>
+			</div>
+		</div>
+		
+		<table>
+			<tr>
+				<td><img id="profileImg" src="../img/temp.jpg"></td>
+				<td><label>작성자</label></td>
+				<td rowspan="3" ><label>댓글의 내용 입니다.</label></td>
+				<td rowspan="3"><button type='button'>등록</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><label>2014.12.15</label></td>
+			</tr>
+		</table>
+		
+		<div style="border: 1px solid red; margin: 5px; padding: 5px; height: 40px">
+			<div style="float: left; "><img id="profileImg" src="../img/temp.jpg"></div>
+			<div style="float: left; "><label>작성자</label><br><label>2014.12.15</label></div>
+			<div style="float: left; "><label>댓글의 내용 입니다.</label></div>
+			<div style="float: right; "><button type='button'>등록</button></div>
+		</div>
+    
+    
+    <script src='js/bootstrap.js'></script>
+</body>
+</html>

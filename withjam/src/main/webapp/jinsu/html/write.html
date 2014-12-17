@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="../jquery/jplayer/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
+	
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.divPadding{
+	padding: 10px;
+}
+.accordion {
+	width: 100%;
+	border: 1px solid red;
+}
+.testBorder {
+	width: 100%;
+	border: 1px solid red;
+}
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				title: "Bubble",
+				m4a: "http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+				oga: "http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			});
+		},
+		swfPath: "../../jquery/jplayer",
+		supplied: "m4a, oga",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true
+	});
+});
+
+	$(function() {
+		$(".submenu").hide();
+		$(".write").click(function() {
+			$(".submenu:visible").slideUp("middle");
+			$(this).next('.submenu:hidden').slideDown("middle");
+			return false;
+		})
+
+		$(".submenu2").hide();
+		$(".write2").click(function() {
+			$(".submenu2:visible").slideUp("middle");
+			$(this).next('.submenu2:hidden').slideDown("middle");
+			return false;
+		})
+
+	});
+</script>
+<div class="accordion bg02" >
+	<p class="write divPadding">Write & Record</p>
+	<div class="submenu bg01">
+		<!-- 제목  -->
+		<div class="title divPadding">
+			<div>
+				<label>Title </label>
+				<input type="text" name="title" size="40">
+			</div>
+		</div>
+		
+		<!-- 녹음  -->
+		<div class="recoding accordion bg02 ">
+			<p class="write2 divPadding">Recording</p>
+			<div class="submenu2 divPadding">
+			
+			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div>
+			
+			</div>
+		</div>
+
+		<!-- 내용  -->
+		<div class="content divPadding">
+			<textarea rows="5" cols="67" name="contents"></textarea>
+		</div>
+		
+		<!-- 나머지 -->
+		<div class="option divPadding">
+			
+			<div>
+				<label>태그</label>
+				<input type="text" name="tag" size="30"> 
+			</div>
+			<div>
+			<label>제한</label> <select name="band">
+					<option value="">없음</option>
+					<option value="band1">밴드1</option>
+					<option value="band2">밴드2</option>
+				</select>
+
+				<div style="float: right;">
+				<input type="checkbox" name="option" value="secret">비밀글 쓰기 
+				<input type="checkbox" name="option" value="main">메인에 노출
+				<button id='btnInsert' type='button'>등록</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>
