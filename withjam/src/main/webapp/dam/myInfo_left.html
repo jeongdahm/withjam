@@ -6,31 +6,33 @@
 
 <style>
 #myInfo {
-	height:400px;
- 
+
+	height:220px;
+  width:330px;
 	border: dashed 2px Orange;
 	
 }
 #photo{
-
-width:150px;
-height:150px;
-  
-    border: dashed 2px red; 
+float:left;
+width:120px;
+height:120px;
+border: dashed 2px red; 
 }
 #userId{
-
-	display:inline;	
-	  width: 200px;
+ margin-left: 121px;
+ width: 200px;
 	  
 
 		border: dashed 2px blue;
 }
 #usermsg{
-
-  width: 300px;
-	  height:150px;
-		border: dashed 2px yellow;
+	margin-left: 121px;
+  width: 200px;
+	height:100px;
+	border: dashed 2px yellow;
+}
+#button{
+	margin-left: 150px;
 }
 
 
@@ -42,13 +44,15 @@ height:150px;
 
 	<div id="myInfo">
 		<div id="photo"><img src="c.jpg" height="100px" width="100px"></div>
-		<div id="userId"> MyName </div>
+		<div id="userId">MyName</div>
 		<div id="usermsg"> message</div>
 
 		
 		<br><br>
+		<div id="button">
 		 <button type="button" class="btn btn-default btn-sm">내글만보기</button>
 		 <button type="button" class="btn btn-info btn-sm">친구글보기</button>
+		 </div>
 	</div>
 	   <script src='../yongho/js/bootstrap.js'></script>
 </body>
