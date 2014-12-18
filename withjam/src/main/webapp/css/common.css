@@ -4,5 +4,142 @@
 	width: 500px;
 }
 
+<!--yongho main-->
+#header {
+	/* border: solid 1px blue; */
+	height: 30px;
+	background-color: #A9BCF5;
+}
 
+#header input {
+	width: 300px;
+}
 
+#withme {
+	/* border: solid 1px black; */
+	width: 100px;
+	margin-left: 400px;
+	float: left;
+}
+
+#left-side {
+	height: 700px;
+	width: 500px;
+	float: left;
+	background-color: #FAFAFA;
+	border: 1px solid black;
+}
+
+#right-side {
+	height: 93%;
+	width: 65%;
+	float: left;
+	background-color: #FAFAFA;
+	border: 1px solid black;
+}
+
+#left-content {
+	/* border: 1px solid blue; */
+	height: 100%;
+	background-color: white;
+	width: 390px;
+	float: right;
+	border: 1px solid black;
+}
+
+#right-content {
+	/* border: 1px solid red; */
+	height: 100%;
+	background-color: white;
+	width: 70%;
+	float: left;
+	border: 1px solid black;
+}
+
+.signup {
+	/* height: 290px; */
+	width: 330px;
+	margin: auto;
+	margin-top: 50px;
+	background-color: #f1f1f1;
+}
+
+#signupDiv {
+	width: 80%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.signhead {
+	background-color: #086A87;
+	height: 30px;
+	width: 100%;
+	font-weight: bolder;
+	color: white;
+	background-color: #848484;
+}
+
+.signupInput {
+	height: 55px;
+	width: 100%;
+}
+
+.signupInput2 {
+	width: 250px;
+}
+
+.favorite {
+	height: 100px;
+	width: 330px;
+	margin: auto;
+	margin-top: 5px;
+	background-color: #f1f1f1;
+}
+
+.favoriteHead {
+	background-color: #086A87;
+	height: 30px;
+	width: 100%;
+	font-weight: bolder;
+	color: white;
+	background-color: #848484;
+}
+
+lavel {
+	display: inline-block;
+}
+
+.selectable2 {
+	width: 100%;
+	height: 50px;
+	background-color: white;
+}
+
+.fPhoto {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 50px;
+	margin-bottom: 5px;
+}
+
+.fName {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 70px;
+	margin-bottom: 5px;
+}
+
+.fComment {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 54%;
+	margin-bottom: 5px;
+}
+
+.fPhoto img {
+	width: 100%;
+	height: 100%;
+}

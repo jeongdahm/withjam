@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel='stylesheet' href='css/bootstrap.min.css'>
-<link rel='stylesheet' href='css/bootstrap-theme.min.css'>
-<link rel='stylesheet' href='css/bootstrap-theme.css.map'>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/common.css">
+
 
 <title>Insert title here</title>
 <style>
@@ -151,21 +152,24 @@ lavel {
 	width: 100%;
 	height: 100%;
 }
+
+
 </style>
 
-<script src='js/jquery-1.11.1.js'></script>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script src='js/bootstrap.js'></script>
+<script src='../js/jquery-1.11.1.js'></script>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script src='../js/bootstrap.js'></script>
 
 </head>
 <body>
 
 	<div id='header'>
 		<div id="withme">
-			<a href="/RtcProject/test02/main.html">With Jam</a>
+			<a href="/withjam/yongho/main.html">With Jam</a>
 		</div>
-		<input type='text'>
+		 <input type="search" id="mySearch"
+				placeholder="Search for music, peopel...">
 		<button type="button" class="btn btn-info">Info</button>
 	</div>
 
@@ -181,8 +185,7 @@ lavel {
 			
 			<button id='button4' class="ui-state-default ui-corner-all">내 밴드</button>
 			
-			
-			
+		
 			<div class="toggler"></div>
 
 
@@ -212,7 +215,7 @@ lavel {
 		});
 		
 		$("#button4").click(function() {
-			$(".toggler").load("mybend.html");
+			$(".toggler").load("../dam/band_left.html");
 			runEffect();
 		});
 
@@ -227,6 +230,8 @@ lavel {
 			// run the effect
 			$("#effect").toggle('explode', options, 500);
 		};
+		
+		
 	</script>
 
 </body>
