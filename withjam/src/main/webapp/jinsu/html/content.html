@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 
 <style type="text/css">
+
 label{
 	font-size: 12px;
 }
@@ -41,6 +42,10 @@ label{
 	background-color: #3447A8;
 	color: #FFFFFF;
 	border-radius: 5px;
+}
+.accordion {
+	width: 100%;
+	/* border: 1px solid red; */
 }
 
 .tb5 {
@@ -106,9 +111,10 @@ textarea {
 }
 
 
+
 /* --------------------------------------- */
 
-
+/* 
 .onoffswitch {
     position: relative; width: 65px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -155,7 +161,7 @@ textarea {
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
-
+ */
 
 /* --------------------------------------- */
 
@@ -187,7 +193,23 @@ textarea {
 <script type="text/javascript">
 
 
+//accodian 방식 관련..
+$(function() {
+	$(".submenu").hide();
+	 $("#btnJam").click(function() { 
+		$(".submenu").slideToggle("middle"); //음원 댓글
+		return false;
+	})
+	$(".submenu3").hide();
+	 $("#btnCheckJam").click(function() { 
+			 $(".submenu2").slideToggle("middle"); //기본 음원
+			 $(".submenu3").slideToggle("middle"); //합주 음원
+		return false;
+	})
+});
 
+
+//jplayer
 $(document).ready(function(){
 
 	$("#jquery_jplayer_1").jPlayer({
@@ -218,20 +240,70 @@ $(document).ready(function(){
 		<!-- 제목  -->
 		<div class="title divPadding">
 			<div class="testBorder">
+				<div  >
 				<img id="profileImg" src="../img/temp.jpg"> 
 				<label style="font-size: 25px">제목이 출력됩니다.</label>
-				<label style="float: right;">2014.12.15</label>
+				<div style="float: right; " >
+					<label >2014.12.15</label><br>
+					<button id="btnCheckJam" type='button' class="btns">합주</button>
+				</div>
+				</div>
+				
 			</div>
+			
 		</div>
 		
 		<hr><!-- ---------------------- -->
-
-		<!-- 듣는부분  -->
-		<div class="divPadding divBG2">
+		<!-- 출력 파트 -->
+		<!-- 기본 녹음 재생  -->
+		<div class="divPadding divBG2 submenu2">
 		<div class="recoding testBorder ">
 			
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+	
+</div>
+<!-- <button class="btnCheckAll "  type='button'>합주</button> -->
+		</div></div>
+		
+
+		<!-- 합주 출력  -->
+		<div class="divPadding divBG2 submenu3" style="border: 1px solid black;">
+		<div class="recoding testBorder " >
+			
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1"  class="jp-audio" role="application" aria-label="media player">
 	<div class="jp-type-single">
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
@@ -293,8 +365,8 @@ $(document).ready(function(){
 				<div style="float: right;">
 				<!-- <input type="checkbox" name="option" value="secret">비밀글 쓰기 
 				<input type="checkbox" name="option" value="main" checked="checked">메인에 노출 -->
-				
-		<!-- 온 오프 1 -->
+		<!-- 		
+		 온 오프 1 
 		<div class="onoffswitch" style="float: left;">
    				 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
   			  <label class="onoffswitch-label" for="myonoffswitch1">
@@ -302,7 +374,7 @@ $(document).ready(function(){
     		    <span class="onoffswitch-switch"></span>
    			 </label>
 		</div>
-		<!-- 온 오프 2 -->
+		온 오프 2 
 		<div class="onoffswitch" style="float: left;">
    				 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
   			  <label class="onoffswitch-label" for="myonoffswitch2">
@@ -310,8 +382,14 @@ $(document).ready(function(){
     		    <span class="onoffswitch-switch"></span>
    			 </label>
 		</div>
+		 -->
 		<div style="float: left;">
+		
+				<input type="checkbox" name="option" value="secret">비밀글 
+				<input type="checkbox" name="option" value="main">메인
+				
 				<button id='btnJam' class="btns" type='button'>참가</button>
+				<!-- <div id='btnJam' class='btns btnJam'>ㅁㅁ</div> -->
 				<button id='btnUpdate' class="btns" type='button'>수정</button>
 				<button id='btnDelete' class="btns" type='button'>삭제</button>
 			</div>
@@ -324,6 +402,22 @@ $(document).ready(function(){
 
 
 <hr><!-- ---------------------- -->
+
+		<!-- 참가시 녹음창 출력 -->
+<div class="recoding accordion divBG2 ">
+
+			<div class="submenu divPadding">
+			
+			<div >
+				<label>Comment</label>
+				<input class="tb5" type="text" size="30" placeholder=" 간단한 코멘트를 입력하세요."> 
+				<button type='button' class="btns">등록</button>
+			</div>
+			
+			<label>녹음창이 출력될 위치 입니다.</label>
+			
+			</div>
+		</div>
 
 
 <div class="testBG">
@@ -452,11 +546,11 @@ $(document).ready(function(){
 			<div style="float: right; "><button type='button' class="btns">삭제</button></div>
 		</div>
 		
-	<hr><!-- ---------------------- -->
+		<br>
 
 		<div class="replyBorder">
 			<div style="float: left; width: 50px;"><img id="profileImg" src="../img/temp.jpg"></div>
-			<div style="float: left; "><input placeholder="댓글을 입력하세요." class="tb5" type="text" name="tag" size="30"></div>
+			<div style="float: left; "><input placeholder=" 댓글을 입력하세요." class="tb5" type="text" name="tag" size="30"></div>
 			<div style="float: right; "><button type='button' class="btns">등록</button></div>
 		</div>
 	</div>
