@@ -3,8 +3,7 @@
 <head>
 <link href="../jquery/jplayer/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
 <script src='../js/jquery-1.11.1.js'></script>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript"	src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
 	
 	
@@ -110,61 +109,6 @@ textarea {
 	height: 70px;
 }
 
-
-
-/* --------------------------------------- */
-
-/* 
-.onoffswitch {
-    position: relative; width: 65px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 8px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 17px; padding: 0; line-height: 17px;
-    font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
-    background-color: #3447A8; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
-    background-color: #E8E5E5; color: #999999;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block; width: 14px; margin: 1.5px;
-    background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 8px;
-    position: absolute; top: 0; bottom: 0; right: 44px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
- */
-
-/* --------------------------------------- */
-
 .styled-select select {
        background: transparent;
        width: 120px;
@@ -261,6 +205,8 @@ $(document).ready(function(){
 				<input class="tb5" type="text" name="title" size="40">
 			</div>
 		</div>
+		
+		<br>
 
 		<!-- 내용  -->
 		<div class="content">
@@ -282,6 +228,8 @@ $(document).ready(function(){
 			<div class="submenuw2 ">
 			
 			<label >녹음창이 출력될 위치 입니다.</label>
+			<br>
+			<input type='file'>
 			
 			</div>
 		</div>
@@ -315,30 +263,27 @@ $(document).ready(function(){
 
 <!-- content 부분 -->
 
-<div class="divRadius testBorder shadow divBG">
+<div class="divRadius shadow divBG">
 	<!-- 글의 주 내용 -->
-	<div class="testBorder testBG">
+	<div class=" testBG">
 	
 		<!-- 제목  -->
 		<div class="title divPadding">
-			<div class="testBorder">
-				<div  >
+			
 				<img id="profileImg" src="../img/temp.jpg"> 
 				<label style="font-size: 25px">제목이 출력됩니다.</label>
 				<div style="float: right; " >
 					<label >2014.12.15</label><br>
 					<button id="btnCheckJam" type='button' class="btns">합주</button>
 				</div>
-				</div>
-				
-			</div>
+	
 			
 		</div>
 		
 		<hr><!-- ---------------------- -->
 		<!-- 출력 파트 -->
 		<!-- 기본 녹음 재생  -->
-		<div class="divPadding divBG2 submenu2">
+		<div class="divPadding divBG2 submenu2 ">
 		<div class="recoding testBorder ">
 			
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
@@ -423,18 +368,18 @@ $(document).ready(function(){
 		</div></div>
 
 
-<div class="divPadding">
+
 		<!-- 내용  -->
-		<div class="content testBorder">
+		<div class="content divPadding">
 			<textarea rows="5" cols="60" name="contents">글 내용</textarea>
 		</div>
-</div>
 
-<div class="divPadding">
+
+
 		<!-- 나머지 -->
-		<div class="option testBorder ">
+		<div class="option divPadding">
 			<div>
-				<label>태그</label> <label>#guitar, #drum, #rock</label> 
+				<label>태그</label> <label> #guitar, #drum, #rock</label> 
 			</div>
 			<br>
 			<div >
@@ -445,26 +390,7 @@ $(document).ready(function(){
 				</select>
 
 				<div style="float: right;">
-				<!-- <input type="checkbox" name="option" value="secret">비밀글 쓰기 
-				<input type="checkbox" name="option" value="main" checked="checked">메인에 노출 -->
-		<!-- 		
-		 온 오프 1 
-		<div class="onoffswitch" style="float: left;">
-   				 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-  			  <label class="onoffswitch-label" for="myonoffswitch1">
-     		   <span class="onoffswitch-inner"></span>
-    		    <span class="onoffswitch-switch"></span>
-   			 </label>
-		</div>
-		온 오프 2 
-		<div class="onoffswitch" style="float: left;">
-   				 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
-  			  <label class="onoffswitch-label" for="myonoffswitch2">
-     		   <span class="onoffswitch-inner"></span>
-    		    <span class="onoffswitch-switch"></span>
-   			 </label>
-		</div>
-		 -->
+				
 		<div style="float: left;">
 		
 				<input type="checkbox" name="option" value="secret">비밀글 
@@ -478,7 +404,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 </div>
 
@@ -502,12 +428,12 @@ $(document).ready(function(){
 		</div>
 
 
-<div class="testBG">
-<div class="divPadding ">
-<div class="testBorder divBG3">
+
+<div class="divPadding testBG" >
+<div class="divBG3">
 	<!-- 음원 파일 댓글 -->
 	
-		<div  class="testBorder divBG2" >
+		<div  class="divBG2" style="height: 115px;">
 
 	<div class="mreplyBorder ">
 		<div style="float: left; width: 75px;" align="center">
@@ -554,7 +480,7 @@ $(document).ready(function(){
 </div></div>
 </div></div>
 
-<div class="testBorder divBG2">
+<div class=" divBG2" style="height: 115px;" >
 
 	<div class="mreplyBorder " >
 		<div style="float: left; width: 75px;" align="center">
@@ -604,23 +530,16 @@ $(document).ready(function(){
 
 	</div>
 
-	</div>
+
 	
 	
 	<hr><!-- ---------------------- -->
 	
 	
 	<div class="testBG">
-	<div class="testBorder ">
+
 	<!-- 일반 택스트 댓글 -->
 	<div >
-		<div class="replyBorder">
-			<div style="float: left; "><img id="profileImg" src="../img/temp.jpg"></div>
-			<div style="float: left; "><label>작성자</label><br><label>2014.12.15</label></div>
-			<div style="float: left; "><label>댓글의 내용 입니다.</label></div>
-			<div style="float: right; "><button type='button' class="btns">삭제</button></div>
-		</div>
-		
 		<div class="replyBorder">
 			<div style="float: left; "><img id="profileImg" src="../img/temp.jpg"></div>
 			<div style="float: left; "><label>작성자</label><br><label>2014.12.15</label></div>
@@ -636,7 +555,7 @@ $(document).ready(function(){
 			<div style="float: right; "><button type='button' class="btns">등록</button></div>
 		</div>
 	</div>
-	</div>
+
 	</div>
 
 </div>
