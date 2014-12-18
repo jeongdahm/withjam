@@ -197,14 +197,13 @@ textarea {
 $(function() {
 	$(".submenu").hide();
 	 $("#btnJam").click(function() { 
-		$(".submenu").slideToggle("middle");
+		$(".submenu").slideToggle("middle"); //음원 댓글
 		return false;
 	})
-});
-$(function() {
-	$(".submenu2").hide();
+	$(".submenu3").hide();
 	 $("#btnCheckJam").click(function() { 
-		$(".submenu2").slideToggle("middle");
+			 $(".submenu2").slideToggle("middle"); //기본 음원
+			 $(".submenu3").slideToggle("middle"); //합주 음원
 		return false;
 	})
 });
@@ -254,12 +253,13 @@ $(document).ready(function(){
 			
 		</div>
 		
-		<!-- 합주 출력 파트 -->
-		<div class="accordion divBG2">
+		<hr><!-- ---------------------- -->
+		<!-- 출력 파트 -->
+		<!-- 기본 녹음 재생  -->
+		<div class="divPadding divBG2 submenu2">
+		<div class="recoding testBorder ">
 			
-			<div class="submenu2 ">
-			
-				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
 	<div class="jp-type-single">
 		<div class="jp-gui jp-interface">
@@ -294,19 +294,16 @@ $(document).ready(function(){
 	</div>
 	
 </div>
-			
-			</div>
-		</div>
-		
-		<hr><!-- ---------------------- -->
+<!-- <button class="btnCheckAll "  type='button'>합주</button> -->
+		</div></div>
 		
 
-		<!-- 듣는부분  -->
-		<div class="divPadding divBG2 ">
-		<div class="recoding testBorder ">
+		<!-- 합주 출력  -->
+		<div class="divPadding divBG2 submenu3" style="border: 1px solid black;">
+		<div class="recoding testBorder " >
 			
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+<div id="jp_container_1"  class="jp-audio" role="application" aria-label="media player">
 	<div class="jp-type-single">
 		<div class="jp-gui jp-interface">
 			<div class="jp-controls">
@@ -413,7 +410,8 @@ $(document).ready(function(){
 			
 			<div >
 				<label>Comment</label>
-				<input class="tb5" type="text" size="30"> 
+				<input class="tb5" type="text" size="30" placeholder=" 간단한 코멘트를 입력하세요."> 
+				<button type='button' class="btns">등록</button>
 			</div>
 			
 			<label>녹음창이 출력될 위치 입니다.</label>
@@ -552,7 +550,7 @@ $(document).ready(function(){
 
 		<div class="replyBorder">
 			<div style="float: left; width: 50px;"><img id="profileImg" src="../img/temp.jpg"></div>
-			<div style="float: left; "><input placeholder="댓글을 입력하세요." class="tb5" type="text" name="tag" size="30"></div>
+			<div style="float: left; "><input placeholder=" 댓글을 입력하세요." class="tb5" type="text" name="tag" size="30"></div>
 			<div style="float: right; "><button type='button' class="btns">등록</button></div>
 		</div>
 	</div>
