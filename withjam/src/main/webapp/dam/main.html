@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel='stylesheet' href='css/bootstrap.min.css'>
+<link rel='stylesheet' href='css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='css/bootstrap-theme.css.map'>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<title>Insert title here</title>
+<style>
+/* html, body {
+	height: 100%;
+} */
+#header {
+	/* border: solid 1px blue; */
+	height: 30px;
+	background-color: #A9BCF5;
+}
+
+#header input {
+	width: 300px;
+}
+
+#withme {
+	/* border: solid 1px black; */
+	width: 100px;
+	margin-left: 400px;
+	float: left;
+}
+
+#left-side {
+	height: 700px;
+	width: 500px;
+	float: left;
+	background-color: #FAFAFA;
+	border: 1px solid black;
+}
+
+#right-side {
+	height: 93%;
+	width: 65%;
+	float: left;
+	background-color: #FAFAFA;
+	border: 1px solid black;
+}
+
+#left-content {
+	/* border: 1px solid blue; */
+	height: 100%;
+	background-color: white;
+	width: 390px;
+	float: right;
+	border: 1px solid black;
+}
+
+#right-content {
+	/* border: 1px solid red; */
+	height: 100%;
+	background-color: white;
+	width: 70%;
+	float: left;
+	border: 1px solid black;
+}
+
+.signup {
+	/* height: 290px; */
+	width: 330px;
+	margin: auto;
+	margin-top: 50px;
+	background-color: #f1f1f1;
+}
+
+#signupDiv {
+	width: 80%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.signhead {
+	background-color: #086A87;
+	height: 30px;
+	width: 100%;
+	font-weight: bolder;
+	color: white;
+	background-color: #848484;
+}
+
+.signupInput {
+	height: 55px;
+	width: 100%;
+}
+
+.signupInput2 {
+	width: 250px;
+}
+
+.favorite {
+	height: 100px;
+	width: 330px;
+	margin: auto;
+	margin-top: 5px;
+	background-color: #f1f1f1;
+}
+
+.favoriteHead {
+	background-color: #086A87;
+	height: 30px;
+	width: 100%;
+	font-weight: bolder;
+	color: white;
+	background-color: #848484;
+}
+
+lavel {
+	display: inline-block;
+}
+
+.selectable2 {
+	width: 100%;
+	height: 50px;
+	background-color: white;
+}
+
+.fPhoto {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 50px;
+	margin-bottom: 5px;
+}
+
+.fName {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 70px;
+	margin-bottom: 5px;
+}
+
+.fComment {
+	float: left;
+	border: red solid 1px;
+	height: 100%;
+	width: 54%;
+	margin-bottom: 5px;
+}
+
+.fPhoto img {
+	width: 100%;
+	height: 100%;
+}
+.bandForm{
+width:300px;
+}
+#table{ 
+display: table;
+width:265px;
+}
+.row{
+display: table-row;
+}
+p{
+display: table-cell; 
+border:solid 1px gray; 
+padding: 3px; 
+}
+
+</style>
+
+<script src='js/jquery-1.11.1.js'></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src='js/bootstrap.js'></script>
+
+</head>
+<body>
+
+	<div id='header'>
+		<div id="withme">
+			<a href="/withjam/yongho/main.html">With Jam</a>
+		</div>
+		 <input type="search" id="mySearch"
+				placeholder="Search for music, peopel...">
+		<button type="button" class="btn btn-info">Info</button>
+	</div>
+
+	<div id='left-side' class='container'>
+		<div id='left-content' class='container'>
+		
+		
+			<button id="button1" class="ui-state-default ui-corner-all">회원 가입</button>
+
+			<button id='button2' class="ui-state-default ui-corner-all">로그인</button>
+
+			<button id='button3' class="ui-state-default ui-corner-all">내 친구</button>
+			
+			<button id='button4' class="ui-state-default ui-corner-all">내 밴드</button>
+			
+		
+			<div class="toggler"></div>
+
+
+		</div>
+	</div>
+
+
+
+	<div id='right-side'>
+		<div id='right-content'></div>
+	</div>
+
+	<script type="text/javascript">
+		$("#button1").click(function() {
+			$(".toggler").load("signup.html");
+			runEffect();
+		});
+
+		$("#button2").click(function() {
+			$(".toggler").load("login.html");
+			runEffect();
+		});
+
+		$("#button3").click(function() {
+			$(".toggler").load("friendList.html");
+			runEffect();
+		});
+		
+		$("#button4").click(function() {
+			$(".toggler").load("band_left.html");
+			runEffect();
+		});
+
+		// run the currently selected effect
+		function runEffect() {
+			// get effect type from
+
+			// most effect types need no options passed by default
+			var options = {};
+			// some effects have required parameters
+
+			// run the effect
+			$("#effect").toggle('explode', options, 500);
+		};
+		
+		
+	</script>
+
+</body>
+</html>
