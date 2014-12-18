@@ -22,14 +22,16 @@
 <!-- 헤더 -->
 	<div id='header'>
 		<div id="withme">
-			<a href="/withjam/yongho/main.html">With Jam</a>
+			<img src='image/withjam.png' width='150' height='30'>
 			
 		</div>
+		<div id="header_button">
 		 <input type="search" id="mySearch"
 				placeholder="Search for music, peopel...">
 		<button type="button" class="btn btn-info">Info</button>
 					<button id="button1" class="ui-state-default ui-corner-all">회원 가입</button>
 			<button id='button2' class="ui-state-default ui-corner-all">로그인</button>
+			</div>
 	</div>
 
 <!-- 왼쪽사이드 -->
@@ -70,7 +72,6 @@
 		
 		$("#button4").click(function() {
 			$(".toggler").load("../dam/band_left.html");
-			runEffect();
 		});
 		$("#button5").click(function() {
 			$(".toggler").load("../dam/bookmark_left.html");
