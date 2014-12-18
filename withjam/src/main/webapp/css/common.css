@@ -5,10 +5,12 @@
 	width: 500px;
 }
 
-
+#button_left{
+	margin-top: 10px;
+}
 #header {
-	/* border: solid 1px blue; */
-	height: 30px;
+	 border: solid 1px blue; 
+	height: 35px;
 	background-color: #A9BCF5;
 }
 
@@ -43,7 +45,7 @@
 	/* border: 1px solid blue; */
 	height: 100%;
 	background-color: white;
-	width: 390px;
+	width: 350px;
 	float: right;
 	border: 1px solid black;
 }
@@ -148,7 +150,7 @@ lavel {
 .bandForm{
 width:300px;
 }
-#table{ 
+#b_table{ 
 display: table;
 width:265px;
 }
@@ -164,7 +166,7 @@ padding: 3px;
 <!--dam bookmark -->
 #table{ 
 display: table;
-width:300px;
+width:350px;
 }
 .row{
 display: table-row;
@@ -178,7 +180,7 @@ padding: 3px;
 width:40px;
 }
 .title{
-width:230;
+width:280;
 }
 .del{
 width:30;
@@ -238,13 +240,14 @@ border: dashed 2px red;
 }
 #userId{
  margin-left: 121px;
+ height:25px;
  width: 170px;
  border: dashed 2px blue;
 }
 #usermsg{
 	margin-left: 121px;
   width: 170px;
-	height:100px;
+	height:95px;
 	border: dashed 2px yellow;
 }
 #button{
@@ -263,4 +266,5 @@ display: table-cell;
 border:solid 1px gray; 
 padding: 3px; 
 }  
+  
   
