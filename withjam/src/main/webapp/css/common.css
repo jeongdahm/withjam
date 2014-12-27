@@ -1,164 +1,6 @@
 @CHARSET "UTF-8";
 
-<!--yongho main-->
-.container {
-	width: 500px;
-}
 
-#button_left{
-	margin-top: 10px;
-	margin-bottom: 5px;
-
-}
-#button_right{
-		margin-top: 10px;
-	margin-bottom: 5px;
-}
-#header {
-	 border: solid 1px blue; 
-	height: 35px;
-	background-color: #A9BCF5;
-}
-
-#header input {
-	width: 300px;
-}
-
-#withme {
-	/* border: solid 1px black; */
-	width: 100px;
-	margin-left: 300px;
-	float: left;
-}
-#header_button{
-	margin-left: 470px;
-}
-
-#left-side {
-	height: 1500px;
-	width: 500px;
-	float: left;
-	background-color: #FAFAFA;
-
-	padding:0px;
-	
-}
-
-#left-content {
-
-	height: 100%;
-	background-color: white;
-	width: 350px;
-	float:right;
-		background-color: #FAFAFA;
-
-}
-#right-side {
-	height: 100%;
-	width: 600px;;
-	float: left;
-	background-color: #FAFAFA;
-	
-}
-
-
-#right-content {
-	/* border: 1px solid red; */
-	height: 100%;
-	background-color: white;
-	width: 600px;`
-	float: left;
-		background-color: #FAFAFA;
-
-}
-
-.signup {
-	/* height: 290px; */
-	width: 330px;
-	margin: auto;
-	margin-top: 50px;
-	background-color: #f1f1f1;
-}
-
-#signupDiv {
-	width: 80%;
-	margin: auto;
-	margin-top: 30px;
-}
-
-.signhead {
-	background-color: #086A87;
-	height: 30px;
-	width: 100%;
-	font-weight: bolder;
-	color: white;
-	background-color: #848484;
-}
-
-.signupInput {
-	height: 55px;
-	width: 100%;
-}
-
-.signupInput2 {
-	width: 250px;
-}
-
-.favorite {
-	height: 100px;
-	width: 330px;
-	margin: auto;
-	margin-top: 5px;
-	background-color: #f1f1f1;
-}
-
-.favoriteHead {
-	background-color: #086A87;
-	height: 30px;
-	width: 100%;
-	font-weight: bolder;
-	color: white;
-	background-color: #848484;
-}
-
-lavel {
-	display: inline-block;
-}
-
-.selectable2 {
-	width: 100%;
-	height: 50px;
-	background-color: white;
-}
-
-.fPhoto {
-	float: left;
-	border: red solid 1px;
-	height: 100%;
-	width: 50px;
-	margin-bottom: 5px;
-}
-
-.fName {
-	float: left;
-	border: red solid 1px;
-	height: 100%;
-	width: 70px;
-	margin-bottom: 5px;
-}
-
-.fComment {
-	float: left;
-	border: red solid 1px;
-	height: 100%;
-	width: 54%;
-	margin-bottom: 5px;
-}
-
-.fPhoto img {
-	width: 100%;
-	height: 100%;
-}
 <!--dam band-->
 .bandForm{
 width:300px;
@@ -176,95 +18,84 @@ border:solid 1px gray;
 padding: 3px; 
 }
 
-<!--dam bookmark -->
-#table{ 
-display: table;
-width:350px;
-}
-.row{
-display: table-row;
-}  
-p{
-display: table-cell; 
-border:solid 1px gray; 
-padding: 3px; 
-}
-.play{
-width:40px;
-}
-.title{
-width:280;
-}
-.del{
-width:30;
-}
- 
- 
- <!--dam friendList-->
- #friendInfo {
 
-height:90px;
-width :300px;
-border: solid 2px Orange;
-margin-bottom: 10px;
-border-radius : 0.5em
+<!--friendList-->
+ #fListDiv {
+	width: 95%;
+	margin: auto;
+	margin-top: 0px;
+
+}
+
+.fListtablerow {
+	width: 95%;
+	height: 95%;
+	border:2px solid red;
+}
+
+.fPhoto {
+	float: left;
+	height: 80px;
+	width: 80px;
 	
+	background-color : #007bbc;
+	border:2px solid red;
+	margin:0px;
 }
-#photo{
-float:left;
-width:90px;
-height:90px;
-border: solid 2px red; 
-border-top-left-radius:0.5em;
-border-bottom-left-radius:0.5em;
- 
+
+.fName {
+	float: right;
+	height: 30px;
+	width: 130px;
+	background-color : #24b3ff;
+	margin-left: 81px;
+	border:2px solid red;
 }
-#userId{
-width:210px;
-height:30px;
-margin-left: 91px;
-width: 200px;
-border: solid 2px blue;
-border-top-right-radius:0.5em;
+
+.fComment {
+	float: left;
+	height: 50px;
+	width: 130px;
+	margin-left: 81px;
+	background-color : #89d6ff;
 }
-#usermsg{
-	width:200px;
-	height:55px;
-	margin-left: 91px;
- 
-	border: solid 2px green;
-	border-bottom-right-radius:0.5em;
+
+.fPhoto img {
+	width: 100%;
+	height: 100%;
 }
-  
+
 <!--dam myInfo -->
-#myInfo {
+#myInfo{
 
 	height:220px;
-  width:300px;
-	border: dashed 2px Orange;
-	border-radius : 0.5em
+  width:100px;
+	
+	border-radius : 0.5em;
+	background-color: white;
 	
 }
-#photo{
+#myPhoto_left{
 float:left;
-width:120px;
-height:120px;
-border: dashed 2px red; 
+border-radius : 0.5em;
 }
-#userId{
- margin-left: 121px;
- height:25px;
- width: 170px;
- border: dashed 2px blue;
+#userId_left{
+ margin-left: 101px;
+ height:20px;
+ width:65%;
+ background-color: #6592FF;
+ 
 }
-#usermsg{
-	margin-left: 121px;
-  width: 170px;
-	height:95px;
-	border: dashed 2px yellow;
+#usermsg_left{
+	margin-left: 101px;
+	height:80px;
+  width:65%;
+	background-color: #CCDBFE;
 }
-#button{
-	margin-left: 100px;
+#button_myInfo{
+	margin-top:5px;
+	margin-right:5px;
+	float:right;
 }
 <!--dam recommend -->
 #table{ 
@@ -279,5 +110,36 @@ display: table-cell;
 border:solid 1px gray; 
 padding: 3px; 
 }  
-  
+
+
+<!--dam bookmark-->
+#bookmark_table{ 
+display: table;
+width:276px;
+}
+.row_left{
+}  
+
+.b_play{
+width:35px;
+height:30px;
+border:solid 1px gray; 
+float:left;
+display:inline;
+
+}
+.b_title{
+width:200px;
+height:30px;
+border:solid 1px gray; 
+float:left;
+display:inline;
+}
+.b_del{
+width:40px;
+height:30px;
+border:solid 1px gray; 
+float:left;
+display:inline;
+}
   
