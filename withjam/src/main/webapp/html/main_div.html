@@ -56,7 +56,7 @@ padding:1%;
 }
 
 .left-content {
-	width: 50%;
+	width: 43%;
 	height: 95%;
  /* border: 2px dashed orange; */
 
@@ -77,17 +77,16 @@ height:68%;
 }
 
 .right-content {
-	width: 40%;
+	width: 42%;
 	height: 95%;
-  /* border: 2px dashed blue; */
+  border-left: 2px dashed blue; 
 	float: left;
-	border-top-right-radius:2em;
-	border-bottom-right-radius:2em; 
+	
 	background-color: #eef;
 	
 }
 .toggler1{
-height:48%;
+height:43%;
 height: 90%;
 margin-top:5%;
 }
@@ -95,7 +94,16 @@ margin-top:5%;
 	overflow-x:hidden; 
 	overflow-y:scroll;
 }
-
+.right-menu{
+width:5%;
+height:95%;
+float:left;
+padding:1%;
+/* border: 2px dashed red; */
+	border-top-right-radius:2em;
+	border-bottom-right-radius:2em; 
+		background-color: #b0b0ff;
+}
 
 .right-side {
 	width: 1%;
@@ -169,10 +177,11 @@ opacity:0.4;
 
 
 		<!-- 오른쪽 콘텐츠 -->
-		<div class='right-content'>
-		<div class="toggler1 scrollBar"></div>
+		<div class='right-content scrollBar'>
+		<div class="toggler1 "></div>
 			
 		</div>
+		<div class='right-menu'></div>
 		<div class='right-side'></div>
 		
 	</div>
