@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<link rel="stylesheet" href="../css/common.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.myHeader {
+	text-align: center;
+	/* border:solid 1px #c3c3c3; */
+	width: 100%;
+	height: 60px;
+	position: fixed;
+/* 	border-radius: 0.5em; */
+	background-color:#00002f;
+}
+#withjam_main{
+margin-top:10px;
+border-radius: 0.5em;
+}
+
+
+
+
+html, body{
+height:95%;
+}
+
+.main {
+	width: 100%;
+	height: 97%;
+/* 	border: 2px dashed red; */
+	float:left;
+		background-color:#00002f;
+}
+
+.left-side {
+	width: 10%;
+	height: 95%;
+	/* border: 2px solid red; */
+	float: left;
+/*  */
+}
+.left-menu{
+width:5%;
+height:95%;
+float:left;
+padding:1%;
+/* border: 2px dashed red; */
+	border-top-left-radius:2em;
+	border-bottom-left-radius:2em; 
+		background-color: #b0b0ff;
+}
+
+.left-content {
+	width: 23%;
+	height: 95%;
+ /* border: 2px dashed orange; */
+
+	background-color: #eef;
+	
+	float: left;
+}
+
+.myInfo_left{
+height:27%;
+
+/* border:1px dashed green; */
+
+}
+.toggler{
+height:68%;
+/* border:1px dashed red; */
+}
+
+.right-content {
+	width: 50%;
+	height: 95%;
+  /* border: 2px dashed blue; */
+	float: left;
+	border-top-right-radius:2em;
+	border-bottom-right-radius:2em; 
+	background-color: #eef;
+	
+}
+.toggler1{
+height:48%;
+height: 90%;
+margin-top:5%;
+}
+.scrollBar{
+	overflow-x:hidden; 
+	overflow-y:scroll;
+}
+
+
+.right-side {
+	width: 9%;
+	height: 95%;
+/* 	border: 2px solid green; */
+	float: left;
+}
+
+.png{
+margin-top:13px;
+}
+
+.png:hover{
+opacity:0.4;
+}
+
+
+</style>
+
+<script src="../js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<!-- 헤드 -->
+	
+	<div class="myHeader ">
+	<div class="myHeader1 ">	</div>
+		
+	<div class="myHeader2 "><a href='main_div.html'><img id="withjam_main" class="png"src='../img/withjam.png' width='190' height='40'></a> </div>
+	<div class="myHeader3 ">		
+</div>
+
+	
+
+
+
+
+	</div>
+<br><br><br>
+
+<!-- 전체배경 -->
+<div class="main ">
+
+<!-- 왼쪽사이드 -->
+	
+		<div class='left-side'></div>
+		<div class='left-menu'>
+		<div id="headIcon0" class="headIconL"><img id="mypng" class="png"src='../img/my.png' width='35' height='35' title="내정보"></div>
+		<div id="headIcon2" class="headIconL"><img id="bookmarkpng" class="png"src='../img/bookmark.png' width='35' height='35' title="즐겨찾기"></div>
+		<div id="headIcon3" class="headIconL"><img id="bandpng" class="png"src='../img/band1.png' width='35' height='35' title="밴드"></div>
+		<div id="headIcon4" class="headIconL"><img id="friendpng" class="png"src='../img/friends.png' width='35' height='35' title="친구들"></div>
+		
+				<div id="headIcon5" class="headIconR"><img id="newpng" class="png"src='../img/new.png' width='35' height='35' title="최신글"></div>
+		<div id="headIcon6" class="headIconR"><img id="bestpng" class="png"src='../img/best.png' width='35' height='35' title="베스트"></div>
+		<div id="headIcon7" class="headIconR"><img id="bestuserpng" class="png"src='../img/bestuser.png' width='35' height='35' title="베스트유저"></div>
+		<div id="headIcon8" class="headIconR"><img id="msgpng" class="png"src='../img/msg.png' width='35' height='35' title="쪽지"></div>
+		<div id="headIcon1" class="headIconL"><img id="settingspng" class="png"src='../img/setting.png' width='35' height='35'  title="설정"></div>
+		<div id="headIcon9" class="headIconR"><img id="loginpng" class="png"src='../img/login.png' width='35' height='35' title="로그인"></div>
+		<div id="headIcon10" class="headIconR"><img id="signuppng" class="png"src='../img/check.png' width='35' height='35' title="회원가입"></div>
+		</div>
+		
+	
+		
+		
+		<div class='left-content'>
+		  	<div class="login"></div>
+				<div class="toggler"></div>
+			
+
+		</div>
+
+
+		<!-- 오른쪽 콘텐츠 -->
+		<div class='right-content'>
+		<div class="toggler1 scrollBar"></div>
+			
+		</div>
+		<div class='right-side'></div>
+		
+	</div>
+	
+
+</body>
+<script type="text/javascript">
+
+	$("#headIcon0").click(function() {
+		$(".toggler").load("myInfo_left.html");
+	});
+
+	$("#headIcon1").click(function() {
+		$(".toggler").load("setting_left.html");
+	});
+
+	$("#headIcon2").click(function() {
+		$(".toggler").load("bookmark_left.html");
+	});
+
+	$("#headIcon3").click(function() {
+		$(".toggler").load("band_left.html");
+	});
+	$("#headIcon4").click(function() {
+		$(".toggler").load("friendList.html");
+	});
+	$("#headIcon5").click(function() {
+		$(".toggler").load("최신글");
+	});
+	$("#headIcon6").click(function() {
+		$(".toggler").load("베스트");
+	});
+	$("#headIcon7").click(function() {
+		$(".toggler").load("베스트유저");
+	});
+	$("#headIcon8").click(function() {
+		$(".toggler").load("설정?");
+	});
+
+	$("#headIcon9").click(function() {
+		$(".toggler").load("login.html");
+	});
+	$("#headIcon10").click(function() {
+		$(".toggler").load("signup.html");
+	});
+
+	$(".myInfo_left").load("login_left.html");
+	$(".toggler1").load("write_content.html");
+</script>
+</html>
