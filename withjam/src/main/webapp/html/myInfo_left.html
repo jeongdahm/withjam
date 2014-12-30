@@ -31,7 +31,7 @@
 					<td>2014-12-31</td>
 				</tr>
 				</table>
-						<button type="button" class="btn btn-default btn-xs">수정하기</button>
+						<button type="button" class="btn btn-default btn-xs" id="susu">수정하기</button>
 	
 </div>
 
@@ -131,7 +131,7 @@
 				</tr>
 			</table>
 			<hr>
-			<button type="button" class="btn btn-danger">삭제</button>
+			<button type="button" class="btn btn-danger btn-xs">삭제</button>
 
 
 
@@ -154,4 +154,9 @@
 		document.getElementById("sendmsgtable").style.display = "";
 		document.getElementById("takemsgtable").style.display = "none";
 	}
+	
+	
+	$("#susu").click(function() {
+		$(".toggler2").load("setting_left.html");
+	});
 </script>
