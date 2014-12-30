@@ -2,13 +2,12 @@
 
 <div class="toggler">
 
-	<div class='friend-list'>
-		<div class='friend-head'>
+	<div class='friend-list tabs'>
+		<div class='friend-head' id='tabs'>
 			<div>
-				<p>친구</p>
+				<p>북마크</p>
 				<p>10</p>
-				<input class='friend-test' type='text' placeholder="친구찾기.." />
-			</div> 		
+			</div> 	
 		</div>
 		<div class='friend-tt'>
 			<div class='friend-div bb-current'>
@@ -143,14 +142,14 @@
 
 </div>
 <!-- toggler2 -->
-<div class="toggler4">
-
-</div>
+<div class="toggler4"></div>
 
 <script src="../js/jquery-1.11.1.min.js"></script>
 <script src="../js/modernizr.custom.js"></script>
 <script src="../js/jquerypp.custom.js"></script>
 <script src="../js/jquery.bookblock.js"></script>
+
+
 
 <script type="text/javascript">
 	var Page = (function() {
@@ -200,24 +199,4 @@
 </script>
 <script>
 	Page.init();
-</script>
-
-
-<script>
-	$(".friend-test").keyup(function(data) {
-		var name = $('.friend-test').val();
-		
-
-		$.get("http://localhost:9999/friendList?name=" + name, function(data) {
-			if (data.length != 0) {
-
-				for ( var paramName in data) {
-					console.log(data[paramName]);
-					console.log(paramName);
-				}
-				
-			}
-		});
-		
-	});
 </script>
