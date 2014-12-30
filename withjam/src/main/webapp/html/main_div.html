@@ -307,7 +307,7 @@ html, body {
 <!--쪽지함-->
 .modal-content{
  	width: 500px;
-   height: 600px;
+  height:600px;
   
    position: fixed;
 /* 	left: 150px;   */
@@ -315,12 +315,18 @@ html, body {
 }
 <!--쪽지함 끝-->
 
+<!--설정-->
+.setting1{
+border : 2px solid red;
+}
+
 </style>
 
 <script src="../js/jquery-1.11.1.min.js"></script>
 <script src="../js/modernizr.custom.js"></script>
 <script src="../js/jquerypp.custom.js"></script>
 <script src="../js/jquery.bookblock.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -337,7 +343,7 @@ html, body {
 
 	</div>
 
-
+ 
 	<!-- 전체배경 -->
 	<div class="main ">
 
@@ -361,10 +367,8 @@ html, body {
 				<img id="friendpng" class="png" src='../img/friends.png' width='35'
 					height='35' title="친구들">
 			</div>
-			<div id="headIcon8" class="headIconR">
-				<img id="msgpng" class="png"src='../img/msg.png' width='35' 
-					height='35' title="쪽지" data-toggle="modal" data-target=".bs-example-modal-sm">
-			</div>
+		
+	
 
 			<!-- <div id="headIcon5" class="headIconR">
 				<img id="newpng" class="png" src='../img/new.png' width='35'
@@ -379,10 +383,7 @@ html, body {
 					width='35' height='35' title="베스트유저">
 			</div>
 			
-			<div id="headIcon1" class="headIconL">
-				<img id="settingspng" class="png" src='../img/setting.png'
-					width='35' height='35' title="설정">
-			</div>
+			
 			<div id="headIcon9" class="headIconR">
 				<img id="loginpng" class="png" src='../img/login.png' width='35'
 					height='35' title="로그인">
@@ -392,7 +393,6 @@ html, body {
 					height='35' title="회원가입">
 			</div> -->
 			
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
 		</div>
 
 
@@ -420,106 +420,7 @@ html, body {
 	</div>
 	
 	
-<!-- 쪽지 기능 -->
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
-	aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<hr>
-			<h3>쪽지보관함</h3>
-			<button type="button" class="btn btn-primary"
-				onclick="takemsgFunction()">받은쪽지</button>
-			<button type="button" class="btn btn-success"
-				onclick="sendmsgFunction()">보낸쪽지</button>
-
-			<table id='sendmsgtable' class='table table-hover'  style='display: none'>
-				<tr>
-					<th>#</th>
-					<th>제목</th>
-					<th>받는사람</th>
-					<th>날짜</th>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>보낸메세지1111</td>
-					<td>이용용</td>
-					<td>12/27</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>보낸메세지2222</td>
-					<td>한진진</td>
-					<td>12/07</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>보낸메세지3333</td>
-					<td>나정정</td>
-					<td>12/01</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>보낸메세지5555</td>
-					<td>김종종</td>
-					<td>12/01</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>보낸메세지6666</td>
-					<td>김원기</td>
-					<td>11/01</td>
-				</tr>
-			</table>
-
-			<table id='takemsgtable' class='table table-hover' >
-				<tr>
-					<th>#</th>
-					<th>제목</th>
-					<th>보낸사람</th>
-					<th>날짜</th>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>받았다 메세지 1</td>
-					<td>이용용</td>
-					<td>12/27</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>받았다 메세지 2222</td>
-					<td>한진진</td>
-					<td>12/07</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>받았다 메세지 3333</td>
-					<td>나정정</td>
-					<td>12/01</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>받았다 메세지 4444</td>
-					<td>김종종</td>
-					<td>12/01</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>받았다 메세지 5555</td>
-					<td>김원기</td>
-					<td>11/01</td>
-				</tr>
-			</table>
-			<hr>
-			<button type="button" class="btn btn-danger">삭제</button>
-
-   
-   
-   
-    </div>
-  </div>
-</div>
-<!-- 쪽지끝 -->
 
 
 
@@ -528,9 +429,6 @@ html, body {
 			$(".left-content").load("myInfo_left.html");
 		});
 
-		$("#headIcon1").click(function() {
-			$(".toggler").load("setting_left.html");
-		});
 
 		$("#headIcon2").click(function() {
 			$(".left-content").load("bookmark.html");
@@ -542,6 +440,10 @@ html, body {
 		$("#headIcon4").click(function() {
 			$(".left-content").load("friendList.html");
 		});
+		
+
+
+
 		/* $("#headIcon5").click(function() {
 			$(".toggler").load("최신글");
 		});
@@ -551,9 +453,7 @@ html, body {
 		$("#headIcon7").click(function() {
 			$(".toggler").load("베스트유저");
 		});
-		$("#headIcon8").click(function() {
-			$(".toggler").load("설정?");
-		});
+		
 
 		$("#headIcon9").click(function() {
 			$(".toggler").load("login.html");
@@ -566,17 +466,7 @@ html, body {
 		$(".toggler1").load("write_content.html");
 	</script>
 	
-	<script>
-function takemsgFunction() {
-	alert("dddd");
-	document.getElementById("sendmsgtable").style.display = "none";
-	document.getElementById("takemsgtable").style.display = "";
-}
-function sendmsgFunction() {
-	document.getElementById("sendmsgtable").style.display = "";
-	document.getElementById("takemsgtable").style.display = "none";
-}
-</script>
+
 
 
 	<!-- <script type="text/javascript">
