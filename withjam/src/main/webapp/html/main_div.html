@@ -137,6 +137,16 @@ margin-top:13px;
 opacity:0.4;
 }
 
+.modal-content {
+ 	width: 500px;
+   height: 600px;
+  
+   position: fixed;
+/* 	left: 150px;   */
+   margin-left:-70px;
+}
+
+
 
 </style>
 
@@ -174,7 +184,7 @@ opacity:0.4;
 		<div id="headIcon5" class="headIconR"><img id="newpng" class="png"src='../img/new.png' width='35' height='35' title="최신글"></div>
 		<div id="headIcon6" class="headIconR"><img id="bestpng" class="png"src='../img/best.png' width='35' height='35' title="베스트"></div>
 		<div id="headIcon7" class="headIconR"><img id="bestuserpng" class="png"src='../img/bestuser.png' width='35' height='35' title="베스트유저"></div>
-		<div id="headIcon8" class="headIconR"><img id="msgpng" class="png"src='../img/msg.png' width='35' height='35' title="쪽지"></div>
+		<div id="headIcon8" class="headIconR"><img id="msgpng" class="png"src='../img/msg.png' width='35' height='35' title="쪽지" data-toggle="modal" data-target=".bs-example-modal-sm"></div>
 		<div id="headIcon1" class="headIconL"><img id="settingspng" class="png"src='../img/setting.png' width='35' height='35'  title="설정"></div>
 		<div id="headIcon9" class="headIconR"><img id="loginpng" class="png"src='../img/login.png' width='35' height='35' title="로그인"></div>
 		<div id="headIcon10" class="headIconR"><img id="signuppng" class="png"src='../img/check.png' width='35' height='35' title="회원가입"></div>
@@ -212,6 +222,95 @@ opacity:0.4;
 		
 	</div>
 	
+	<!-- 쪽지 기능  -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" >
+    <div class="modal-content">
+    <hr>
+    <h3>쪽지보관함</h3>	
+ 		<button type="button" class="btn btn-primary"  onclick="msgTable1Function()">받은쪽지</button>
+    <button type="button" class="btn btn-success" onclick="msgTable2Function()">보낸쪽지</button>
+ 
+<table id='msgtable1' class='table table-hover' >
+<tr>
+  <th>#</th><th>제목</th><th>보낸사람</th><th>날짜</th>
+</tr>
+<tr>
+  <td> <input type="checkbox"></td>
+  <td> 보낸메세지1111 </td>
+  <td> 이용용</td>
+  <td> 12/27</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td>  보낸메세지2222</td>
+  <td> 한진진</td>
+  <td> 12/07</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td>  보낸메세지3333 </td>
+  <td> 나정정</td>
+  <td> 12/01</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td>  보낸메세지5555  </td>
+  <td> 김종종</td>
+  <td> 12/01</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td> 보낸메세지6666 </td>
+  <td> 김원기</td>
+  <td> 11/01</td>
+</tr>
+</table>
+
+<table id='msgtable2' class='table table-hover' style='display: none'>
+<tr>
+  <th>#</th><th>제목</th><th>받는사람</th><th>날짜</th>
+</tr>
+<tr>
+  <td> <input type="checkbox"></td>
+  <td> 받았다 메세지 1 </td>
+  <td> 이용용</td>
+  <td> 12/27</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td> 받았다 메세지 2222 </td>
+  <td> 한진진</td>
+  <td> 12/07</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td> 받았다 메세지 3333 </td>
+  <td> 나정정</td>
+  <td> 12/01</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td>받았다 메세지 4444</td>
+  <td> 김종종</td>
+  <td> 12/01</td>
+</tr>
+<tr>
+  <td>  <input type="checkbox"></td>
+  <td> 받았다 메세지  5555 </td>
+  <td> 김원기</td>
+  <td> 11/01</td>
+</tr>
+</table>
+<hr>
+<button type="button" class="btn btn-danger">삭제</button>
+   
+   
+   
+    </div>
+  </div>
+</div>
+<!-- 쪽ㅈㅣ끝 -->
 
 </body>
 <script type="text/javascript">
@@ -234,18 +333,7 @@ opacity:0.4;
 	$("#headIcon4").click(function() {
 		$(".toggler").load("friendList.html");
 	});
-	$("#headIcon5").click(function() {
-		$(".toggler").load("최신글");
-	});
-	$("#headIcon6").click(function() {
-		$(".toggler").load("베스트");
-	});
-	$("#headIcon7").click(function() {
-		$(".toggler").load("베스트유저");
-	});
-	$("#headIcon8").click(function() {
-		$(".toggler").load("설정?");
-	});
+
 
 	$("#headIcon9").click(function() {
 		$(".toggler").load("login.html");
@@ -257,9 +345,18 @@ opacity:0.4;
 	$(".myInfo_left").load("login_left.html");
 	$(".toggler1").load("write_content.html");
 </script>
+
 <script>
-
-
-
+function msgTable1Function() {
+	document.getElementById("msgtable1").style.display = "";
+	document.getElementById("msgtable2").style.display = "none";
+}
+function msgTable2Function() {
+	document.getElementById("msgtable1").style.display = "none";
+	document.getElementById("msgtable2").style.display = "";
+}
 </script>
+
+<script src="../js/bootstrap.min.js"></script>
+
 </html>
