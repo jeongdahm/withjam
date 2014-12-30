@@ -1,69 +1,7 @@
 @CHARSET "UTF-8";
 
 
-<!--dam band-->
-.bandForm{
-width:300px;
-}
-#b_table{ 
-display: table;
-width:265px;
-}
-.row{
-display: table-row;
-}
-p{
-display: table-cell; 
-border:solid 1px gray; 
-padding: 3px; 
-}
 
-
-<!--friendList-->
- #fListDiv {
-	width: 95%;
-	margin: auto;
-	margin-top: 0px;
-
-}
-
-.fListtablerow {
-	width: 95%;
-	height: 95%;
-	border:2px solid red;
-}
-
-.fPhoto {
-	float: left;
-	height: 80px;
-	width: 80px;
-	
-	background-color : #007bbc;
-	border:2px solid red;
-	margin:0px;
-}
-
-.fName {
-	float: right;
-	height: 30px;
-	width: 130px;
-	background-color : #24b3ff;
-	margin-left: 81px;
-	border:2px solid red;
-}
-
-.fComment {
-	float: left;
-	height: 50px;
-	width: 130px;
-	margin-left: 81px;
-	background-color : #89d6ff;
-}
-
-.fPhoto img {
-	width: 100%;
-	height: 100%;
-}
 
 <!--dam myInfo -->
 #myInfo{
