@@ -136,7 +136,6 @@ margin-top:13px;
 .png:hover{
 opacity:0.4;
 }
-
 .modal-content {
  	width: 500px;
    height: 600px;
@@ -145,7 +144,6 @@ opacity:0.4;
 /* 	left: 150px;   */
    margin-left:-70px;
 }
-
 
 
 </style>
@@ -198,9 +196,9 @@ opacity:0.4;
 
 				<div class="toggler">toggler</div>
 					<div class="toggler2">toggler2</div>
-					<div class="toggler4">toggler4</div>
-		
-				
+					<div class="toggler4">
+
+					</div>
 
   </div>
 		  
@@ -222,95 +220,103 @@ opacity:0.4;
 		
 	</div>
 	
-	<!-- 쪽지 기능  -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm" >
-    <div class="modal-content">
-    <hr>
-    <h3>쪽지보관함</h3>	
- 		<button type="button" class="btn btn-primary"  onclick="msgTable1Function()">받은쪽지</button>
-    <button type="button" class="btn btn-success" onclick="msgTable2Function()">보낸쪽지</button>
- 
-<table id='msgtable1' class='table table-hover' >
-<tr>
-  <th>#</th><th>제목</th><th>보낸사람</th><th>날짜</th>
-</tr>
-<tr>
-  <td> <input type="checkbox"></td>
-  <td> 보낸메세지1111 </td>
-  <td> 이용용</td>
-  <td> 12/27</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td>  보낸메세지2222</td>
-  <td> 한진진</td>
-  <td> 12/07</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td>  보낸메세지3333 </td>
-  <td> 나정정</td>
-  <td> 12/01</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td>  보낸메세지5555  </td>
-  <td> 김종종</td>
-  <td> 12/01</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td> 보낸메세지6666 </td>
-  <td> 김원기</td>
-  <td> 11/01</td>
-</tr>
-</table>
+	
+<!-- 쪽지 기능 -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<hr>
+			<h3>쪽지보관함</h3>
+			<button type="button" class="btn btn-primary"
+				onclick="takemsgFunction()">받은쪽지</button>
+			<button type="button" class="btn btn-success"
+				onclick="sendmsgFunction()">보낸쪽지</button>
 
-<table id='msgtable2' class='table table-hover' style='display: none'>
-<tr>
-  <th>#</th><th>제목</th><th>받는사람</th><th>날짜</th>
-</tr>
-<tr>
-  <td> <input type="checkbox"></td>
-  <td> 받았다 메세지 1 </td>
-  <td> 이용용</td>
-  <td> 12/27</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td> 받았다 메세지 2222 </td>
-  <td> 한진진</td>
-  <td> 12/07</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td> 받았다 메세지 3333 </td>
-  <td> 나정정</td>
-  <td> 12/01</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td>받았다 메세지 4444</td>
-  <td> 김종종</td>
-  <td> 12/01</td>
-</tr>
-<tr>
-  <td>  <input type="checkbox"></td>
-  <td> 받았다 메세지  5555 </td>
-  <td> 김원기</td>
-  <td> 11/01</td>
-</tr>
-</table>
-<hr>
-<button type="button" class="btn btn-danger">삭제</button>
-   
-   
-   
+			<table id='sendmsgtable' class='table table-hover'  style='display: none'>
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>보낸사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지1111</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지5555</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지6666</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+
+			<table id='takemsgtable' class='table table-hover' >
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>받는사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 1</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 4444</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 5555</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+			<hr>
+			<button type="button" class="btn btn-danger">삭제</button>
+
     </div>
   </div>
 </div>
-<!-- 쪽ㅈㅣ끝 -->
+<!-- 쪽지끝 -->
 
 </body>
 <script type="text/javascript">
@@ -334,7 +340,6 @@ opacity:0.4;
 		$(".toggler").load("friendList.html");
 	});
 
-
 	$("#headIcon9").click(function() {
 		$(".toggler").load("login.html");
 	});
@@ -357,6 +362,6 @@ function msgTable2Function() {
 }
 </script>
 
-<script src="../js/bootstrap.min.js"></script>
 
+<script src="../js/bootstrap.min.js"></script>
 </html>

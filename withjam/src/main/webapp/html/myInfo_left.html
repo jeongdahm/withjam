@@ -6,10 +6,8 @@
 		<div id="usermsg_left">message</div>
 		
 		<div id="button_myInfo">
-		 <button type="button" class="btn btn-default btn-sm">내글만보기</button>
-		 <button type="button" class="btn btn-info btn-sm">쪽기</button>
-		
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보내기</button>
+		<button type="button" class="btn btn-default btn-sm">내글만보기</button>
+		<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보내기</button>
 		
 	</div>
 	</div>
@@ -24,11 +22,11 @@
 			<hr>
 			<h3>쪽지보관함</h3>
 			<button type="button" class="btn btn-primary"
-				onclick="msgTable1Function()">받은쪽지</button>
+				onclick="takemsgFunction()">받은쪽지</button>
 			<button type="button" class="btn btn-success"
-				onclick="msgTable2Function()">보낸쪽지</button>
+				onclick="sendmsgFunction()">보낸쪽지</button>
 
-			<table id='msgtable1' class='table table-hover'>
+			<table id='sendmsgtable' class='table table-hover'  style='display: none'>
 				<tr>
 					<th>#</th>
 					<th>제목</th>
@@ -67,7 +65,7 @@
 				</tr>
 			</table>
 
-			<table id='msgtable2' class='table table-hover' style='display: none'>
+			<table id='takemsgtable' class='table table-hover' >
 				<tr>
 					<th>#</th>
 					<th>제목</th>
@@ -122,12 +120,12 @@
 
 
 <script>
-function msgTable1Function() {
-	document.getElementById("msgtable1").style.display = "";
-	document.getElementById("msgtable2").style.display = "none";
+function takemsgFunction() {
+	document.getElementById("sendmsgtable").style.display = "none";
+	document.getElementById("takemsgtable").style.display = "";
 }
-function msgTable2Function() {
-	document.getElementById("msgtable1").style.display = "none";
-	document.getElementById("msgtable2").style.display = "";
+function sendmsgFunction() {
+	document.getElementById("sendmsgtable").style.display = "";
+	document.getElementById("takemsgtable").style.display = "none";
 }
 </script>
