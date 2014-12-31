@@ -12,11 +12,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-img {
-	height: 30px;
-	width: 30px;
-}
-
+/* img {
+	height: 100px;
+	width: 100px;
+} */
+ 
 .Border_L111 {
 	border: 1px solid black;
 }
@@ -34,7 +34,7 @@ img {
 	padding: 5px;
 	margin: 5px;
 	font-size: 12px;
-	width: 210px;
+	width: 230px;
 	height: 25%; 
 }
 
@@ -42,7 +42,7 @@ img {
 	padding: 5px;
 	margin: 5px;
 	font-size: 12px;
-	width: 210px;
+	width: 230px;
 	height: 73%; 
 }
 
@@ -84,6 +84,29 @@ input#selectL2:checked ~ .page2{
 input#selectL3:checked ~ .page3{
   display:block;
 }
+<!--쪽지함-->
+
+
+.msg-content  .setting-content{
+
+	padding:6px;
+	
+}
+.correct-btn{
+float:right;
+margin-right:5px;
+}
+#myphotoleft{
+border-radius: 6px  0  0 6px;
+}
+#userId_left{
+border-radius: 0 6px 0 0;
+padding:2px;
+}
+#usermsg_left{
+border-radius: 0 0 6px 0;
+padding:2px;
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 
 </style>
@@ -115,18 +138,81 @@ $(function() {
 	});
 
 });
+
+
+
+$("#save_msg").click(function(){
+  $(".setting-content").hide();
+  $('.msg-content').load('msgbox_left.html').show();
+});
+
+$("#correct_msg").click(function(){
+  $('.msg-content').hide();
+  $('.setting-content').load('setting_left.html').show();
+});
+
 </script>
+
+
 
 </head>
 <body>
 	<div class="Border_L " style="height: 100%; float: right" >
-		<div class="Border_L infoFormL magin divBG shadow divRadius" >
-			<div style="float: left;" class="magin">
-				<img id="profileImgL" src="../img/temp.jpg">
-			</div>
-			<div style="float: left;" class="magin">
-				<label>아이디</label> <br> <label>쪽지함</label>
-			</div>
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:290px;">
+		
+		
+		
+<!-- 내정보 -->
+	<h5>MyInfo</h5>
+	<div id="myInfo">
+		<div id="myPhoto_left">
+		<img src="../img/myphoto.jpg" style="width: 70px; height: 70px;" id="myphotoleft">
+		</div>
+		<div id="userId_left">MyName</div>
+		<div id="usermsg_left">안녕하세요 </div>
+
+		<div id="button_myInfo">
+			<button type="button" id="read_msg"class="btn btn-default btn-xs">내글만보기</button>
+			<button type="button" id="save_msg"class="btn btn-info btn-xs" data-toggle="modal"
+				data-target=".bs-example-modal-sm">쪽지보관함</button>
+		</div>
+	</div>
+	<hr>
+	<h5>MyName님의</h5>
+	<table id='myinfo2' class='table table-hover'>
+				<tr>
+		
+					<th>관심장르</th>
+					<th>관심악기</th>
+					<th>가입일</th>
+				</tr>
+				<tr>
+
+					<td>클래식</td>
+					<td>바이올린</td>
+					<td>2014-12-31</td>
+				</tr>
+				</table>
+	<div class="correct-btn"><button type="button" id="correct_msg" class="btn btn-default btn-xs"
+	data-toggle="modal" data-target=".bs-example-modal-sm">수정하기</button></div>
+
+<!-- modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+	<div class="modal-content">
+		<div class="msg-content"></div>
+		<div class="setting-content"></div>
+		
+		
+		
+		</div>
+		</div>
+		</div>
+		
+
+
+
 		</div>
 		
 		
