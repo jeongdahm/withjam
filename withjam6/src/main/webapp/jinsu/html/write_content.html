@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="../jquery/jplayer/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript"	src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
+	
+	
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+label{
+	font-size: 12px;
+}
+
+.testBG2{
+	background-color: #aaa;
+	border:1px solid #aaa;
+	border-radius: 5px;
+}
+
+.divBG{
+	background-color: #eef;
+}
+.divBG2{
+	background-color: #eee;
+	border-radius: 5px;
+	border:1px solid #ccf;
+}
+.divBG3{
+	background-color: #ddf;
+	border-radius: 5px;
+}
+
+.btns{
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+.accordion {
+	width: 100%;
+	/* border: 1px solid red; */
+}
+
+.tb5 {
+	/* border:2px solid #765942; */
+	border-radius:10px;
+	height: 22px;
+	width: 400px;
+}
+textarea {
+	width:99%;
+	overflow:visible;
+	
+	/* border: 2px solid #765942; */
+	border-radius: 10px;
+	/* height: 60px; */
+	/* width: 230px; */
+	
+} 
+.shadow{
+	box-shadow:2px 2px 5px #08088A;
+}
+.divRadius{
+	border-radius: 4px;
+}
+.floatLeft{
+	float: left;
+}
+.replyBorder{
+	/* border: 1px solid red;   */
+	padding: 5px; 
+	height: 40px;
+}
+.mreplyBorder{
+	padding: 5px; 
+	height: 100px;
+}
+
+.divPadding{
+	padding: 5px; 
+
+}
+.accordion {
+	width: 100%;
+	/* border: 1px solid red; */
+}
+
+.testBorder {
+	width: 100%;
+	/* border: 1px solid red; */
+}
+.btnCheckAll{
+	width: 50px;
+	height: 80px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+#mprofileImg {
+	width: 70px;
+	height: 70px;
+}
+
+.styled-select select {
+       background: transparent;
+       width: 120px;
+       padding: 5px;
+       font-size: 16px;
+
+       border: 1;
+       border-radius: 5;
+       height: 22px;
+       -webkit-appearance: none;
+       -moz-appearance:none;
+       appearance: none;
+       }
+
+.styled-select {
+       width: 123px;
+       height: 22px;
+       overflow: hidden;
+       background: url(img/cmbbox.png) no-repeat;
+       border: 1;
+       }
+
+
+</style>
+
+<script type="text/javascript">
+
+//accodian 방식 관련.. write
+$(function() {
+	$(".submenuw").hide();
+	$(".write").click(function() {
+		$(".submenuw:visible").slideUp("middle");
+		$(this).next('.submenuw:hidden').slideDown("middle");
+		return false;
+	})
+	$(".submenuw2").hide();
+	$("#btnRecord").click(function() {
+		$(".submenuw2").slideToggle("middle");
+		return false;
+	})
+
+});
+//accodian 방식 관련.. content
+$(function() {
+	$(".submenu").hide();
+	 $("#btnJam").click(function() { 
+		$(".submenu").slideToggle("middle"); //음원 댓글
+		return false;
+	})
+	$(".submenu3").hide();
+	 $("#btnCheckJam").click(function() { 
+			 $(".submenu2").slideToggle("middle"); //기본 음원
+			 $(".submenu3").slideToggle("middle"); //합주 음원
+		return false;
+	})
+});
+
+
+//jplayer
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				title: "Bubble",
+				m4a: "http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+				oga: "http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			});
+		},
+		swfPath: "../../jquery/jplayer",
+		supplied: "m4a, oga",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true
+	});
+});
+</script>
+<!-- write 부분 -->
+
+<div class="accordion divRadius shadow divBG" >
+	<p class="write divPadding">Write & Record</p>
+	<div class="submenuw bg01">
+	
+<div class="divPadding">
+
+		<!-- 제목  -->
+		<div class="title divRadius">
+			<div>
+				<label>Title </label>
+				<input class="tb5" type="text" name="title" size="40">
+			</div>
+		</div>
+		
+		<br>
+
+		<!-- 내용  -->
+		<div class="content">
+			<textarea onkeyup="resize(this)"></textarea>
+		</div>
+
+		<!-- 나머지 -->
+		<div class="option">
+			
+			<div>
+				<label>태그</label>
+				<input class="tb5" type="text" name="tag" size="30"> 
+			</div>
+		<br>
+			
+		<!-- 녹음  -->
+		<div class="recoding accordion divBG2">
+			
+			<div class="submenuw2 ">
+			
+			<label >녹음창이 출력될 위치 입니다.</label>
+			<br>
+			<input type='file'>
+			
+			</div>
+		</div>
+			
+			
+			<br>
+			<div>
+			<label>참여 제한</label> <select name="band" class="styled-select">
+					<option value="">없음</option>
+					<option value="band1">밴드1</option>
+					<option value="band2">밴드2</option>
+				</select>
+
+				<div style="float: right;">
+				<input type="checkbox" name="option" value="secret">비밀글 
+				<input type="checkbox" name="option" value="main">메인
+				<button id='btnRecord' type='button' class="btns">녹음</button>
+				<button id='btnInsert' type='button' class="btns">등록</button>
+				</div>
+			</div>
+			
+		</div>
+
+		</div>
+	</div>
+</div>
+
+
+<br>
+
+
+<!-- content 부분 -->
+
+<div class="divRadius shadow divBG">
+	<!-- 글의 주 내용 -->
+	<div class=" testBG">
+	
+		<!-- 제목  -->
+		<div class="title divPadding">
+			
+				<img id="profileImg" src="../img/temp.jpg"> 
+				<label style="font-size: 25px">제목이 출력됩니다.</label>
+				<div style="float: right; " >
+					<label >2014.12.15</label><br>
+					<button id="btnCheckJam" type='button' class="btns">합주</button>
+				</div>
+	
+			
+		</div>
+		
+		<hr><!-- ---------------------- -->
+		<!-- 출력 파트 -->
+		<!-- 기본 녹음 재생  -->
+		<div class="divPadding divBG2 submenu2 ">
+		<div class="recoding testBorder ">
+			
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+	
+</div>
+<!-- <button class="btnCheckAll "  type='button'>합주</button> -->
+		</div></div>
+		
+
+		<!-- 합주 출력  -->
+		<div class="divPadding divBG2 submenu3" style="border: 1px solid black;">
+		<div class="recoding testBorder " >
+			
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1"  class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+	
+</div>
+<!-- <button class="btnCheckAll "  type='button'>합주</button> -->
+		</div></div>
+
+
+
+		<!-- 내용  -->
+		<div class="content divPadding">
+			<textarea rows="5" cols="60" name="contents">글 내용</textarea>
+		</div>
+
+
+
+		<!-- 나머지 -->
+		<div class="option divPadding">
+			<div>
+				<label>태그</label> <label> #guitar, #drum, #rock</label> 
+			</div>
+			<br>
+			<div >
+			<label>참여 제한</label> <select name="band" class="styled-select">
+					<option value="" selected="selected">없음</option>
+					<option value="band1">밴드1</option>
+					<option value="band2">밴드2</option>
+				</select>
+
+				<div style="float: right;">
+				
+		<div style="float: left;">
+		
+				<input type="checkbox" name="option" value="secret">비밀글 
+				<input type="checkbox" name="option" value="main">메인
+				
+				<button id='btnJam' class="btns" type='button'>참가</button>
+				<!-- <div id='btnJam' class='btns btnJam'>ㅁㅁ</div> -->
+				<button id='btnUpdate' class="btns" type='button'>수정</button>
+				<button id='btnDelete' class="btns" type='button'>삭제</button>
+			</div>
+				</div>
+			</div>
+		</div>
+
+
+</div>
+
+
+<hr><!-- ---------------------- -->
+
+		<!-- 참가시 녹음창 출력 -->
+<div class="recoding accordion divBG2 ">
+
+			<div class="submenu divPadding">
+			
+			<div >
+				<label>Comment</label>
+				<input class="tb5" type="text" size="30" placeholder=" 간단한 코멘트를 입력하세요."> 
+				<button type='button' class="btns">등록</button>
+			</div>
+			
+			<label>녹음창이 출력될 위치 입니다.</label>
+			
+			</div>
+		</div>
+
+
+
+<div class="divPadding testBG" >
+<div class="divBG3">
+	<!-- 음원 파일 댓글 -->
+	
+		<div  class="divBG2" style="height: 115px;">
+
+	<div class="mreplyBorder ">
+		<div style="float: left; width: 75px;" align="center">
+			<img id="mprofileImg" src="../img/temp.jpg">
+			<br>
+			<div align="center">작성자</div>
+	</div>
+
+	<div style="float: left; ">
+	<div><label>간단한 코멘트 입니다.</label><div style="float: right;"><label>2014.12.15</label><input type="checkbox" name="option" value="secret">Jam</div></div>
+	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div></div>
+</div></div>
+
+<div class=" divBG2" style="height: 115px;" >
+
+	<div class="mreplyBorder " >
+		<div style="float: left; width: 75px;" align="center">
+			<img id="mprofileImg" src="../img/temp.jpg">
+			<br>
+			<div align="center">작성자</div>
+		</div>
+
+	<div style="float: left; ">
+	<div><label>간단한 코멘트 입니다.</label><div style="float: right;"><label>2014.12.15</label><input type="checkbox" name="option" value="secret">Jam</div></div>
+	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+	<div class="jp-type-single">
+		<div class="jp-gui jp-interface">
+			<div class="jp-controls">
+				<button class="jp-play" role="button" tabindex="0">play</button>
+				<button class="jp-stop" role="button" tabindex="0">stop</button>
+			</div>
+			<div class="jp-progress">
+				<div class="jp-seek-bar">
+					<div class="jp-play-bar"></div>
+				</div>
+			</div>
+			<div class="jp-volume-controls">
+				<button class="jp-mute" role="button" tabindex="0">mute</button>
+				<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+				<div class="jp-volume-bar">
+					<div class="jp-volume-bar-value"></div>
+				</div>
+			</div>
+			<div class="jp-time-holder">
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-toggles">
+					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+				</div>
+			</div>
+		</div>
+		<div class="jp-no-solution">
+			<span>Update Required</span>
+			To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+		</div>
+	</div>
+</div></div>
+</div></div>
+</div>
+
+	</div>
+
+
+	
+	
+	<hr><!-- ---------------------- -->
+	
+	
+	<div class="testBG">
+
+	<!-- 일반 택스트 댓글 -->
+	<div >
+		<div class="replyBorder">
+			<div style="float: left; "><img id="profileImg" src="../img/temp.jpg"></div>
+			<div style="float: left; "><label>작성자</label><br><label>2014.12.15</label></div>
+			<div style="float: left; "><label>댓글의 내용 입니다.</label></div>
+			<div style="float: right; "><button type='button' class="btns">삭제</button></div>
+		</div>
+		
+		<br>
+
+		<div class="replyBorder">
+			<div style="float: left; width: 50px;"><img id="profileImg" src="../img/temp.jpg"></div>
+			<div style="float: left; "><input placeholder=" 댓글을 입력하세요." class="tb5" type="text" name="tag" size="30"></div>
+			<div style="float: right; "><button type='button' class="btns">등록</button></div>
+		</div>
+	</div>
+
+	</div>
+
+</div>
+</body>
+</html>

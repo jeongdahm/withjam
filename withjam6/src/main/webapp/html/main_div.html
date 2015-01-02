@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/bookblock.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<meta charset="UTF-8">
+<title>withJam</title>
+<style>
+.friend-list {
+	/* border:1px solid #f1f1f1; */
+	border: 1px solid red;
+	width: 100%;
+	float: left;
+	/* margin-top: 20px; */
+	/* border-radius: 5px;  */
+	height: 100%;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	/* overflow: scroll; */
+}
+
+.friend-div {
+	margin-top: 15px;
+	width: 100%;
+	height: 70px;
+	border-bottom: #f1f1f1 1px solid;
+	border-bottom-right-radius: 5px;
+	z-index: 0;
+}
+
+.friend-content {
+	float: left;
+	width: 78%;
+	/* border: solid 1px green; */
+	height: 100%;
+	font-family: cursive;
+}
+
+.fPhoto {
+	position: relative;
+	float: left;
+	height: 70%;
+	width: 20%;
+	margin-top: 3%;
+	margin-left: 5px;
+	/* border: green 1px solid; */
+	/* border-radius: 100%; */
+}
+
+.fName {
+	/* border: red solid 1px; */
+	margin-top: 3%;
+	height: 40%;
+	width: 70%;
+	margin-left: 5%;
+}
+
+.fComment {
+	border: gray 1px solid;
+	height: 40%;
+	width: 90%;
+	border-radius: 10px;
+	margin-left: 5%;
+	color: graytext;
+}
+
+.fPhoto img {
+	width: 100%;
+	height: 100%;
+}
+
+.myHeader {
+	text-align: center;
+	width: 100%;
+	height: 40px;
+	background-color: #0D1A38;
+}
+
+#withjam_main {
+	margin-top: 10px;
+	border-radius: 0.5em;
+}
+
+html, body {
+	width: 1360px;
+	height: 620px;
+	background-color: #0D1A38;
+}
+
+.main {
+	width: 100%;
+	height: 97%;
+	/* border: 2px dashed red; */
+	float: left;
+}
+
+.left-side {
+	width: 3%;
+	height: 95%;
+	/* border: 2px solid red; */
+	float: left;
+	/*  */
+}
+
+.left-menu {
+	width: 5%;
+	height: 95%;
+	float: left;
+	padding: 1%;
+	/* border: 2px dashed red; */
+	border-top-left-radius: 2em;
+	border-bottom-left-radius: 2em;
+	background-color: #b0b0ff;
+}
+
+.left-content {
+	width: 45%;
+	height: 95%;
+	border: 2px dashed orange;
+	background-color: #eef;
+	float: left;
+}
+
+.myInfo_left {
+	height: 27%;
+	border: 1px dashed green;
+}
+
+.toggler {
+	width: 50%;
+	height: 100%;
+	border: 2px dashed red;
+	float: left;
+}
+
+.toggler2 {
+	width: 50%;
+	height: 70%;
+	border: 2px solid green;
+	float: left;
+}
+
+.toggler4 {
+	width: 50%;
+	height: 30%;
+	border: 2px solid blue;
+	float: left;
+}
+
+.right-content {
+	width: 37%;
+	height: 95%;
+	border: 2px dashed blue;
+	float: left;
+	background-color: #eef;
+}
+
+.toggler1 {
+	height: 43%;
+	height: 90%;
+	margin-top: 5%;
+}
+
+.scrollBar {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.right-menu {
+	width: 5%;
+	height: 95%;
+	float: left;
+	padding: 1%;
+	/* border: 2px dashed red; */
+	border-top-right-radius: 2em;
+	border-bottom-right-radius: 2em;
+	background-color: #b0b0ff;
+}
+
+.right-side {
+	width: 1%;
+	height: 95%;
+	/* 	border: 2px solid green; */
+	float: left;
+}
+
+.png {
+	margin-top: 13px;
+}
+
+.png:hover {
+	opacity: 0.4;
+}
+
+.friend-head {
+	position: absolute;
+	width: 298px;
+	height: 50px;
+	z-index: 1;
+	background-color: white;
+	height: 50px;
+}
+
+.friend-head>div {
+	margin-left: 10px;
+	padding-top: 10px;
+}
+
+.friend-head p:nth-child(2) {
+	color: #58D3F7;
+}
+
+.friend-head>div>p {
+	border: none;
+	float: left;
+}
+
+.friend-head>div>input {
+	float: left;
+	margin-left: 30px;
+	border-radius: 5px;
+}
+
+.fPhoto img {
+	border-radius: 100%;
+	border: 1px solid #f1f1f1;
+}
+
+.friend-tt {
+	margin-top: 50px;
+	border-top: 1px solid #f1f1f1;
+	height: 90%;
+	overflow: scroll;
+}
+
+.friend-img {
+	margin-top: 200px;
+}
+
+.friend-div {
+	background: white;
+}
+
+/* ------------------------------------bookeffect-------------------------------- */
+.clearfix {
+	border: 1px solid red;
+}
+
+.main {
+	/* border: 1px solid blue; */
+	
+}
+
+.bb-bookblock {
+	height: 300px;
+	width: 200px;
+}
+
+.bb-item {
+	/* border: 1px solid blue; */
+	
+}
+
+.spantest {
+	border: 1px solid gray;
+	float: left;
+	width: 49px;
+	height: 150px;
+}
+
+.scroll-test {
+	z-index: 1;
+}
+
+.span-nav {
+	height: 500px;
+	border: solid 1px green;
+}
+
+/*  .bb-item {
+		    opacity: 0.5;
+		 } */
+.bb-current {
+	/* background: yellow; */
+	/* opacity: 0.5; */
+	background: black;
+	color: white;
+}
+
+.testdiv {
+	-webkit-writing-mode: vertical-rl;
+	float: left;
+}
+
+.book-mark-div {
+	width: 300xp;
+	height: 395px;
+	background: red;
+}
+
+<!--쪽지함-->
+.modal-content{
+ 	width: 500px;
+  height:600px;
+  
+   position: fixed;
+/* 	left: 150px;   */
+   margin-left:-70px;
+}
+<!--쪽지함 끝-->
+
+</style>
+
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/jquerypp.custom.js"></script>
+<script src="../js/jquery.bookblock.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<!-- 헤드 -->
+
+	<div class="myHeader ">
+		<div class="myHeader1 "></div>
+
+		<div class="myHeader2 "></div>
+		<div class="myHeader3 "></div>
+
+
+		<!-- <a href='main_div.html'><img id="withjam_main" class="png"src='../img/withjam.png' width='190' height='40'></a>  -->
+
+	</div>
+
+ 
+	<!-- 전체배경 -->
+	<div class="main ">
+
+		<!-- 왼쪽사이드 -->
+
+		<div class='left-side'></div>
+		<div class='left-menu'>
+			<div id="headIcon0" class="headIconL">
+				<img id="mypng" class="png" src='../img/my.png' width='35'
+					height='35' title="내정보">
+			</div>
+			<div id="headIcon2" class="headIconL">
+				<img id="bookmarkpng" class="png" src='../img/bookmark.png'
+					width='35' height='35' title="즐겨찾기">
+			</div>
+			<div id="headIcon3" class="headIconL">
+				<img id="bandpng" class="png" src='../img/band1.png' width='35'
+					height='35' title="밴드">
+			</div>
+			<div id="headIcon4" class="headIconL">
+				<img id="friendpng" class="png" src='../img/friends.png' width='35'
+					height='35' title="친구들">
+			</div>
+			<div id="headIcon8" class="headIconR">
+				<img id="msgpng" class="png"src='../img/msg.png' width='35' 
+					height='35' title="쪽지" data-toggle="modal" data-target=".bs-example-modal-sm">
+			</div>
+			<div id="headIcon1" class="headIconL">
+				<img id="settingspng" class="png" src='../img/setting.png'
+					width='35' height='35' title="설정">
+			</div>
+
+			<!-- <div id="headIcon5" class="headIconR">
+				<img id="newpng" class="png" src='../img/new.png' width='35'
+					height='35' title="최신글">
+			</div>
+			<div id="headIcon6" class="headIconR">
+				<img id="bestpng" class="png" src='../img/best.png' width='35'
+					height='35' title="베스트">
+			</div>
+			<div id="headIcon7" class="headIconR">
+				<img id="bestuserpng" class="png" src='../img/bestuser.png'
+					width='35' height='35' title="베스트유저">
+			</div>
+			
+			
+			<div id="headIcon9" class="headIconR">
+				<img id="loginpng" class="png" src='../img/login.png' width='35'
+					height='35' title="로그인">
+			</div>
+			<div id="headIcon10" class="headIconR">
+				<img id="signuppng" class="png" src='../img/check.png' width='35'
+					height='35' title="회원가입">
+			</div> -->
+			
+		</div>
+
+
+
+
+		<div class='left-content'>
+
+		</div>
+
+
+
+
+
+
+
+
+		<!-- 오른쪽 콘텐츠 -->
+		<div class='right-content scrollBar'>
+			<div class="toggler1 "></div>
+
+		</div>
+		<div class='right-menu'></div>
+		<div class='right-side'></div>
+
+	</div>
+	
+	
+<!-- 쪽지 기능 -->
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<hr> 
+			<h3>쪽지보관함</h3>
+			<button type="button" class="btn btn-primary btn-xs"
+				onclick="takemsgFunction()">받은쪽지</button>
+			<button type="button" class="btn btn-success btn-xs"
+				onclick="sendmsgFunction()">보낸쪽지</button>
+
+			<table id='sendmsgtable' class='table table-hover'  style='display: none'>
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>받는사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지1111</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지5555</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지6666</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+
+			<table id='takemsgtable' class='table table-hover' >
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>보낸사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 1</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 4444</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 5555</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+			<hr>
+			<button type="button" class="btn btn-danger btn-xs">삭제</button>
+
+   
+   
+   
+    </div>
+  </div>
+</div>
+<!-- 쪽지끝 -->
+
+
+
+	<script type="text/javascript">
+		$("#headIcon0").click(function() {
+			$(".left-content").load("myInfo_left.html");
+		});
+
+		$("#headIcon1").click(function() {
+			$(".left-content").load("setting_left.html");
+		});
+
+		$("#headIcon2").click(function() {
+			$(".left-content").load("bookmark.html");
+		});
+
+		$("#headIcon3").click(function() {
+			$(".left-content").load("myband.html");
+		});
+		$("#headIcon4").click(function() {
+			$(".left-content").load("friendList.html");
+		});
+		/* $("#headIcon5").click(function() {
+			$(".toggler").load("최신글");
+		});
+		$("#headIcon6").click(function() {
+			$(".toggler").load("베스트");
+		});
+		$("#headIcon7").click(function() {
+			$(".toggler").load("베스트유저");
+		});
+		$("#headIcon8").click(function() {
+			$(".toggler").load("설정?");
+		});
+
+		$("#headIcon9").click(function() {
+			$(".toggler").load("login.html");
+		});
+		$("#headIcon10").click(function() {
+			$(".toggler").load("signup.html");
+		});
+
+		$(".myInfo_left").load("login_left.html"); */
+		$(".toggler1").load("write_content.html");
+	</script>
+	
+	<script>
+function takemsgFunction() {
+
+	document.getElementById("sendmsgtable").style.display = "none";
+	document.getElementById("takemsgtable").style.display = "";
+}
+function sendmsgFunction() {
+	document.getElementById("sendmsgtable").style.display = "";
+	document.getElementById("takemsgtable").style.display = "none";
+}
+</script>
+
+
+	<!-- <script type="text/javascript">
+		var Page = (function() {
+
+			var $grid = $('#bb-custom-grid');
+
+			return {
+				init : function() {
+					$grid.find('div.bb-bookblock').each(function(i) {
+
+						var $bookBlock = $(this),
+						/* $nav = $bookBlock.next().children( 'span' ), */
+						$nav = $('.friend-div'), bb = $bookBlock.bookblock({
+							speed : 170,
+							shadows : true
+						});
+
+						// add navigation events
+						$nav.each(function(i) {
+							$(this).on('mouseover touchstart', function(event) {
+								var $dot = $(this);
+								$nav.removeClass('bb-current');
+								$dot.addClass('bb-current');
+								$bookBlock.bookblock('jump', i + 1);
+								return false;
+							});
+						});
+
+						// add swipe events
+						$bookBlock.children().on({
+							'swipeleft' : function(event) {
+								$bookBlock.bookblock('next');
+								return false;
+							},
+							'swiperight' : function(event) {
+								$bookBlock.bookblock('prev');
+								return false;
+							}
+
+						});
+
+					});
+				}
+			};
+
+		})();
+	</script>
+	<script>
+		Page.init();
+	</script> -->
+</body>
+</html>
