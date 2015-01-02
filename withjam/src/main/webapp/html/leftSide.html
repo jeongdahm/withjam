@@ -140,16 +140,24 @@ $(function() {
 });
 
 
-
+<!--modal 로드 -->
 $("#save_msg").click(function(){
   $(".setting-content").hide();
+  $(".myphoto-big").hide();
   $('.msg-content').load('msgbox_left.html').show();
 });
 
 $("#correct_msg").click(function(){
   $('.msg-content').hide();
+  $(".myphoto-big").hide();
   $('.setting-content').load('setting_left.html').show();
 });
+
+ $("#myphotoleft").click(function(){
+  $('.msg-content').hide();
+  $(".setting-content").hide();
+  $(".myphoto-big").load('photo.html').show();
+}); 
 
 </script>
 
@@ -159,65 +167,66 @@ $("#correct_msg").click(function(){
 <body>
 	<div class="Border_L " style="height: 100%; float: right" >
 		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:290px;">
-		
-		
-		
-<!-- 내정보 -->
-	<h5>MyInfo</h5>
-	<div id="myInfo">
-		<div id="myPhoto_left">
-		<img src="../img/myphoto.jpg" style="width: 70px; height: 70px;" id="myphotoleft">
-		</div>
-		<div id="userId_left">MyName</div>
-		<div id="usermsg_left">안녕하세요 </div>
 
-		<div id="button_myInfo">
-			<button type="button" id="read_msg"class="btn btn-default btn-xs">내글만보기</button>
-			<button type="button" id="save_msg"class="btn btn-info btn-xs" data-toggle="modal"
-				data-target=".bs-example-modal-sm">쪽지보관함</button>
-		</div>
-	</div>
-	<hr>
-	<h5>MyName님의</h5>
-	<table id='myinfo2' class='table table-hover'>
+
+
+			<!-- 내정보 -->
+			<h5>MyInfo</h5>
+			<div id="myInfo">
+				<div id="myPhoto_left">
+					<img id="myphotoleft" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
+					data-toggle="modal" data-target=".bs-example-modal-sm">
+				</div>
+				<div id="userId_left">MyName</div>
+				<div id="usermsg_left">안녕하세요</div>
+
+				<div id="button_myInfo">
+					<button type="button" id="read_msg" class="btn btn-default btn-xs">내글만보기</button>
+					<button type="button" id="save_msg" class="btn btn-info btn-xs"
+						data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보관함</button>
+				</div>
+			</div>
+			<hr>
+			<h5>MyName님의</h5>
+			<table id='myinfo2' class='table table-hover'>
 				<tr>
-		
 					<th>관심장르</th>
 					<th>관심악기</th>
 					<th>가입일</th>
 				</tr>
 				<tr>
-
 					<td>클래식</td>
 					<td>바이올린</td>
 					<td>2014-12-31</td>
 				</tr>
-				</table>
-	<div class="correct-btn"><button type="button" id="correct_msg" class="btn btn-default btn-xs"
-	data-toggle="modal" data-target=".bs-example-modal-sm">수정하기</button></div>
+			</table>
+			<div class="correct-btn">
+				<button type="button" id="correct_msg"
+					class="btn btn-default btn-xs" data-toggle="modal"
+					data-target=".bs-example-modal-sm">설정하기</button>
+			</div>
 
-<!-- modal -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
-	aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-sm">
-	<div class="modal-content">
-		<div class="msg-content"></div>
-		<div class="setting-content"></div>
-		
-		
-		
-		</div>
-		</div>
-		</div>
-		
+			<!-- modal -->
+			<div class="modal fade bs-example-modal-sm" tabindex="-1"
+				role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="msg-content"></div>
+						<div class="setting-content"></div>
+						<div class="myphoto-big"><img src="../img/myphoto.jpg" style="width:220px; height:200px;"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- modal끝 -->
 
 
-
 		</div>
 		
 		
 		
-		<div class="Border_L menuTap divBG shadow divRadius">
+	<!-- 	<div class="Border_L menuTap divBG shadow divRadius">
 
 			<input id="selectL1" name="selectLenu_L" type="radio" checked> 
 			<label for="selectL1" class="recommend Taplabel">추천</label> 
@@ -243,13 +252,13 @@ $("#correct_msg").click(function(){
 			<div class="page2">
 				
 	<table border="1" class="table ">
-		<!-- <th>찾기</th> -->
-		<!-- - - - - - - - - - - - - - - - - - -->
+		<th>찾기</th>
+		- - - - - - - - - - - - - - - - -
 		<tr id="searchBoard" class=" accordion">
 			<td>글 찾기 >
 		
 			<div class="searchSubM1 Border_L">
-					<!-- 글 찾기 메뉴 -->
+					글 찾기 메뉴
 					<div class="Border_L">
 					<label>장르</label> 
 					<select name="band" class="styled-select">
@@ -263,7 +272,7 @@ $("#correct_msg").click(function(){
 					</div>
 
 
-				<!-- 수정할것.. -->
+				수정할것..
 					<div class="Border_L " >
 						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
 						<div>
@@ -274,11 +283,11 @@ $("#correct_msg").click(function(){
 
 				</div></td>
 		</tr>
-		<!-- - - - - - - - - - - - - - - - - - -->
+		- - - - - - - - - - - - - - - - -
 		<tr id="searchAccount" class=" accordion ">
 			<td>사람 찾기 >
 			<div class="searchSubM2 Border_L">
-					<!-- 사람 찾기 메뉴 -->
+					사람 찾기 메뉴
 					<div class="Border_L">
 						<label>장르</label> 
 					<select name="band" class="styled-select">
@@ -289,7 +298,7 @@ $("#correct_msg").click(function(){
 					</div>
 					
 					
-					<!-- 수정할것.. -->
+					수정할것..
 					<div class="Border_L" >
 						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
 						<div>
@@ -300,17 +309,17 @@ $("#correct_msg").click(function(){
 
 				</div></td>
 		</tr>
-		<!-- - - - - - - - - - - - - - - - - - -->
+		- - - - - - - - - - - - - - - - -
 		<tr id="searchFriend" class=" accordion ">
 			<td>밴드 찾기 >
 			<div class="searchSubM3 Border_L">
-					<!-- 밴드 찾기 메뉴 -->
+					밴드 찾기 메뉴
 					<div>
 						<input placeholder=" 아이디를 입력하세요." type="text" >
 					</div>
 					<div>
 					
-					<!-- 수정할것.. -->
+					수정할것..
 					<div class="Border_L" >
 						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
 						<div>
@@ -323,15 +332,9 @@ $("#correct_msg").click(function(){
 
 				</div></td>
 		</tr>
-		<!-- - - - - - - - - - - - - - - - - - -->
+		- - - - - - - - - - - - - - - - -
 	</table>
 			</div>
-			
-			
-			
-			
-			
-			
 			
 			<div class="page3">
 				<h1>page3</h1>
@@ -339,7 +342,7 @@ $("#correct_msg").click(function(){
 			</div>
 
 
-		</div>
+		</div> -->
 	</div>
 </body>
 </html>

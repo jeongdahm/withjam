@@ -22,7 +22,7 @@
 <title>Insert title here</title>
 <style>
 #layer_fixed {
-	height: 40px;
+	height: 34px;
 	width: 100%;
 	z-index: 999;
 	color: #555;
@@ -89,8 +89,10 @@ html, body {
 <body>
 
 	<div class=" Border_M" id="layer_fixed">
-		<div class="col-md-12"><a href='mainFrame.html'><img id="withjam_main" src="../img/withjam.png" style=" width: 110px;"></a></div>
+	<div id="header_main"></div>
+
 	</div>
+
 	<br>
 	<br>
 	<div class=" divHeight">
@@ -106,6 +108,7 @@ html, body {
 
 
 	<script>
+	  $('#header_main').load('header.html');
 		$('#mainPage').load('content_wn.html');
 		$('#leftSide').load('leftSide.html');
 		$('#rightSide').load('rightSide.html');

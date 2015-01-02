@@ -16,17 +16,19 @@
 #myPhoto_left{
 float:left;
 border-radius : 0.5em;
+height:70px; 
+width:70px;
 }
 #userId_left{
- margin-left: 101px;
+ margin-left: 71px;
  height:20px;
  width:65%;
  background-color: #6592FF;
  
 }
 #usermsg_left{
-	margin-left: 101px;
-	height:80px;
+	margin-left: 71px;
+	height:50px;
   width:65%;
 	background-color: #CCDBFE;
 }
