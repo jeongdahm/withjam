@@ -1,0 +1,78 @@
+<div id="effect">
+	<div class='signup' >
+<fieldset>
+			<legend>친구목록</legend>
+	
+
+		<div id='fListDiv'>
+
+			<div id=fListtable>
+			
+				<div class="fListtablerow" >
+					<div class='fPhoto'>사진</div>
+					<div class='fName'>이름</div>
+					<div class='fComment'>코멘트</div>
+				</div>
+				
+				
+				<div class="fListtablerow">
+					<div class='fPhoto'  id='fPhoto1'><img src='image/faceImg.jpg'></div>
+					<div id = 'fName' class='fName' title="클릭하면 우측 화면에 친구 글 목록이 나타납니다!">길동</div>
+					<div class='fComment'>방가방가</div>
+				</div>
+				
+				<div class="fListtablerow">
+					<div class='fPhoto'  id='fPhoto2'><img src='image/faceImg2.jpg'></div>
+					<div class='fName' title="클릭하면 우측 화면에 친구 글 목록이 나타납니다!">tom</div>
+					<div class='fComment'>nice to meet you</div>
+				</div>
+				<div class="fListtablerow">
+					<div class='fPhoto'  id='fPhoto3'><img src='image/faceImg4.png'></div>
+					<div class='fName' title="클릭하면 우측 화면에 친구 글 목록이 나타납니다!">alice</div>
+					<div class='fComment'>hi man</div>
+				</div>
+				<div class="fListtablerow">
+					<div class='fPhoto'  id='fPhoto4'><img src='image/faceImg5.jpg'></div>
+					<div class='fName' title="클릭하면 우측 화면에 친구 글 목록이 나타납니다!">judie</div>
+					<div class='fComment'>hi everyone</div>
+				</div>
+				<div class="fListtablerow">
+					<div class='fPhoto'  id='fPhoto5'><img src='/image/faceImg6.jpg'></div>
+					<div class='fName' title="클릭하면 우측 화면에 친구 글 목록이 나타납니다!">boksul</div>
+					<div class='fComment'>yo man!</div>
+				</div> 
+			</div>
+
+		</div>
+	</fieldset>
+
+	</div>
+
+</div>
+
+<script>
+$(".fName").click(function() {
+	$(".toggler1").load("friendView.html");
+
+/* 	alert('test'); */
+});
+</script>
+
+<script>
+  $(function() {
+	  
+    var tooltips = $( "[title]" ).tooltip({
+      position: {
+        my: "left top",
+        at: "right+5 top-5"
+      }
+    });
+    $( "<button>" )
+      .text( "Show help" )
+      .button()
+      .click(function() {
+        tooltips.tooltip( "open" );
+      })
+      .insertAfter( "form" );
+  });
+</script>

@@ -1,0 +1,157 @@
+
+
+<div class="toggler">
+	<h4>MyInfo</h4>
+	<div id="myInfo">
+		<div id="myPhoto_left">
+			<img src="../img/myphoto.jpg" height="100px" width="100px">
+		</div>
+		<div id="userId_left">MyName</div>
+		<div id="usermsg_left">message</div>
+
+		<div id="button_myInfo">
+			<button type="button" class="btn btn-default btn-xs">내글만보기</button>
+			<button type="button" class="btn btn-info btn-xs" data-toggle="modal"
+				data-target=".bs-example-modal-sm">쪽지보관함</button>
+		</div>
+	</div>
+	<hr>
+	<h4>MyName님의</h4>
+	<table id='myinfo2' class='table table-hover'>
+				<tr>
+					<th>#</th>
+					<th>관심장르</th>
+					<th>관심악기</th>
+					<th>가입일</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td>클래식</td>
+					<td>바이올린</td>
+					<td>2014-12-31</td>
+				</tr>
+				</table>
+						<button type="button" class="btn btn-default btn-xs">수정하기</button>
+	
+</div>
+
+<div class="toggler2">
+
+</div>
+<div class="toggler4"></div>
+
+<!-- 쪽지 기능 -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+	aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<hr>
+			<h3>쪽지보관함</h3>
+			<button type="button" class="btn btn-primary btn-xs"
+				onclick="takemsgFunction()">받은쪽지</button>
+			<button type="button" class="btn btn-success btn-xs"
+				onclick="sendmsgFunction()">보낸쪽지</button>
+
+			<table id='sendmsgtable' class='table table-hover'
+				style='display: none'>
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>받는사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지1111</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지5555</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>보낸메세지6666</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+
+			<table id='takemsgtable' class='table table-hover'>
+				<tr>
+					<th>#</th>
+					<th>제목</th>
+					<th>보낸사람</th>
+					<th>날짜</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 1</td>
+					<td>이용용</td>
+					<td>12/27</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 2222</td>
+					<td>한진진</td>
+					<td>12/07</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 3333</td>
+					<td>나정정</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 4444</td>
+					<td>김종종</td>
+					<td>12/01</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>받았다 메세지 5555</td>
+					<td>김원기</td>
+					<td>11/01</td>
+				</tr>
+			</table>
+			<hr>
+			<button type="button" class="btn btn-danger">삭제</button>
+
+
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+<script>
+	function takemsgFunction() {
+		document.getElementById("sendmsgtable").style.display = "none";
+		document.getElementById("takemsgtable").style.display = "";
+	}
+	function sendmsgFunction() {
+		document.getElementById("sendmsgtable").style.display = "";
+		document.getElementById("takemsgtable").style.display = "none";
+	}
+</script>
