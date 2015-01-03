@@ -5,12 +5,11 @@
 $(document).ready(function(){
 	<!--친구 아이콘 클릭했을 때 -->
   $("#friendspng").click(function(){
-  
  	 $(".setting-this").hide();
   	$(".band-this").hide();
   	$(".msg-this").hide();
     $(".friends-this").toggle();
-    $('.friends-this').load('friendList.html');
+    $('.friends-this').load('f-find.html');
   });
 	<!--설정 아이콘 클릭했을 때 -->
   $("#settingpng").click(function(){
@@ -27,7 +26,7 @@ $(document).ready(function(){
   	 $(".setting-this").hide();
   	 $(".msg-this").hide();
     $(".band-this").toggle();
-    $('.band-this').load('myband.html');
+    $('.band-this').load('b-find.html');
   });
 	<!--쪽지 아이콘 클릭했을 때 -->
   $("#msgpng").click(function(){
@@ -37,35 +36,30 @@ $(document).ready(function(){
     $(".msg-this").toggle();
     $('.msg-this').load('msgbox_left.html');
   });
-  
-	
+  $(".divHeight").click(function(){
+  	 $(".friends-this").hide();
+ 		 $(".setting-this").hide();
+  	 $(".band-this").hide();
+  	 $(".msg-this").hide();
+  });
 	<!--글 아이콘 클릭했을 때 -->
-  
-  
   
 });
 
-
-
-
-
-
 </script>
 <!-- 왼쪽 아이콘  -->
-<div class=".col-md-6" style="height:34px; width:800px; float:left;">
+<div class="header-L" style="height:34px; width:800px; float:left;">
 	<a href='mainFrame.html'><img id="withjam_main"
 		src="../img/withjam.png" style="width: 110px; height: 30px;"></a>
 </div>
 
 <!-- 오른쪽 아이콘부분 -->
-<div class=".col-md-6 right-icon"  style="height:34px; width:300px; float:left;">
- <img id="friendspng" class="png" src='../img/friends.png' width='25'
+<div class="header-R right-icon"  style="height:34px; width:300px; float:left;">
+ <img id="friendspng" class="png" src='../img/f-find.png' width='25'
 					height='25' title="친구">
-					
- <img id="bandpng" class="png" src='../img/band1.png' width='25'
+ <img id="bandpng" class="png" src='../img/f-band.png' width='25'
 					height='25' title="밴드">
-					
- <img id="msgpng" class="png" src='../img/msg.png' width='25'
+ <img id="msgpng" class="png" src='../img/msg1.png' width='25'
 					height='25' title="쪽지" >
  <img id="settingpng" class="png" src='../img/setting.png' width='25'
 					height='25' title="설정" >
@@ -77,7 +71,7 @@ $(document).ready(function(){
 
 <!-- 아이콘 클릭시 div부분 -->
 <!-- 친구 -->
-<div class='friends-this scrollBar' style="width:350px; 
+<div class='friends-this' style="width:300px; 
 height:400px; 
 margin-top:34px;
 margin-left:600px;
@@ -97,7 +91,7 @@ box-shadow:0 3px 9px rgba(0,0,0,.5);
 
 "></div>
 <!-- 밴드 -->
-<div class='band-this scrollBar' style="width:350px; 
+<div class='band-this' style="width:300px; 
 height:400px; 
 margin-top:34px;
 margin-left:700px;

@@ -108,19 +108,16 @@ input#selectR3:checked ~ .page3 {
 
 <script type="text/javascript">
 
-//찾기 메뉴 
-$(function() {
-	$(".c_band").hide();
-	
-	$("#createBand").click(function() {
-		$(".c_band").slideToggle("middle"); //밴드
-		return false;
+	$(document).ready(function() {
+		//찾기 메뉴 
+		$(function() {
+			$(".c_band").hide();
+			$("#createBand").click(function() {
+				$(".c_band").slideToggle("middle"); //밴드
+				return false;
+			});
+		});
 	});
-	
-
-});
-
-
 </script>
 
 </head>
@@ -136,11 +133,13 @@ $(function() {
 				id="selectR3" name="selectMenu_R" type="radio"><label
 				for="selectR3" class="bandList Taplabel">밴드</label>
 
-			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!-- - - - - - - - - - -친구 - - - - - - - - - - - - - -->
 
 			<div class="page1 " >
 
 				<div class="Border_R maginR">
+			
+				<br>
 					<div class="magin" style="float: left; width: 35px; height: 35px;">
 						<img id="profileImg" src="../img/temp.jpg">
 					</div>
@@ -169,7 +168,7 @@ $(function() {
 
 			</div>
 
-			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!-- - - - - - - - - - - -북마크 - - - - - - - - - - - - - -->
 
 			<div class="page2">
 			
@@ -209,7 +208,7 @@ $(function() {
 			
 			</div>
 
-			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!-- - - - - - - - - - -밴드 - - - - - - - - - - - - - - -->
 
 			<div class="page3 " >
 			<div class="accordion Border_R" >

@@ -1,0 +1,121 @@
+<script>
+$(document).ready(function(){
+//친구찾기 
+    $("#f-find1").click(function(){
+    $("#f-find2").slideToggle("slow");
+  });
+});
+
+$("#profileImg").click(function(){
+  $(".setting-content").hide();
+  $(".myphoto-big").hide();
+  $('.msg-content').load('msgbox_left.html').show();
+});
+</script>
+
+<!-- --------친구 검색 ----------- -->
+<div class='friend-head'>
+	<span>친구찾기
+		<input class='friend-test' type='text' placeholder="친구찾기.." /></span>
+	</div>
+<hr>
+
+<!-- --------친구 결과  ----------- -->
+<div class="f-List scrollBar" style="float:left; width:290px; height:320px;">
+<div class="Border_R maginR ">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+
+<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+<div class="Border_R maginR ">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+
+<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+<div class="Border_R maginR ">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+
+<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+<div class="Border_R maginR ">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+
+<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target=".bs-example-modal-sm">
+	</div>
+	<div class="magin">
+		<label>아이디</label> <br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+</div>
+	<!-- modal -->
+			<div class="modal fade bs-example-modal-sm" tabindex="-1"
+				role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="msg-content"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- modal끝 -->
