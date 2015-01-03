@@ -1,45 +1,158 @@
 
-<div class=".col-md-6" style="border:2px solid orange; height:31px; width:60%; float:left;">
+<script>
+
+
+$(document).ready(function(){
+	<!--친구 아이콘 클릭했을 때 -->
+  $("#friendspng").click(function(){
+ 	 $(".setting-this").hide();
+  	$(".band-this").hide();
+  	$(".msg-this").hide();
+    $(".friends-this").toggle();
+    $('.friends-this').load('friendList.html');
+  });
+	<!--설정 아이콘 클릭했을 때 -->
+  $("#settingpng").click(function(){
+  	$(".friends-this").hide();
+  	$(".band-this").hide();
+  	$(".msg-this").hide();
+    $(".setting-this").toggle();
+    $('.setting-this').load('setting_left.html');
+  });
+  
+	<!--밴드 아이콘 클릭했을 때 -->
+  $("#bandpng").click(function(){
+  	$(".friends-this").hide();
+  	 $(".setting-this").hide();
+  	 $(".msg-this").hide();
+    $(".band-this").toggle();
+    $('.band-this').load('myband.html');
+  });
+	<!--쪽지 아이콘 클릭했을 때 -->
+  $("#msgpng").click(function(){
+  	$(".friends-this").hide();
+  	 $(".setting-this").hide();
+   	 $(".band-this").hide();
+    $(".msg-this").toggle();
+    $('.msg-this').load('msgbox_left.html');
+  });
+  
+	
+	<!--글 아이콘 클릭했을 때 -->
+  
+  
+  
+});
+
+
+
+
+
+
+</script>
+<!-- 왼쪽 아이콘  -->
+<div class=".col-md-6" style="height:34px; width:800px; float:left;">
 	<a href='mainFrame.html'><img id="withjam_main"
 		src="../img/withjam.png" style="width: 110px; height: 30px;"></a>
 </div>
 
-
-<div class=".col-md-6"  style="border:2px solid orange;height:31px; width:40%;float:left;">
-	<div class="dropdown" >
-	<img class="png dropdown-toggle" id="menu1" data-toggle="dropdown" src='../img/friends.png' width='35'
-					height='35' title="친구들">
-		<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">HTML11</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">CSS11</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">JavaScript</a></li>
-			<li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">About Us</a></li>
-		</ul>
-	</div>	
-		
-		
+<!-- 오른쪽 아이콘부분 -->
+<div class=".col-md-6 right-icon"  style="height:34px; width:300px; float:left;">
+ <img id="friendspng" class="png" src='../img/friends.png' width='25'
+					height='25' title="친구">
 					
-	<img class="png dropdown-toggle" id="menu2" data-toggle="dropdown" src='../img/band1.png' width='33'
-					height='33' title="밴드">
-		<ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">HTML22</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">CSS22</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">JavaScript22</a></li>
-			<li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">About Us</a></li>
-		</ul>
-	</div>
+ <img id="bandpng" class="png" src='../img/band1.png' width='25'
+					height='25' title="밴드">
+					
+ <img id="msgpng" class="png" src='../img/msg.png' width='25'
+					height='25' title="쪽지" >
+ <img id="settingpng" class="png" src='../img/setting.png' width='25'
+					height='25' title="설정" >
+	<img id="logoutpng" class="png" src='../img/logout.png' width='25'
+					height='25' title="로그아웃" >
+</div>
 
 
 
+<!-- 아이콘 클릭시 div부분 -->
+<!-- 친구 -->
+<div class='friends-this scrollBar' style="width:350px; 
+height:400px; 
+margin-top:34px;
+margin-left:600px;
+display:none;
+background-color:white;
+border:1px solid black;
+z-index:1040;
+opacity: 1;
+
+position:relative;background-color:#fff;
+-webkit-background-clip:padding-box;
+background-clip:padding-box;border:1px solid #999;
+border:1px solid rgba(0,0,0,.2);
+border-radius:6px;outline:0;
+-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
+box-shadow:0 3px 9px rgba(0,0,0,.5);
+
+"></div>
+<!-- 밴드 -->
+<div class='band-this scrollBar' style="width:350px; 
+height:400px; 
+margin-top:34px;
+margin-left:700px;
+display:none;
+background-color:white;
+border:1px solid black;
+z-index:1040;
+opacity: 1;
+
+position:relative;background-color:#fff;
+-webkit-background-clip:padding-box;
+background-clip:padding-box;border:1px solid #999;
+border:1px solid rgba(0,0,0,.2);
+border-radius:6px;outline:0;
+-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
+box-shadow:0 3px 9px rgba(0,0,0,.5);
+
+"></div>
+<!-- 쪽지 -->
+<div class='msg-this' style="width:350px; 
+height:400px; 
+margin-top:34px;
+margin-left:700px;
+display:none;
+background-color:white;
+border:1px solid black;
+z-index:1040;
+opacity: 1;
+
+position:relative;background-color:#fff;
+-webkit-background-clip:padding-box;
+background-clip:padding-box;border:1px solid #999;
+border:1px solid rgba(0,0,0,.2);
+border-radius:6px;outline:0;
+-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
+box-shadow:0 3px 9px rgba(0,0,0,.5);
 
 
+"></div>
+<!-- 설정 -->
+<div class='setting-this' style="width:300px; 
+height:400px; 
+margin-top:34px;
+margin-left:750px;
+display:none;
+background-color:white;
+border:1px solid black;
+z-index:1040;
+opacity: 1;
+
+position:relative;background-color:#fff;
+-webkit-background-clip:padding-box;
+background-clip:padding-box;border:1px solid #999;
+border:1px solid rgba(0,0,0,.2);
+border-radius:6px;outline:0;
+-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
+box-shadow:0 3px 9px rgba(0,0,0,.5);
+
+"></div>

@@ -85,12 +85,8 @@ input#selectL3:checked ~ .page3{
   display:block;
 }
 <!--쪽지함-->
-
-
 .msg-content  .setting-content{
-
 	padding:6px;
-	
 }
 .correct-btn{
 float:right;
@@ -107,10 +103,11 @@ padding:2px;
 border-radius: 0 0 6px 0;
 padding:2px;
 }
+.right-icon{
+padding-top:2px;
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-
 </style>
-
 <script type="text/javascript">
 //찾기 메뉴 
 $(function() {
@@ -141,7 +138,7 @@ $(function() {
 
 
 <!--modal 로드 -->
-$("#save_msg").click(function(){
+/* $("#save_msg").click(function(){
   $(".setting-content").hide();
   $(".myphoto-big").hide();
   $('.msg-content').load('msgbox_left.html').show();
@@ -151,7 +148,7 @@ $("#correct_msg").click(function(){
   $('.msg-content').hide();
   $(".myphoto-big").hide();
   $('.setting-content').load('setting_left.html').show();
-});
+}); */
 
  $("#myphotoleft").click(function(){
   $('.msg-content').hide();
@@ -182,8 +179,8 @@ $("#correct_msg").click(function(){
 
 				<div id="button_myInfo">
 					<button type="button" id="read_msg" class="btn btn-default btn-xs">내글만보기</button>
-					<button type="button" id="save_msg" class="btn btn-info btn-xs"
-						data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보관함</button>
+<!-- 					<button type="button" id="save_msg" class="btn btn-info btn-xs"
+						data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보관함</button> -->
 				</div>
 			</div>
 			<hr>
@@ -200,10 +197,10 @@ $("#correct_msg").click(function(){
 					<td>2014-12-31</td>
 				</tr>
 			</table>
-			<div class="correct-btn">
+<!-- 			<div class="correct-btn">
 				<button type="button" id="correct_msg"
 					class="btn btn-default btn-xs" data-toggle="modal"
-					data-target=".bs-example-modal-sm">설정하기</button>
+					data-target=".bs-example-modal-sm">설정하기</button> -->
 			</div>
 
 			<!-- modal -->
