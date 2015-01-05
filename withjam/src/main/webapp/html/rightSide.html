@@ -14,7 +14,7 @@
 <style type="text/css">
 
 label{
-	font-size: 10px;
+	font-size: 12px;
 }
 img {
 	height: 30px;
@@ -79,11 +79,16 @@ input#selectR1, input#selectR2, input#selectR3 {
 
 .Taplabel {
 	display: inline-block;
-	width: 60px;
+	width: 90px;
 	height: 30px;
 	background: #eef;
 	text-align: center;
 	line-height: 30px;
+	border-bottom:1px solid gray;
+	border-right:1px solid gray;
+	border-radius:5px;
+	margin:3px;
+	
 }
 
 .page1, .page2, .page3 {
@@ -101,7 +106,23 @@ input#selectR2:checked ~ .page2 {
 input#selectR3:checked ~ .page3 {
 	display: block;
 }
+#createBand{
+width:190px;
+text-align: center;
+border-radius:3px;
 
+}
+.c_band{
+margin-top:3px;
+}
+#b-makebtn{
+float:right;
+padding-right:3px;
+margin-top:10px;
+}
+.Border_R{
+margin-top:3px;
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 </style>
@@ -118,6 +139,15 @@ input#selectR3:checked ~ .page3 {
 			});
 		});
 	});
+	
+	
+	$('#menuTap11').load('jampng.html');
+	$('#selectR2').click(function(){
+		$('#menuTap11').hide();
+	});
+	$('#selectR3').click(function(){
+		$('#menuTap11').hide();
+	});
 </script>
 
 </head>
@@ -126,16 +156,17 @@ input#selectR3:checked ~ .page3 {
 
 		<div class="Border_R menuTap1 divBG shadow divRadius">
 
-			<input id="selectR1" name="selectMenu_R" type="radio" checked> <label
-				for="selectR1" class="friendList Taplabel">친구</label> <input
-				id="selectR2" name="selectMenu_R" type="radio"> <label
-				for="selectR2" class="bookmarkList Taplabel">북마크</label> <input
-				id="selectR3" name="selectMenu_R" type="radio"><label
-				for="selectR3" class="bandList Taplabel">밴드</label>
-
+		<!-- 	<input id="selectR1" name="selectMenu_R" type="radio" checked> <label
+				for="selectR1" class="friendList Taplabel">친구</label> --> 
+				<input id="selectR2" name="selectMenu_R" type="radio"> 
+				<label for="selectR2" class="bookmarkList Taplabel" >북마크</label> 
+				
+				<input id="selectR3" name="selectMenu_R" type="radio">
+				<label for="selectR3" class="bandList Taplabel">밴드</label>
+	<div id="menuTap11"></div>
 			<!-- - - - - - - - - - -친구 - - - - - - - - - - - - - -->
 
-			<div class="page1 " >
+<!-- 			<div class="page1 " >
 
 				<div class="Border_R maginR">
 			
@@ -166,7 +197,7 @@ input#selectR3:checked ~ .page3 {
 					</div>
 				</div>
 
-			</div>
+			</div> -->
 
 			<!-- - - - - - - - - - - -북마크 - - - - - - - - - - - - - -->
 
@@ -214,9 +245,9 @@ input#selectR3:checked ~ .page3 {
 			<div class="accordion Border_R" >
 				<p id="createBand">밴드 만들기</p>
 				<div class="c_band">
-					<div><label style="float: left;">밴드명:</label><input type="text" ></div><br>
+					<div><label style="float: left;">밴 드 명:</label><input type="text" ></div><br>
 					
-					<div><label style="float: left;">장르:</label>
+					<div><label style="float: left;">장    르:</label>
 					<select name="band" class="styled-select">
 						<option value="" selected="selected">선택</option>
 						<option value="band1">락</option>
@@ -230,13 +261,14 @@ input#selectR3:checked ~ .page3 {
 						<option value="band2">2</option>
 					</select></div><br>
 
-					<div><label style="float: left;">설명:</label><input type="text" ></div>
-					<div><button>밴드 만들기</button></div>
+					<div><label style="float: left;">설    명:</label><input type="text" ></div>
+					<div id="b-makebtn"><button>밴드 만들기</button></div>
+					<hr>
 				</div>
 
 			</div>
 			
-			<div class="Border_R ">
+			<div class="Border_R">
 					<div class="magin" style="float: left; width: 35px; height: 35px;">
 						<img id="profileImg" src="../img/temp.jpg">
 					</div>
