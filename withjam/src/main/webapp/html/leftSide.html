@@ -98,18 +98,47 @@ border-bottom:1px solid gray;
 }
 #userId_left{
 border-radius: 0 6px 0 0;
+opacity:0.7;
 
 padding:2px;
 border-right:1px solid gray;
 }
 #usermsg_left{
 border-radius: 0 0 6px 0;
+opacity:0.7;
 padding:2px;
 border-bottom:1px solid gray;
 border-right:1px solid gray;
 }
 .right-icon{
 padding-top:2px;
+}
+.friend-modal-content{
+width:600px;
+
+}
+
+.friend-modal{
+margin:4px;
+width:590px;
+height:530px;
+border:1px dashed gray;
+
+}
+.friend-modal-left{
+width:290px;
+float:left;
+
+margin:2px;
+
+}
+.friend-modal-right{
+width:290px;
+height:528px;
+float:left;
+border-left:1px dashed black;
+margin:2px;
+
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 </style>
@@ -147,29 +176,31 @@ $(function() {
   $(".setting-content").hide();
   $(".myphoto-big").hide();
   $('.msg-content').load('msgbox_left.html').show();
-});
-
-$("#correct_msg").click(function(){
-  $('.msg-content').hide();
-  $(".myphoto-big").hide();
-  $('.setting-content').load('setting_left.html').show();
 }); */
 
- $("#myphotoleft").click(function(){
-  $('.msg-content').hide();
-  $(".setting-content").hide();
-  $(".myphoto-big").load('photo.html').show();
-}); 
 
-$("#follow").click(function(){
+<!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
+$("#profileImg").click(function(){
+  
+  $(".myphoto-big").hide();
+  $('.friend-modal-content').load('friend-modal.html').show();
+});
+
+/* <!--내 사진 클릭했을 때 사진 확대 모달-->
+ $("#myphotoleft").click(function(){
+  $('.friend-modal-content').hide();
+  $(".myphoto-big").load('photo.html').show();
+});  */
+
+$("#following").click(function(){
 	$('#myInfo4').show();
 	$('.follower').hide();
-	$('.follow').show();
+	$('.following').show();
 	
 });
 $("#follower").click(function(){
 	$('#myInfo4').show();
-	$('.follow').hide();
+	$('.following').hide();
 	$('.follower').show();
 });
 
@@ -181,7 +212,7 @@ $("#follower").click(function(){
 </head>
 <body>
 	<div class="Border_L " style="height: 100%; float: right" >
-		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:370px;">
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:400px;">
 
 
 
@@ -224,12 +255,20 @@ $("#follower").click(function(){
 				</tr>
 				<tr>
 					<td><a>50</a></td>
-					<td><a id="follow">32</a></td>
+					<td><a id="following">32</a></td>
 					<td><a id="follower">55</a></td>
 				</tr>
 			</table>
 			
-		
+	<!-- 밴드 선택 -->
+	가입한 밴드:	
+	<select>
+  <option value="volvo">우리밴드</option>
+  <option value="saab">너네밴드</option>
+  <option value="mercedes" selected>잘하는밴드</option>
+  <option value="audi">못하는밴드</option>
+</select>
+	<button type="button" class="btn btn-default btn-xs">이동</button>
 <!-- 			<div class="correct-btn">
 				<button type="button" id="correct_msg"
 					class="btn btn-default btn-xs" data-toggle="modal"
@@ -238,118 +277,42 @@ $("#follower").click(function(){
 	
 	<!-- 팔로잉 클릭했을 때 나타나는 화면  -->		
 	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:250px;display:none">
-	<div class="follow scrollBar" style="height:250px;">
+	<div class="following scrollBar" style="height:250px;">
 		<div class="Border_R maginR">
 	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target="#myModal">
 	</div>
 	<div class="magin">
 		<label>팔로잉</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
 	</div>
 </div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
- </div>
+
 </div>
 
 <!-- 팔로워  -->
 	<div class="follower scrollBar" style="height:250px;">
 		<div class="Border_R maginR">
 	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
+		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target="#myModal">
 	</div>
 	<div class="magin">
 		<label>팔로워</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
 	</div>
 </div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
- </div>
-</div>
+
 		</div>
 
 			<!-- modal -->
-			<div class="modal fade bs-example-modal-sm" tabindex="-1"
-				role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm">
-					<div class="modal-content">
-						<div class="msg-content"></div>
+			
+<div class="modal fade" id="myModal" tabindex="-1" 
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+			
+						<div class="friend-modal-content"></div>
 						<div class="setting-content"></div>
-						<div class="myphoto-big"><img src="../img/myphoto.jpg" style="width:220px; height:200px;"></div>
+						<div class="myphoto-big"></div>
 
 					</div>
 				</div>
