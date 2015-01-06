@@ -14,7 +14,7 @@
 <style type="text/css">
 
 label{
-	font-size: 12px;
+	font-size: 11px;
 }
 img {
 	height: 30px;
@@ -49,7 +49,7 @@ img {
 	padding: 5px;
 	margin: 5px;
 	font-size: 12px;
-	width: 210px;
+	width: 220px;
 	height: 98%;
 }
 
@@ -79,15 +79,15 @@ input#selectR1, input#selectR2, input#selectR3 {
 
 .Taplabel {
 	display: inline-block;
-	width: 90px;
-	height: 30px;
+	width: 80px;
+	height: 25px;
 	background: #eef;
 	text-align: center;
 	line-height: 30px;
 	border-bottom:1px solid gray;
 	border-right:1px solid gray;
 	border-radius:5px;
-	margin:3px;
+	margin-left:60px;
 	
 }
 
@@ -123,13 +123,18 @@ margin-top:10px;
 .Border_R{
 margin-top:3px;
 }
+.recomm-content{
+width:220px;
+height:85px;
+float:left;
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 </style>
 
 <script type="text/javascript">
 
-	$(document).ready(function() {
+/*	$(document).ready(function() {
 		//찾기 메뉴 
 		$(function() {
 			$(".c_band").hide();
@@ -142,66 +147,67 @@ margin-top:3px;
 	
 	
 	$('#menuTap11').load('jampng.html');
-	$('#selectR2').click(function(){
+	
+ 	$('#selectR2').click(function(){
 		$('#menuTap11').hide();
 	});
 	$('#selectR3').click(function(){
 		$('#menuTap11').hide();
-	});
+	}); */
 </script>
 
 </head>
 <body>
-	<div class="Border_R " style="height: 100%; float: left">
+	<!-- 윗칸 -->
+	<div class="Border_R " style="height: 130px; float: left">
 
-		<div class="Border_R menuTap1 divBG shadow divRadius">
-
-		<!-- 	<input id="selectR1" name="selectMenu_R" type="radio" checked> <label
-				for="selectR1" class="friendList Taplabel">친구</label> --> 
-				<input id="selectR2" name="selectMenu_R" type="radio"> 
-				<label for="selectR2" class="bookmarkList Taplabel" >북마크</label> 
-				
-				<input id="selectR3" name="selectMenu_R" type="radio">
-				<label for="selectR3" class="bandList Taplabel">밴드</label>
-	<div id="menuTap11"></div>
-			<!-- - - - - - - - - - -친구 - - - - - - - - - - - - - -->
-
-<!-- 			<div class="page1 " >
-
-				<div class="Border_R maginR">
+		<div class="Border_R menuTap1 divBG divRadius shadow ">
+		
+		<a>추천곡</a>
+		<div class="btn-right" style="float:right;">
+		 <button type="button" class="btn  btn-xs">＜</button>
+		 <button type="button" class="btn  btn-xs"> ＞ </button>
+		</div>	
 			
-				<br>
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>아이디</label> <br> <label>코멘트 - - - - </label>
-					</div>
-				</div>
+		<div class="recomm-content">
+		<div class="recomm-box" style="width:90px;height:70px;border-radius:4px;border:1px solid pink;float:left;margin:6px;"></div>
+		<div class="recomm-box" style="width:90px;height:70px;border-radius:4px;border:1px solid pink;float:left;margin:6px;"></div>
+		</div>
+
+		</div>
+	</div>
+		<!-- 중간칸 -->
+	<div class="Border_R " style="height: 130px; float: left">
+
+		<div class="Border_R menuTap1 divBG divRadius shadow ">
+		
+		<a>추천유저</a>
+		<div class="btn-right" style="float:right;">
+		 <button type="button" class="btn  btn-xs">＜</button>
+		 <button type="button" class="btn  btn-xs"> ＞ </button>
+		</div>	
 				
-				<div class="Border_R maginR">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>아이디</label> <br> <label>코멘트 - - - - </label>
-					</div>
-				</div>
-				
-				<div class="Border_R maginR">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>아이디</label> <br> <label>코멘트 - - - - </label>
-					</div>
-				</div>
+		<div class="recomm-content">
+		<div class="recomm-box" style="width:90px;height:70px;border-radius:4px;border:1px solid pink;float:left;margin:6px;"></div>
+		<div class="recomm-box" style="width:90px;height:70px;border-radius:4px;border:1px solid pink;float:left;margin:6px;"></div>
+		</div>
 
-			</div> -->
+		</div>
+	</div>
+	
+	<!-- 아래칸 -->
+		<div class="Border_R " style="height: 300px; float: left">
+		
+	
+		<div class="Border_R menuTap1 divBG shadow divRadius">
+		<!-- 	<input id="selectR2" name="selectMenu_R" type="radio">  -->
+			<a>북마크</a>
+		<div class="btn-right" style="float:right;">
+		 <button type="button" class="btn  btn-xs">＜</button>
+		 <button type="button" class="btn  btn-xs"> ＞ </button>
+		</div>	
+	<div class="bookmark-right"> 
 
-			<!-- - - - - - - - - - - -북마크 - - - - - - - - - - - - - -->
-
-			<div class="page2">
 			
 			
 				<div class="Border_R maginR" >
@@ -209,93 +215,20 @@ margin-top:3px;
 						<img id="profileImg" src="../img/temp.jpg">
 					</div>
 					<div  class="magin">
-						<label>제목</label><label>아이디</label> 
-						<br> 
-						<label>참가인원</label><label>추천수</label><label>등록일</label>
-					</div>
-				</div>
-				
-				<div class="Border_R maginR">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>제목</label><label>아이디</label> 
-						<br> 
-						<label>참가인원</label><label>추천수</label><label>등록일</label>
-					</div>
-				</div>
-				
-				<div class="Border_R maginR">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>제목</label><label>아이디</label> 
-						<br> 
-						<label>참가인원</label><label>추천수</label><label>등록일</label>
-					</div>
-				</div>
-			
-			</div>
-
-			<!-- - - - - - - - - - -밴드 - - - - - - - - - - - - - - -->
-
-			<div class="page3 " >
-			<div class="accordion Border_R" >
-				<p id="createBand">밴드 만들기</p>
-				<div class="c_band">
-					<div><label style="float: left;">밴 드 명:</label><input type="text" ></div><br>
+						<label>제목</label>|<label>아이디</label> 
+						<br>
+						<label>참가인원</label>|<label>추천수</label>|<label>등록일</label>|<label style="color: red;">삭제</label>
 					
-					<div><label style="float: left;">장    르:</label>
-					<select name="band" class="styled-select">
-						<option value="" selected="selected">선택</option>
-						<option value="band1">락</option>
-						<option value="band2">힙합</option>
-					</select></div><br>
-
-					<div><label style="float: left;">인원제한:</label>
-					<select name="band" class="styled-select">
-						<option value="" selected="selected">선택</option>
-						<option value="band1">1</option>
-						<option value="band2">2</option>
-					</select></div><br>
-
-					<div><label style="float: left;">설    명:</label><input type="text" ></div>
-					<div id="b-makebtn"><button>밴드 만들기</button></div>
-					<hr>
+					</div>
+					
 				</div>
-
-			</div>
-			
-			<div class="Border_R">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>밴드명</label><label>리더</label> 
-						<br> 
-						<label>밴드인원</label><label>장르</label>
-					</div>
-				</div>
-			
-			<div class="Border_R ">
-					<div class="magin" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>밴드명</label><label>리더</label> 
-						<br> 
-						<label>밴드인원</label><label>장르</label>
-					</div>
-				</div>
+				
+		
 			
 			</div>
-
-			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 		</div>
-	</div>
+		</div>
+	
 </body>
 </html>

@@ -7,7 +7,7 @@
 <link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
 <script src='../js/jquery-1.11.1.js'></script>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
-
+<link rel="stylesheet" href="../css/common.css">
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -84,62 +84,9 @@ input#selectL2:checked ~ .page2{
 input#selectL3:checked ~ .page3{
   display:block;
 }
-<!--쪽지함-->
-.msg-content  .setting-content{
-	padding:6px;
-}
-.correct-btn{
-float:right;
-margin-right:5px;
-}
-#myphotoleft{
-border-radius: 6px  0  0 6px;
-border-bottom:1px solid gray;
-}
-#userId_left{
-border-radius: 0 6px 0 0;
-opacity:0.7;
 
-padding:2px;
-border-right:1px solid gray;
-}
-#usermsg_left{
-border-radius: 0 0 6px 0;
-opacity:0.7;
-padding:2px;
-border-bottom:1px solid gray;
-border-right:1px solid gray;
-}
-.right-icon{
-padding-top:2px;
-}
-.friend-modal-content{
-width:600px;
 
-}
 
-.friend-modal{
-margin:4px;
-width:590px;
-height:530px;
-border:1px dashed gray;
-
-}
-.friend-modal-left{
-width:290px;
-float:left;
-
-margin:2px;
-
-}
-.friend-modal-right{
-width:290px;
-height:528px;
-float:left;
-border-left:1px dashed black;
-margin:2px;
-
-}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 </style>
 <script type="text/javascript">
@@ -167,6 +114,17 @@ $(function() {
 		$(".searchSubM2").hide();
 		return false;
 	});
+	
+	$(document).ready(function() {
+		//쪽지보내기 메뉴 
+		$(function() {
+			$(".band_content").hide();
+			$("#band_title").click(function() {
+				$(".band_content").slideToggle("middle"); 
+				return false;
+			});
+		});
+	});
 
 });
 
@@ -180,28 +138,32 @@ $(function() {
 
 
 <!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
-$("#profileImg").click(function(){
+$(".profileImg").click(function(){
   
-  $(".myphoto-big").hide();
   $('.friend-modal-content').load('friend-modal.html').show();
 });
 
-/* <!--내 사진 클릭했을 때 사진 확대 모달-->
- $("#myphotoleft").click(function(){
-  $('.friend-modal-content').hide();
-  $(".myphoto-big").load('photo.html').show();
-});  */
+
 
 $("#following").click(function(){
 	$('#myInfo4').show();
 	$('.follower').hide();
+	$('.band-detail').hide();
 	$('.following').show();
 	
 });
 $("#follower").click(function(){
 	$('#myInfo4').show();
 	$('.following').hide();
+	$('.band-detail').hide();
 	$('.follower').show();
+});
+
+$("#band-detail").click(function(){
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').show();
 });
 
 
@@ -220,7 +182,7 @@ $("#follower").click(function(){
 			<h5>MyInfo</h5>
 			<div id="myInfo">
 				<div id="myPhoto_left">
-					<img id="myphotoleft" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
 					data-toggle="modal" data-target=".bs-example-modal-sm">
 				</div>
 				<div id="userId_left">MyName</div>
@@ -228,8 +190,7 @@ $("#follower").click(function(){
 
 				<div id="button_myInfo">
 					<button type="button" id="read_msg" class="btn btn-default btn-xs">내음원보기</button>
-<!-- 					<button type="button" id="save_msg" class="btn btn-info btn-xs"
-						data-toggle="modal" data-target=".bs-example-modal-sm">쪽지보관함</button> -->
+
 				</div>
 			</div>
 			<hr>
@@ -268,50 +229,91 @@ $("#follower").click(function(){
   <option value="mercedes" selected>잘하는밴드</option>
   <option value="audi">못하는밴드</option>
 </select>
-	<button type="button" class="btn btn-default btn-xs">이동</button>
-<!-- 			<div class="correct-btn">
-				<button type="button" id="correct_msg"
-					class="btn btn-default btn-xs" data-toggle="modal"
-					data-target=".bs-example-modal-sm">설정하기</button> -->
+	<button id="band-detail" type="button" class="btn btn-default btn-xs">이동</button>
+
 			</div>
 	
-	<!-- 팔로잉 클릭했을 때 나타나는 화면  -->		
 	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:250px;display:none">
+	<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
+			<div class="band-detail scrollBar" style="height: 250px;">
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 70px; height: 70px;">
+						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg" style="float: left; width: 70px; height: 70px;">
+					</div>
+					<div class="magin">
+					<div id="band_left"><label>밴드명</label></div>
+				<div id="bandmsg_left"><label>밴드코멘트</label></div>
+				
+						<div class="band-btn" style="width:200px;height:30px;test-align:right;">
+				<button id="band-detail" type="button" class="btn btn-default btn-xs"style="float:right;">밴드글보기</button>
+					</div>
+				구성원<br>
+				<div class="bandmember">	<label>리더</label>|<label>김종종</label> 		</div>
+				<div class="bandmember">	<label>멤버</label>|<label>김원원</label> 		</div>
+				<div class="bandmember">		<label>멤버</label>|<label>윤종종</label>		</div>
+						
+					
+				
+	
+					</div>
+				</div>
+				<br>
+<hr>
+      <div class="accordion Border_R" >
+				<p id="band_title" style="width:400px;text-align:center;">밴드정보수정</p>
+				<div class="band_content">
+				밴드사진<br>
+				<input type="file"><br>
+				밴드명<br>
+				<input type="text" class="form-control" placeholder="Text input"><br>
+ 				밴드설명<br>
+ 				<textarea class="form-control" rows="3"></textarea><br>
+				<div id="b-makebtn"><button>수정완료</button></div>
+</div>
+
+			</div>
+			</div>
+	<!--------------- 팔로잉 클릭했을 때 나타나는 화면---------------  -->		
+
 	<div class="following scrollBar" style="height:250px;">
+
 		<div class="Border_R maginR">
 	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target="#myModal">
-	</div>
-	<div class="magin">
-		<label>팔로잉</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-</div>
-
-<!-- 팔로워  -->
-	<div class="follower scrollBar" style="height:250px;">
-		<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target="#myModal">
-	</div>
-	<div class="magin">
-		<label>팔로워</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
+		<img id="profileImg" class="profileImg"
+		src="../img/temp.jpg" data-toggle="modal" data-target="#myModal"></div>
+	<div class="magin"><label>팔로잉</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
 	</div>
 </div>
 
-		</div>
+</div>
 
-			<!-- modal -->
+<!--------------- 팔로워 클릭했을 때 나타나는 화면-------------- -->
+			<div class="follower scrollBar" style="height: 250px;">
 			
-<div class="modal fade" id="myModal" tabindex="-1" 
-	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    
 			
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+							data-toggle="modal" data-target="#myModal">
+					</div>
+					<div class="magin">
+						<label>팔로워</label> <label>/음원수 </label><br> <label>코멘트
+							- - - - </label>
+					</div>
+				</div>
+
+			</div>
+
+			<!------------------- modal ------------------>
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+
 						<div class="friend-modal-content"></div>
-						<div class="setting-content"></div>
+						<div class="band-content"></div>
 						<div class="myphoto-big"></div>
 
 					</div>
@@ -321,127 +323,8 @@ $("#follower").click(function(){
 			<!-- modal끝 -->
 
 
-		</div>
-		
-		
-		
-	<!-- 	<div class="Border_L menuTap divBG shadow divRadius">
 
-			<input id="selectL1" name="selectLenu_L" type="radio" checked> 
-			<label for="selectL1" class="recommend Taplabel">추천</label> 
-			<input id="selectL2" name="selectLenu_L" type="radio"> 
-			<label for="selectL2" class="searchMenu Taplabel">찾기</label>
-			<input id="selectL3" name="selectLenu_L" type="radio"> 
-			<label for="selectL3" class="optionMenu Taplabel">설정</label>
-			
-			<div class="page1">
-			<h1>page1</h1>
-				<p>aaa</p>
-			</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<div class="page2">
-				
-	<table border="1" class="table ">
-		<th>찾기</th>
-		- - - - - - - - - - - - - - - - -
-		<tr id="searchBoard" class=" accordion">
-			<td>글 찾기 >
-		
-			<div class="searchSubM1 Border_L">
-					글 찾기 메뉴
-					<div class="Border_L">
-					<label>장르</label> 
-					<select name="band" class="styled-select">
-						<option value="" selected="selected">선택</option>
-						<option value="band1">락</option>
-						<option value="band2">힙합</option>
-					</select>
-						<input type="radio" name="chk_option" value="일간">일간 
-						<input type="radio" name="chk_option" value="주간">주간 
-						<input type="radio" name="chk_option" value="누적">누적
-					</div>
-
-
-				수정할것..
-					<div class="Border_L " >
-						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
-						<div>
-							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
-							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
-						</div>
-					</div>
-
-				</div></td>
-		</tr>
-		- - - - - - - - - - - - - - - - -
-		<tr id="searchAccount" class=" accordion ">
-			<td>사람 찾기 >
-			<div class="searchSubM2 Border_L">
-					사람 찾기 메뉴
-					<div class="Border_L">
-						<label>장르</label> 
-					<select name="band" class="styled-select">
-						<option value="" selected="selected">선택</option>
-						<option value="band1">락</option>
-						<option value="band2">힙합</option>
-					</select>
-					</div>
-					
-					
-					수정할것..
-					<div class="Border_L" >
-						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
-						<div>
-							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
-							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
-						</div>
-					</div>
-
-				</div></td>
-		</tr>
-		- - - - - - - - - - - - - - - - -
-		<tr id="searchFriend" class=" accordion ">
-			<td>밴드 찾기 >
-			<div class="searchSubM3 Border_L">
-					밴드 찾기 메뉴
-					<div>
-						<input placeholder=" 아이디를 입력하세요." type="text" >
-					</div>
-					<div>
-					
-					수정할것..
-					<div class="Border_L" >
-						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
-						<div>
-							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
-							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
-						</div>
-					</div>
-					
-					</div>
-
-				</div></td>
-		</tr>
-		- - - - - - - - - - - - - - - - -
-	</table>
-			</div>
-			
-			<div class="page3">
-				<h1>page3</h1>
-				<p>ccc</p>
-			</div>
-
-
-		</div> -->
+				</div>
 	</div>
 </body>
 </html>

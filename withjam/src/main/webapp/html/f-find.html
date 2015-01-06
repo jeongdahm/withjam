@@ -6,11 +6,12 @@ $(document).ready(function(){
   });
 });
 
-$("#profileImg").click(function(){
-  $(".setting-content").hide();
-  $(".myphoto-big").hide();
-  $('.msg-content').load('msgbox_left.html').show();
+<!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
+$(".profileImg").click(function(){
+  
+  $('.friend-modal-content').load('friend-modal.html').show();
 });
+
 </script>
 
 <!-- --------친구 검색 ----------- -->
@@ -24,82 +25,7 @@ $("#profileImg").click(function(){
 <div class="f-List scrollBar" style="float:left; width:290px; height:320px;">
 <div class="Border_R maginR ">
 	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" >
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-<div class="Border_R maginR ">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" >
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-<div class="Border_R maginR ">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg">
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" >
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-<div class="Border_R maginR ">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" >
-	</div>
-	<div class="magin">
-		<label>아이디</label> <br> <label>코멘트 - - - - </label>
-	</div>
-</div>
-
-
-<div class="Border_R maginR">
-	<div class="magin" style="float: left; width: 35px; height: 35px;">
-		<img id="profileImg" src="../img/temp.jpg" >
+		<img id="profileImg" class="profileImg" src="../img/temp.jpg" data-toggle="modal" data-target="#myModal">
 	</div>
 	<div class="magin">
 		<label>아이디</label> <br> <label>코멘트 - - - - </label>
@@ -107,3 +33,22 @@ $("#profileImg").click(function(){
 </div>
 
 </div>
+
+
+			<!-- modal -->
+			
+<div class="modal fade" id="myModal" tabindex="-1" 
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+			
+						<div class="friend-modal-content"></div>
+						<div class="setting-content"></div>
+						<div class="myphoto-big"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- modal끝 -->
