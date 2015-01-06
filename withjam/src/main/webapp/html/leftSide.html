@@ -115,7 +115,7 @@ $(function() {
 		return false;
 	});
 	
-	$(document).ready(function() {
+	
 		//쪽지보내기 메뉴 
 		$(function() {
 			$(".band_content").hide();
@@ -125,8 +125,9 @@ $(function() {
 			});
 		});
 	});
-
-});
+	$("#b-makebtn").click(function(){
+		$(".band_content").slideToggle("middle"); 
+	});
 
 
 <!--modal 로드 -->
@@ -139,7 +140,6 @@ $(function() {
 
 <!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
 $(".profileImg").click(function(){
-  
   $('.friend-modal-content').load('friend-modal.html').show();
 });
 
@@ -159,7 +159,7 @@ $("#follower").click(function(){
 	$('.follower').show();
 });
 
-$("#band-detail").click(function(){
+$(".band-detail").click(function(){
 	$('#myInfo4').show();
 	$('.following').hide();
 	$('.follower').hide();
@@ -229,7 +229,7 @@ $("#band-detail").click(function(){
   <option value="mercedes" selected>잘하는밴드</option>
   <option value="audi">못하는밴드</option>
 </select>
-	<button id="band-detail" type="button" class="btn btn-default btn-xs">이동</button>
+	<button  type="button" class="btn btn-default btn-xs band-detail">이동</button>
 
 			</div>
 	
@@ -266,6 +266,19 @@ $("#band-detail").click(function(){
 				<input type="file"><br>
 				밴드명<br>
 				<input type="text" class="form-control" placeholder="Text input"><br>
+				장르
+<select class="form-control">
+	<option>k-pop</option>
+	<option>발라드</option>
+	<option>락</option>
+	<option>트로트</option>
+	<option>힙합</option>
+	<option>메탈</option>
+	<option>클래식</option>
+	<option>기타등등</option>
+	<option>4</option>
+	<option>5</option>
+</select>
  				밴드설명<br>
  				<textarea class="form-control" rows="3"></textarea><br>
 				<div id="b-makebtn"><button>수정완료</button></div>
