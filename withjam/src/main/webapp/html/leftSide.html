@@ -174,12 +174,14 @@ $(".band-detail-btn").click(function(){
 </head>
 <body>
 	<div class="Border_L " style="height: 100%; float: right" >
-		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:400px;">
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:270px;">
 
 
 
 			<!-- 내정보 -->
-			<h5>MyInfo</h5>
+			MyInfo
+	<button type="button" id="read_msg" class="btn btn-default btn-xs" style="margin-left:100px">내음원보기</button>
+		<div style="height:3px;"></div>
 			<div id="myInfo">
 				<div id="myPhoto_left">
 					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
@@ -188,13 +190,9 @@ $(".band-detail-btn").click(function(){
 				<div id="userId_left">MyName</div>
 				<div id="usermsg_left">안녕하세요</div>
 
-				<div id="button_myInfo">
-					<button type="button" id="read_msg" class="btn btn-default btn-xs">내음원보기</button>
-
-				</div>
+		
 			</div>
-			<hr>
-			<h5>MyName님의</h5>
+			<div style="height:65x;margin:2px;">
 			<table id='myinfo2' class='table table-hover'>
 				<tr>
 					<th>관심장르</th>
@@ -207,7 +205,8 @@ $(".band-detail-btn").click(function(){
 					<td>2014-12-31</td>
 				</tr>
 			</table>
-			<br>
+			</div>
+			<div style="height:65x;margin:2px;">
 			<table id='myinfo3' class='table table-hover'>
 				<tr>
 					<th>My음원</th>
@@ -220,7 +219,7 @@ $(".band-detail-btn").click(function(){
 					<td><a id="follower">55</a></td>
 				</tr>
 			</table>
-			
+			</div>
 	<!-- 밴드 선택 -->
 	가입한 밴드:	
 	<select>
@@ -230,12 +229,11 @@ $(".band-detail-btn").click(function(){
   <option value="audi">못하는밴드</option>
 </select>
 	<button  type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
-
 			</div>
 	
-	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:250px;display:none">
+	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:210px;display:none">
 	<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
-			<div class="band-detail scrollBar" style="height: 250px;">
+			<div class="band-detail scrollBar" style="height: 205px;">
 				<div class="Border_R maginR">
 					<div class="magin" style="float: left; width: 70px; height: 70px;">
 						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg" style="float: left; width: 70px; height: 70px;">
@@ -288,7 +286,7 @@ $(".band-detail-btn").click(function(){
 			</div>
 	<!--------------- 팔로잉 클릭했을 때 나타나는 화면---------------  -->		
 
-	<div class="following scrollBar" style="height:250px;">
+	<div class="following scrollBar" style="height:205px;">
 
 		<div class="Border_R maginR">
 	<div class="magin" style="float: left; width: 35px; height: 35px;">
@@ -301,7 +299,7 @@ $(".band-detail-btn").click(function(){
 </div>
 
 <!--------------- 팔로워 클릭했을 때 나타나는 화면-------------- -->
-			<div class="follower scrollBar" style="height: 250px;">
+			<div class="follower scrollBar" style="height: 205px;">
 			
 			
 				<div class="Border_R maginR">
