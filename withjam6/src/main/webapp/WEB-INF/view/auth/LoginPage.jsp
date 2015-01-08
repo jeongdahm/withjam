@@ -1518,7 +1518,7 @@ input[type=button]:active {
 						<p class="submit">
 							<input id="register" type="button" name="register"
 								value="Register"> <input
-								onClick="location.href='main_div.html'" type="button"
+								onClick="location.href='mainFrame.html'" type="button"
 								name="commit" value="Login">
 						</p>
 					</form>

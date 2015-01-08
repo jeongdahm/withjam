@@ -58,7 +58,7 @@ $(".profileImg").click(function() {
 //			$('.band-detail').hide();
 //			$('.following').show();
 //
-//			$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+//			$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 //				if (data.status == 'fail') {
 //					console.log('loginUser fail..');
 //				} else {
@@ -86,7 +86,7 @@ $(".profileImg").click(function() {
 //	$('.band-detail').hide();
 //	$('.follower').show();
 //	
-//	$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+//	$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 //		if (data.status == 'fail') {
 //			console.log('loginUser fail..');
 //		} else {
@@ -117,7 +117,7 @@ $(".band-detail-btn").click(function() {
 MyInfo();
 
 function MyInfo(){
-$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 	if (data.status == 'fail') {
 		console.log('loginUser fail..');
 	} else {

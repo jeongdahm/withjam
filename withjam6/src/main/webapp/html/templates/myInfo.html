@@ -63,7 +63,7 @@ $("#following").click(
 			$('.band-detail').hide();
 			$('.following').show();
 
-			$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+			$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 				if (data.status == 'fail') {
 					console.log('loginUser fail..');
 				} else {
@@ -91,7 +91,7 @@ $("#follower").click(function() {
 	$('.band-detail').hide();
 	$('.follower').show();
 	
-	$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+	$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 		if (data.status == 'fail') {
 			console.log('loginUser fail..');
 		} else {

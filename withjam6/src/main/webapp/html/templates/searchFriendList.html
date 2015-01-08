@@ -19,7 +19,7 @@
 	$(".btnFollow").click(
 			function() {
 				var btnFollow = $(this);
-				$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+				$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 					if (data.status == 'fail') {
 						console.log('loginUser fail..');
 					} else {
