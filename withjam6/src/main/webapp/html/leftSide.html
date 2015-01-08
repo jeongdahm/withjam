@@ -18,17 +18,65 @@
 
 
 
-	<div class="Border_L " style="height: 100%; float: right">
-		<div class="Border_L infoFormL magin divBG shadow divRadius"
-			id="myInfo" style="height: 270px;">
+	<div class="Border_L " style="height: 100%; float: right" >
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:300px;">
 
 
 
-			
-		</div>
+			<!-- 내정보 -->
+			MyInfo
+	<button type="button" id="read_msg" class="btn btn-default btn-xs" style="margin-left:100px">내음원보기</button>
+		<div style="height:3px;"></div>
+			<div id="myInfo">
+				<div id="myPhoto_left">
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
+					data-toggle="modal" data-target=".bs-example-modal-sm">
+				</div>
+				<div id="userId_left">MyName</div>
+				<div id="usermsg_left">안녕하세요</div>
 
-		<div class="Border_L infoFormL magin divBG shadow divRadius"
-			id="myInfo4" style="height: 210px; display: none">
+		
+			</div>
+			<div style="height:65x;margin:2px;">
+			<table id='myinfo2' class='table table-hover'>
+				<tr>
+					<th>관심장르</th>
+					<th>관심악기</th>
+					<th>가입일</th>
+				</tr>
+				<tr>
+					<td>클래식</td>
+					<td>바이올린</td>
+					<td>2014-12-31</td>
+				</tr>
+			</table>
+			</div>
+			<div style="height:65x;margin:2px;">
+			<table id='myinfo3' class='table table-hover'>
+				<tr>
+					<th>My음원</th>
+					<th>팔로잉</th>
+					<th>팔로워</th>
+				</tr>
+				<tr>
+					<td><a>50</a></td>
+					<td><a id="following">32</a></td>
+					<td><a id="follower">55</a></td>
+				</tr>
+			</table>
+			</div>
+	<!-- 밴드 선택 -->
+	가입한 밴드:	
+	<select>
+  <option value="volvo">우리밴드</option>
+  <option value="saab">너네밴드</option>
+  <option value="mercedes" selected>잘하는밴드</option>
+  <option value="audi">못하는밴드</option>
+</select>
+	<button  type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
+			</div>
+	
+	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:210px;display:none">
 			<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
 			<div class="band-detail scrollBar" style="height: 205px;">
 				<div class="Border_R maginR">
@@ -130,7 +178,7 @@
 	</div>
 
 
-<script type="text/javascript" src='leftSide.js'></script>	
+<script type="text/javascript" src='../js/leftSide.js'></script>	
 <script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src='../js/jquery-1.11.1.js'></script>
