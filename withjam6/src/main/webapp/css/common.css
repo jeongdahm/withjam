@@ -1,6 +1,18 @@
 @CHARSET "UTF-8";
 
 
+.right-icon{
+padding-top:2px;
+}
+
+<!--쪽지함-->
+.msg-content  .setting-content{
+	padding:6px;
+}
+.correct-btn{
+float:right;
+margin-right:5px;
+}
 
 
 <!--dam myInfo -->
@@ -16,19 +28,33 @@
 #myPhoto_left{
 float:left;
 border-radius : 0.5em;
+height:70px; 
+width:70px;
+border-radius: 6px  0  0 6px;
+border-bottom:1px solid gray;
 }
 #userId_left{
- margin-left: 101px;
+ margin-left: 71px;
  height:20px;
  width:65%;
  background-color: #6592FF;
- 
+ border-radius: 0 6px 0 0;
+opacity:0.7;
+
+padding:2px;
+border-right:1px solid gray;
 }
 #usermsg_left{
-	margin-left: 101px;
-	height:80px;
+	margin-left: 71px;
+	height:50px;
   width:65%;
 	background-color: #CCDBFE;
+	
+	border-radius: 0 0 6px 0;
+opacity:0.7;
+padding:2px;
+border-bottom:1px solid gray;
+border-right:1px solid gray;
 }
 #button_myInfo{
 	margin-top:5px;
@@ -80,202 +106,79 @@ border:solid 1px gray;
 float:left;
 display:inline;
 }
+.png{
+	width:25px;
+	height:25px;
+	
+}
   
-  
-/* photo-click */  
-.modal-content1 {
-   height: 650px;
-   width: 600px;
-   position: fixed;
-   right: 100px;  
-   background: white;
+<!--band 상세 -->
+
+#bandphotoleft{
+float:left;
+border-radius : 0.5em;
+
+float: left; width: 70px; height: 70px;
+border-radius: 6px  0  0 6px;
+border-bottom:1px solid gray;
+}
+#band_left{
+ margin-left: 71px;
+ border-bottom:1px solid gray;
+ height:20px;
+ width:65%;
+ border-radius: 0 6px 0 0;
+opacity:0.7;
+padding:2px;
+border-right:1px solid gray;
+ 
 }
 
-.modal-head {
-   height: 30%;
-   border-bottom: 1px solid gray;
+#bandmsg_left{
+	margin-left: 71px;
+	height:50px;
+  width:65%;
+  border-radius: 0 0 6px 0;
+opacity:0.7;
+padding:2px;
+border-bottom:1px solid gray;
+border-right:1px solid gray;
 }
 
-.modal-photo{
-   height: 200px;
-   width: 200px;
-   border:1px solid black;
-   position: absolute;
-   top: 70px;
-   left: 15px;   
+.bandmember{
+width:100px;float:left;border:1px solid gray;text-align:center;
+border-radius:5px;
+	
 }
 
-.modal-photo img{
-   width: 100%;
-   height: 100%;
+<!--친구 모달-->
+
+.friend-modal-content{
+width:600px;
+
 }
 
-.modal-head img{
-   width: 100%;
-   height: 100%;
+.friend-modal{
+margin:4px;
+width:590px;
+height:530px;
+border:1px dashed gray;
+border-radius:6px;
+
+}
+.friend-modal-left{
+width:290px;
+float:left;
+
+margin:2px;
+
+}
+.friend-modal-right{
+width:290px;
+height:528px;
+float:left;
+border-left:1px dashed black;
+margin:2px;
+
 }
 
-.modal-follow{
-   width : 64%;
-   height: 9%;
-   border: 1px solid gray;
-   margin-left: 36%;
-}
-
-.modal-following{
-   width : 30%;
-   height: 100%;
-   border: 1px solid gray;
-   float: left;
-}
-
-.modal-follow-info{
-   width : 70%;
-   height: 100%;
-   border: 1px solid red;
-   float: left;
-}
-
-.modal-follow-info-div{
-   width : 100%;
-   height: 50%;
-   border: 1px solid green;
-}
-
-.modal-name{
-   width: 100%;
-   height: 10%;
-   border: 1px solid gray;
-}
-
-.modal-f-follower{
-   width: 100%;
-   height: 13%;
-   border: 1px solid gray;
-   background-color: #E0F2F7;
-}
-
-.modal-board-list{
-   width: 100%;
-   height: 30%;
-   border: 1px solid green;
-   overflow: scroll;
-}
-
-.modal-follow-info-div>div{
-  display: inline-block;
-  /* margin-left: 50px; */
-  border: 1px solid black;
-  width: 32%;
-  color: graytext;
-}
-
-
-.modal-follow-info-div:nth-child(2)>div{
-  display: inline-block;
-  /* margin-left: 50px; */
-  border: 1px solid black;
-  width: 32%;
-  color: #00BFFF;
-}
-
-.modal-following>button{
-  width: 80%;
-  height: 80%;
-  margin-left: 10px;
-  margin-top: 6px;
-  background-color: white;
-  border-radius: 5px;
-}
-
-.modal-follow{
-   width : 64%;
-   height: 9%;
-   border: 1px solid gray;
-   margin-left: 36%;
-}
-
-.modal-name>div{
-  width : 64%;
-   height: 100%;
-   border: 1px solid blue;
-   margin-left: 36%;
-}
-
-.modal-name>div>div:nth-child(1){
-  width : 100%;
-   height: 50%;
-   border: 1px solid gray;
-   font-size: 20px;
-   padding-left: 10px;
-}
-
-.modal-name>div>div:nth-child(2){
-  width : 100%;
-   height: 50%;
-   border: 1px solid gray;
-   color: graytext;
-   padding-left: 10px;
-}
-
-.modal-f-follower>div{
-   height: 70px;
-   width:  70px;
-   border: 1px solid gray;
-   border-radius: 5px;
-   float: left;
-   margin-left: 10px;
-}
-.modal-f-follower>div:nth-child(5){
-   height: 70px;
-   width:  240px;
-   border: 1px solid gray;
-   border-radius: 5px;
-   float: left;
-   margin-left: 10px;
-   color: #81BEF7;
-}
-
-.modal-board-list>div{
-   height: 50%;
-   width: 100%;
-   border: 1px solid gray;
-}
-
-.modal-board-list>div>div:nth-child(1){
-   height: 100%;
-   width: 100px;
-   border: 1px solid green;
-   float: left;
-}
-
-.modal-board-list>div>div:nth-child(2){
-   height: 100%;
-   width: 492px;
-   border: 1px solid red;
-   float: left;
-} 
-
-.modal-board-list>div>div:nth-child(2)>div:nth-child(1){
-   height: 35%;
-   width: 100%;
-   border: 1px solid gray;
-} 
-
-.modal-board-list>div>div:nth-child(2)>div:nth-child(2){
-   height: 65%;
-   width: 100%;
-   border: 1px solid gray;
-} 
-
-.modal-board-list>div>div:nth-child(2)>div:nth-child(1)>ul>li{
-   display: inline-block;
-}
-
-.modal-board-list>div>div:nth-child(2)>div:nth-child(1)>ul>li:nth-child(2){
-   color: graytext;
-}
-
-.modal-bottom{
-   color: #58FAD0;
-}

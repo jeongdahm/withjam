@@ -1,0 +1,86 @@
+
+
+<!-- --------친구 검색 ----------- -->
+<div class='friend-head'>
+	<span>친구찾기 <input id='search-friend-input' type='text'
+		placeholder="친구찾기.." /></span>
+</div>
+<hr>
+
+<!-- --------친구 결과  ----------- -->
+<div class="f-List scrollBar"
+	style="float: left; width: 290px; height: 320px;">
+	<!-- <div class="Border_R maginR ">
+		<div class="magin" style="float: left; width: 35px; height: 35px;">
+			<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+				data-toggle="modal" data-target="#myModal">
+		</div>
+		<div class="magin">
+			<label>아이디</label> <br> <label>코멘트 - - - - </label>
+		</div>
+	</div> -->
+
+</div>
+
+
+<!-- modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+
+			<div class="friend-modal-content"></div>
+			<div class="setting-content"></div>
+			<div class="myphoto-big"></div>
+
+		</div>
+	</div>
+</div>
+
+<!-- modal끝 -->
+
+<script>
+/* $(document).ready(function(){
+ 
+    $("#f-find1").click(function(){
+    $("#f-find2").slideToggle("slow");
+  });
+}); */
+
+<!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
+$(".profileImg").click(function(){
+  
+  $('.friend-modal-content').load('friend-modal.html').show();
+});
+
+$("#search-friend-input").keyup(function() {
+			var searchFriend = $('#search-friend-input').val();
+			console.log(searchFriend);
+			$.get("http://localhost:3000/searchFriendList?search=" + searchFriend,
+					function(data) {
+						if (data.length != 0) {
+							
+							console.log(data);
+							
+							var searchFriend = {
+									friends :data
+							}
+							console.log(searchFriend);
+							
+				
+								require([ 'text!templates/searchFriendList.html' ], function(
+										html) {
+									var template = Handlebars.compile(html);
+									$('.f-List').html(template(searchFriend));
+								}); 
+							
+							
+						}else{
+							console.log('search fail..');
+						}
+					});
+		});
+
+</script>
