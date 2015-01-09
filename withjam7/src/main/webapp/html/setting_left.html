@@ -1,0 +1,81 @@
+
+<!--수정하기 -->
+<div class="setting-1" style="margin:10px;">
+
+<br>
+사진<br>
+<input type="file"><br>
+
+내소개<br>
+<textarea class="form-control" rows="3" id='comment'></textarea>
+
+<br>
+장르
+<select class="form-control" id='instrumentNo'>
+	<option value="1">클래식</option>
+	<option value="2">재즈</option>
+	<option value="3">가요</option>
+	<option value="4">락</option>
+	<option value="5">힙합</option>
+	<option value="6">기타등등</option>
+</select>
+
+
+<br>
+악기
+<select class="form-control" id='genreNo'>
+	<option value="1">기타</option>
+	<option value="2">드럼</option>
+	<option value="3">관악기</option>
+	<option value="4">보컬</option>
+	<option value="5">기타등등</option>
+</select>
+
+
+<br>
+<br>
+<button class="btn btn-default btn-xs correct-btn" id='btnMyInfoUdate'>변경하기</button>
+<br>
+<br>
+<br>
+
+</div>
+
+
+<script>
+$('#btnMyInfoUdate').click(function(){
+	$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+			
+			/* var gernreNo = Integer.parseInt($('#gernrNo').val()); */
+			console.log($('#genreNo').val());
+	
+    $.post('../json/member/updateMyInfo.do'
+        , {
+          uphoto  : $('#uphoto').val(),
+          comment : $('#comment').val(),
+          instrumentNo : $('#instrumentNo').val(),
+          genreNo : $('#genreNo').val(),
+          uid : loginUser.uid
+        }
+        , function(data){
+          if (data.status == 'success') {
+             console.log('make band ..');
+             MyInfo();
+          } else {
+            console.log('make band fail..');
+          }
+        }
+        , 'json');
+		}
+	});
+});
+</script>
+
+
+

@@ -1,0 +1,65 @@
+ {{#each bands}}
+<div class="Border_R ">
+	<div class="magin band-detail"
+		style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" class="band-detail" src="../img/temp.jpg">
+	</div>
+	<div class="magin">
+		<label>{{BAND_NAME}}</label>
+		<!-- |<label>리더</label> <br> <label>밴드인원</label>|<label>장르</label> -->
+	</div>
+</div>
+
+<div>
+	<button class='btnJoin {{JOIN_YN}}' data-bandNo='{{BAND_NO}}' id='btn-follow'></button>
+</div>
+
+{{/each}}
+
+
+<script>
+$(".btnJoin").click(
+		function() {
+			console.log('test');
+			
+			 var btnJoin = $(this);
+			$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					
+					if(btnJoin.attr('class') =='btnJoin join'){
+					
+					console.log(loginUser);
+
+					$.getJSON('../json/band/BandListDelete.do?uid='
+							+ loginUser.uid + '&bandNo='
+							+ btnJoin.attr('data-bandNo'), function(data) {
+						if (data.status == 'success') {
+							console.log('delete success..');
+							btnJoin.removeClass('join');
+							btnJoin.addClass('join-none');
+							MyInfo();
+						} else {
+							console.log('delete fail..');
+						}
+					});
+					}else{
+						$.getJSON('../json/band/BandListAdd.do?uid='
+								+ loginUser.uid + '&bandNo='
+								+ btnJoin.attr('data-bandNo'), function(data) {
+							if (data.status == 'success') {
+								console.log('add success..');
+								btnJoin.removeClass('join-none');
+								btnJoin.addClass('join');
+								MyInfo();
+							} else {
+								console.log('add fail..');
+							}
+						});	
+					}
+				}
+			}); 
+		});
+</script>

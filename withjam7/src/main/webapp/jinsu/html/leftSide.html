@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img {
+	height: 30px;
+	width: 30px;
+}
+
+.Border_L111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+
+#profileImgL {
+	width: 40px;
+	height: 40px;
+}
+
+.infoFormL {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 25%; 
+}
+
+.menuTap{
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 73%; 
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectL1:checked + label.recommend {
+ background:blue;
+ color:white;
+}
+input#selectL2:checked + label.searchMenu {
+ background:red;
+ color:white;
+}
+input#selectL3:checked + label.optionMenu {
+ background:green;
+ color:white;
+}
+input#selectL1,input#selectL2,input#selectL3{
+  display:none;
+}
+.Taplabel{
+	display:inline-block;
+	width:60px;
+	height:30px;
+	background:#eef;
+   text-align:center;
+   line-height:30px;
+}
+.page1,.page2,.page3{
+  display:none;
+}
+input#selectL1:checked ~ .page1{
+  display:block;
+}
+input#selectL2:checked ~ .page2{
+  display:block;
+}
+input#selectL3:checked ~ .page3{
+  display:block;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+</style>
+
+<script type="text/javascript">
+//찾기 메뉴 
+$(function() {
+	$(".searchSubM1").hide();
+	$(".searchSubM2").hide();
+	$(".searchSubM3").hide();
+
+	$("#searchBoard").click(function() {
+		$(".searchSubM1").slideToggle("middle"); //글 찾기
+		$(".searchSubM2").hide();
+		$(".searchSubM3").hide();
+		return false;
+	});
+	$("#searchAccount").click(function() {
+		$(".searchSubM2").slideToggle("middle"); //사람 찾기
+		$(".searchSubM1").hide();
+		$(".searchSubM3").hide();
+		return false;
+	});
+	$("#searchFriend").click(function() {
+		$(".searchSubM3").slideToggle("middle"); //밴 찾기
+		$(".searchSubM1").hide();
+		$(".searchSubM2").hide();
+		return false;
+	});
+
+});
+</script>
+
+</head>
+<body>
+	<div class="Border_L " style="height: 100%; float: right" >
+		<div class="Border_L infoFormL magin divBG shadow divRadius" >
+			<div style="float: left;" class="magin">
+				<img id="profileImgL" src="../img/temp.jpg">
+			</div>
+			<div style="float: left;" class="magin">
+				<label>아이디</label> <br> <label>쪽지함</label>
+			</div>
+		</div>
+		
+		
+		
+		<div class="Border_L menuTap divBG shadow divRadius">
+
+			<input id="selectL1" name="selectLenu_L" type="radio" checked> 
+			<label for="selectL1" class="recommend Taplabel">추천</label> 
+			<input id="selectL2" name="selectLenu_L" type="radio"> 
+			<label for="selectL2" class="searchMenu Taplabel">찾기</label>
+			<input id="selectL3" name="selectLenu_L" type="radio"> 
+			<label for="selectL3" class="optionMenu Taplabel">설정</label>
+			
+			<div class="page1">
+			<h1>page1</h1>
+				<p>aaa</p>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="page2">
+				
+	<table border="1" class="table ">
+		<!-- <th>찾기</th> -->
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchBoard" class=" accordion">
+			<td>글 찾기 >
+		
+			<div class="searchSubM1 Border_L">
+					<!-- 글 찾기 메뉴 -->
+					<div class="Border_L">
+					<label>장르</label> 
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">락</option>
+						<option value="band2">힙합</option>
+					</select>
+						<input type="radio" name="chk_option" value="일간">일간 
+						<input type="radio" name="chk_option" value="주간">주간 
+						<input type="radio" name="chk_option" value="누적">누적
+					</div>
+
+
+				<!-- 수정할것.. -->
+					<div class="Border_L " >
+						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchAccount" class=" accordion ">
+			<td>사람 찾기 >
+			<div class="searchSubM2 Border_L">
+					<!-- 사람 찾기 메뉴 -->
+					<div class="Border_L">
+						<label>장르</label> 
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">락</option>
+						<option value="band2">힙합</option>
+					</select>
+					</div>
+					
+					
+					<!-- 수정할것.. -->
+					<div class="Border_L" >
+						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchFriend" class=" accordion ">
+			<td>밴드 찾기 >
+			<div class="searchSubM3 Border_L">
+					<!-- 밴드 찾기 메뉴 -->
+					<div>
+						<input placeholder=" 아이디를 입력하세요." type="text" >
+					</div>
+					<div>
+					
+					<!-- 수정할것.. -->
+					<div class="Border_L" >
+						<img style="float: left;" id="profileImgL" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+					
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+	</table>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			<div class="page3">
+				<h1>page3</h1>
+				<p>ccc</p>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

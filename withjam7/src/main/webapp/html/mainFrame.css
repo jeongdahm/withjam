@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+
+#layer_fixed {
+	height: 34px;
+	width: 100%;
+	z-index: 999;
+	color: #555;
+	font-size: 12px;
+	position: fixed;
+	float: none;
+	top: 0px;
+	left: 0px;
+	background-color: gray;
+}
+
+.scrollBar {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+html, body {
+	height: 97%;
+}
+
+.Border_M1111 {
+	border: 1px solid black;
+}
+
+.divHeight {
+	height: 100%;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	border: 3px solid #fff;
+}
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
+	{
+	display: block;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #efefef;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2);
+}
+::-webkit-scrollbar-thumb {
+	height: 10px;
+	width: 50px;
+	background: rgba(0, 0, 0, .2);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1);
+}
+.png {
+float:left;
+margin-left:13px;
+opacity: 0.6;
+	
+}
+
+.png:hover {
+	opacity: 1;
+}
+.friend-head{
+margin:5px;
+}
+.msg{
+margin:5px;
+}
+
+.friend-head{
+margin-left:6px;
+padding-left:6px;
+padding-top:6px;
+}
+.make-band{
+padding:10px;
+}
+
+
+
+
+
+/* ------------------------------left-side */
+
+
+
+.Border_L111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+
+#profileImgL {
+	width: 40px;
+	height: 40px;
+}
+
+.infoFormL {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 230px;
+	height: 25%;
+}
+
+.menuTap {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 230px;
+	height: 73%;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectL1:checked+label.recommend {
+	background: blue;
+	color: white;
+}
+
+input#selectL2:checked+label.searchMenu {
+	background: red;
+	color: white;
+}
+
+input#selectL3:checked+label.optionMenu {
+	background: green;
+	color: white;
+}
+
+input#selectL1, input#selectL2, input#selectL3 {
+	display: none;
+}
+
+.Taplabel {
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	background: #eef;
+	text-align: center;
+	line-height: 30px;
+}
+
+.page1, .page2, .page3 {
+	display: none;
+}
+
+input#selectL1:checked ~ .page1 {
+	display: block;
+}
+
+input#selectL2:checked ~ .page2 {
+	display: block;
+}
+
+input#selectL3:checked ~ .page3 {
+	display: block;
+}
+
+.follow{
+    background: yellow;
+}
+
+.unfollow{
+	background: gray;
+}
+
+.join{
+	background: yellow;
+}
+
+.join-none{
+	background: gray;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */

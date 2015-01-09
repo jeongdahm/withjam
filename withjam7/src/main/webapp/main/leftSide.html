@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/common.css">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* img {
+	height: 100px;
+	width: 100px;
+} */
+ 
+.Border_L111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+
+#profileImgL {
+	width: 40px;
+	height: 40px;
+}
+
+.infoFormL {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 230px;
+	height: 25%; 
+}
+
+.menuTap{
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 230px;
+	height: 73%; 
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectL1:checked + label.recommend {
+ background:blue;
+ color:white;
+}
+input#selectL2:checked + label.searchMenu {
+ background:red;
+ color:white;
+}
+input#selectL3:checked + label.optionMenu {
+ background:green;
+ color:white;
+}
+input#selectL1,input#selectL2,input#selectL3{
+  display:none;
+}
+.Taplabel{
+	display:inline-block;
+	width:60px;
+	height:30px;
+	background:#eef;
+   text-align:center;
+   line-height:30px;
+}
+.page1,.page2,.page3{
+  display:none;
+}
+input#selectL1:checked ~ .page1{
+  display:block;
+}
+input#selectL2:checked ~ .page2{
+  display:block;
+}
+input#selectL3:checked ~ .page3{
+  display:block;
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+</style>
+<script type="text/javascript">
+//찾기 메뉴 
+$(function() {
+	$(".searchSubM1").hide();
+	$(".searchSubM2").hide();
+	$(".searchSubM3").hide();
+
+	$("#searchBoard").click(function() {
+		$(".searchSubM1").slideToggle("middle"); //글 찾기
+		$(".searchSubM2").hide();
+		$(".searchSubM3").hide();
+		return false;
+	});
+	$("#searchAccount").click(function() {
+		$(".searchSubM2").slideToggle("middle"); //사람 찾기
+		$(".searchSubM1").hide();
+		$(".searchSubM3").hide();
+		return false;
+	});
+	$("#searchFriend").click(function() {
+		$(".searchSubM3").slideToggle("middle"); //밴 찾기
+		$(".searchSubM1").hide();
+		$(".searchSubM2").hide();
+		return false;
+	});
+	
+	
+		//쪽지보내기 메뉴 
+		$(function() {
+			$(".band_content").hide();
+			$("#band_title").click(function() {
+				$(".band_content").slideToggle("middle"); 
+				return false;
+			});
+		});
+	});
+	$("#b-makebtn").click(function(){
+		$(".band_content").slideToggle("middle"); 
+	});
+
+
+<!--modal 로드 -->
+/* $("#save_msg").click(function(){
+  $(".setting-content").hide();
+  $(".myphoto-big").hide();
+  $('.msg-content').load('msgbox_left.html').show();
+}); */
+
+
+<!--팔로워 클릭했을 때 상ㅅ ㅔ정보 모달-->
+$(".profileImg").click(function(){
+  $('.friend-modal-content').load('friend-modal.html').show();
+});
+
+
+
+$("#following").click(function(){
+	$('#myInfo4').show();
+	$('.follower').hide();
+	$('.band-detail').hide();
+	$('.following').show();
+	
+});
+$("#follower").click(function(){
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.band-detail').hide();
+	$('.follower').show();
+});
+
+$(".band-detail-btn").click(function(){
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').show();
+});
+
+
+</script>
+
+
+
+</head>
+<body>
+	<div class="Border_L " style="height: 100%; float: right" >
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:270px;">
+
+
+
+			<!-- 내정보 -->
+			MyInfo
+	<button type="button" id="read_msg" class="btn btn-default btn-xs" style="margin-left:100px">내음원보기</button>
+		<div style="height:3px;"></div>
+			<div id="myInfo">
+				<div id="myPhoto_left">
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
+					data-toggle="modal" data-target=".bs-example-modal-sm">
+				</div>
+				<div id="userId_left">MyName</div>
+				<div id="usermsg_left">안녕하세요</div>
+
+		
+			</div>
+			<div style="height:65x;margin:2px;">
+			<table id='myinfo2' class='table table-hover'>
+				<tr>
+					<th>관심장르</th>
+					<th>관심악기</th>
+					<th>가입일</th>
+				</tr>
+				<tr>
+					<td>클래식</td>
+					<td>바이올린</td>
+					<td>2014-12-31</td>
+				</tr>
+			</table>
+			</div>
+			<div style="height:65x;margin:2px;">
+			<table id='myinfo3' class='table table-hover'>
+				<tr>
+					<th>My음원</th>
+					<th>팔로잉</th>
+					<th>팔로워</th>
+				</tr>
+				<tr>
+					<td><a>50</a></td>
+					<td><a id="following">32</a></td>
+					<td><a id="follower">55</a></td>
+				</tr>
+			</table>
+			</div>
+	<!-- 밴드 선택 -->
+	가입한 밴드:	
+	<select>
+  <option value="volvo">우리밴드</option>
+  <option value="saab">너네밴드</option>
+  <option value="mercedes" selected>잘하는밴드</option>
+  <option value="audi">못하는밴드</option>
+</select>
+	<button  type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
+			</div>
+	
+	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:210px;display:none">
+	<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
+			<div class="band-detail scrollBar" style="height: 205px;">
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 70px; height: 70px;">
+						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg" style="float: left; width: 70px; height: 70px;">
+					</div>
+					<div class="magin">
+					<div id="band_left"><label>밴드명</label></div>
+				<div id="bandmsg_left"><label>밴드코멘트</label></div>
+				
+						<div class="band-btn" style="width:200px;height:30px;test-align:right;">
+				<button id="band-detail" type="button" class="btn btn-default btn-xs"style="float:right;">밴드글보기</button>
+					</div>
+				구성원<br>
+				<div class="bandmember">	<label>리더</label>|<label>김종종</label> 		</div>
+				<div class="bandmember">	<label>멤버</label>|<label>김원원</label> 		</div>
+				<div class="bandmember">		<label>멤버</label>|<label>윤종종</label>		</div>
+						
+					
+				
+	
+					</div>
+				</div>
+				<br>
+<hr>
+      <div class="accordion Border_R" >
+				<p id="band_title" style="width:400px;text-align:center;">밴드정보수정</p>
+				<div class="band_content">
+				밴드사진<br>
+				<input type="file"><br>
+				밴드명<br>
+				<input type="text" class="form-control" placeholder="Text input"><br>
+				장르
+<select class="form-control">
+	<option>k-pop</option>
+	<option>발라드</option>
+	<option>락</option>
+	<option>트로트</option>
+	<option>힙합</option>
+	<option>메탈</option>
+	<option>클래식</option>
+	<option>기타등등</option>
+	<option>4</option>
+	<option>5</option>
+</select>
+ 				밴드설명<br>
+ 				<textarea class="form-control" rows="3"></textarea><br>
+				<div id="b-makebtn"><button>수정완료</button></div>
+</div>
+
+			</div>
+			</div>
+	<!--------------- 팔로잉 클릭했을 때 나타나는 화면---------------  -->		
+
+	<div class="following scrollBar" style="height:205px;">
+
+		<div class="Border_R maginR">
+	<div class="magin" style="float: left; width: 35px; height: 35px;">
+		<img id="profileImg" class="profileImg"
+		src="../img/temp.jpg" data-toggle="modal" data-target="#myModal"></div>
+	<div class="magin"><label>팔로잉</label> <label>/음원수 </label><br> <label>코멘트 - - - - </label>
+	</div>
+</div>
+
+</div>
+
+<!--------------- 팔로워 클릭했을 때 나타나는 화면-------------- -->
+			<div class="follower scrollBar" style="height: 205px;">
+			
+			
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+							data-toggle="modal" data-target="#myModal">
+					</div>
+					<div class="magin">
+						<label>팔로워</label> <label>/음원수 </label><br> <label>코멘트
+							- - - - </label>
+					</div>
+				</div>
+
+			</div>
+
+			<!------------------- modal ------------------>
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+
+						<div class="friend-modal-content"></div>
+						<div class="band-content"></div>
+						<div class="myphoto-big"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- modal끝 -->
+
+
+
+				</div>
+	</div>
+</body>
+</html>

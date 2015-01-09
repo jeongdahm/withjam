@@ -1,0 +1,68 @@
+
+<div class="make-band">
+	<span>밴드 만들기</span>
+	<hr>
+	<div>
+		<label style="float: left;">밴 드 명:</label><input type="text" id='bandName'>
+	</div>
+	<br>
+
+	<div>
+		<label style="float: left;">장 르:</label> <select name="band"
+			class="styled-select" id='genreNo'>
+			<option value="" selected="selected">선택</option>
+			<option value="1">클래식</option>
+			<option value="2">재즈</option>
+			<option value="3">가요</option>
+			<option value="4">락</option>
+			<option value="5">힙합</option>
+			<option value="6">기타등등</option>
+		</select>
+	</div>
+	<br>
+
+
+	<div>
+		<label style="float: left;">설 명:</label><input type="text"  id='bandComment'>
+	</div>
+	<div id="b-makebtn">
+		<button class='makeBandBtn'>밴드 만들기</button>
+	</div>
+	<hr>
+</div>
+
+<script>
+$('.makeBandBtn').click(function(event){
+	$.getJSON('/withjam7/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+			
+			/* var gernreNo = Integer.parseInt($('#gernrNo').val()); */
+			console.log($('#genreNo').val());
+	
+    $.post('../json/band/makeBand.do'
+        , {
+          bandName : $('#bandName').val(),
+          gname : $('#gname').val(),
+          genreNo : $('#genreNo').val(),
+          bandComment : $('#bandComment').val(),
+          uid : loginUser.uid
+        }
+        , function(data){
+          if (data.status == 'success') {
+             console.log('make band ..');
+             MyInfo();
+          } else {
+            console.log('make band fail..');
+          }
+        }
+        , 'json');
+		}
+	});
+  });
+
+</script>

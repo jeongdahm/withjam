@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="mainFrame.css">
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/jquerypp.custom.js"></script>
+
+
+<meta charset="UTF-8">
+
+<title>위잼</title>
+<style>
+
+</style>
+
+</head>
+<body>
+
+	<div class=" Border_M" id="layer_fixed">
+	<div id="header_main"></div>
+
+	</div>
+
+	<br>
+	<br>
+	<div class=" divHeight">
+
+		<div id="leftSide" class="col-md-3 Border_M divHeight" style="width:300px;"></div>
+
+
+		<div id="mainPage" class="col-md-6 Border_M divHeight scrollBar" style="width:600px;"></div>
+
+
+		<div id="rightSide" class="col-md-3 Border_M divHeight" style="width:300px;"></div>
+	</div>
+	
+
+
+
+	<script>
+	  $('#layer_fixed').load('header.html');
+		$('#mainPage').load('content_wn.html');
+		$('#leftSide').load('leftSide.html');
+		$('#rightSide').load('rightSide.html');
+		
+		
+	
+
+	</script>
+
+</body>
+</html>
