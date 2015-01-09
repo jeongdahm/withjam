@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 #layer_fixed {
-	height: 34px;
+	height: 46px;
 	width: 100%;
 	z-index: 999;
 	color: #555;
@@ -10,7 +10,7 @@
 	float: none;
 	top: 0px;
 	left: 0px;
-	background-color: #6F7072;
+	background-color: #424242;
 }
 
 .scrollBar {
@@ -19,7 +19,8 @@
 }
 
 html, body {
-	height: 97%;
+	height: 96%;
+	/*  background-image: url("../img/back.png"); */
 }
 
 .Border_M1111 {

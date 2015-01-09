@@ -5,11 +5,11 @@
 			<div style="height: 3px;"></div>
 			<div id="myInfo">
 				<div id="myPhoto_left">
-					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg"
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" 
 						style="width: 70px; height: 70px;" data-toggle="modal"
 						data-target=".bs-example-modal-sm">
 				</div>
-				<div id="userId_left">{{myInfo.uname}}</div>
+				<div id="userId_left" style="font-style: oblique;">{{myInfo.uname}}</div>
 				<div id="usermsg_left">{{myInfo.comment}}</div>
 
 
@@ -51,7 +51,23 @@
 			</select>
 			<button type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
 			
-			
+				<!------------------- modal ------------------>
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+
+						<div class="friend-modal-content"></div>
+						<div class="band-content"></div>
+						<div class="myphoto-big"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- modal끝 -->
 			
 			
 <script>			
