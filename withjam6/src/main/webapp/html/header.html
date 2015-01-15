@@ -1,75 +1,61 @@
 
-<script>
-
-
-/* $(document).ready(function(){ */
-	<!--친구 아이콘 클릭했을 때 -->
-
-  
-/* }); */
-
-</script>
 
 <!-- 왼쪽 아이콘  -->
-<div class="header-L" style="height:34px; width:800px; float:left;padding-top:6px;padding-left:16px;opacity:.7;">
+<div class="header-L" style="height:34px; width:800px; float:left;padding-top:6px;padding-left:200px;opacity:.7;">
 	<a href='mainFrame.html'><img id="withjam_main"
-		src="../img/with-w.png" style="width: 150px; height: 35px;"></a>
+		src="../img/with.png" style="width: 150px; height: 35px;"></a>
 </div>
 
 <!-- 오른쪽 아이콘부분 -->
 <div class="header-R right-icon"  style="height:34px; width:300px; float:left;padding-top:8px;">
- <img id="friendspng" class="png" src='../img/f-find-w.png' width='35'
+ <img id="friendspng" class="png" src='../img/ff-find.png' width='35'
 					height='35' title="친구검색">
- <img id="bandpng" class="png" src='../img/b-find-w.png' width='35'
+ <img id="bandpng" class="png" src='../img/b-find.png' width='35'
 					height='35' title="밴드검색">
 
- <img id="band1png" class="png" src='../img/make-band-w.png'  width='35'
+ <img id="band1png" class="png" src='../img/make-band.png'  width='35'
 				 height='35' title="밴드만들기" >
-	<img id="msgpng" class="png" src='../img/msg-w.png' width='35'
+	<img id="msgpng" class="png" src='../img/msg1.png' width='35'
 					height='35' title="쪽지" >
 					
- <img id="settingpng" class="png" src='../img/setting-w.png' width='35'
+ <img id="settingpng" class="png" src='../img/setting.png' width='35'
 					height='35' title="설정" >
-	<img id="logoutpng" class="png" src='../img/logout-w.png' width='35' id='logoutBtn'
+	<img id="logoutpng" class="png" src='../img/logout.png' width='35' id='logoutBtn'
 					height='35' title="로그아웃" >
 </div>
 
 
 
 <!-- 아이콘 클릭시 div부분 -->
+
 <!-- 친구 -->
-<div class='friends-this' style="width:300px; 
+<div class='friends-this'
+style="width:260px; 
 height:400px; 
 margin-top:45px;
 margin-left:600px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
-color:white;
-font-size:15px;
-position:relative;background-color:#fff;
+position:relative;
 -webkit-background-clip:padding-box;
-background-clip:padding-box;border:1px solid #999;
+background-clip:padding-box;
 border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
-"></div>
+background-color: #C7BD8A;"
+></div>
 <!-- 밴드검색 -->
-<div class='band-this' style="width:300px; 
+<div class='band-this' 
+style="width:260px; 
 height:400px; 
 margin-top:45px;
 margin-left:700px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
 font-size:15px;
-color:white;
 position:relative;background-color:#fff;
 -webkit-background-clip:padding-box;
 background-clip:padding-box;border:1px solid #999;
@@ -77,19 +63,17 @@ border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
+background-color: #C7BD8A;
 "></div>
 <!-- 밴드만들기 -->
-<div class='band1-this' style="width:250px; 
+<div class='band1-this'
+style="width:250px; 
 height:270px; 
 margin-top:45px;
-margin-left:700px;
+margin-left:750px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
-color:white;
 position:relative;background-color:#fff;
 -webkit-background-clip:padding-box;
 background-clip:padding-box;border:1px solid #999;
@@ -97,19 +81,17 @@ border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
+background-color: #C7BD8A;
 "></div>
 <!-- 쪽지 -->
-<div class='msg-this' style="width:370px; 
+<div class='msg-this' 
+style="width:370px; 
 height:400px; 
 margin-top:45px;
 margin-left:700px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
-color:white;
 position:relative;background-color:#fff;
 -webkit-background-clip:padding-box;
 background-clip:padding-box;border:1px solid #999;
@@ -117,20 +99,17 @@ border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
-
+background-color: #C7BD8A;
 "></div>
 <!-- 설정 -->
-<div class='setting-this' style="width:300px; 
+<div class='setting-this' 
+style="width:300px; 
 height:400px; 
 margin-top:45px;
-margin-left:750px;
+margin-left:800px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
-color:white;
 position:relative;background-color:#fff;
 -webkit-background-clip:padding-box;
 background-clip:padding-box;border:1px solid #999;
@@ -138,19 +117,17 @@ border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
+background-color: #C7BD8A;
 "></div>
 
-<div class='logout-this' style="width:300px; 
+<div class='logout-this' 
+style="width:300px; 
 height:400px; 
 margin-top:45px;
 margin-left:750px;
 display:none;
-background-color:white;
-border:1px solid black;
 z-index:1040;
 opacity: 1;
-color:white;
 position:relative;background-color:#fff;
 -webkit-background-clip:padding-box;
 background-clip:padding-box;border:1px solid #999;
@@ -158,14 +135,10 @@ border:1px solid rgba(0,0,0,.2);
 border-radius:0 0 7px 7px;outline:0;
 -webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);
 box-shadow:0 3px 9px rgba(0,0,0,.5);
-background-color: #424242;
+background-color: #C7BD8A;
 "></div>
 
-<div>
-<p class='userinfo'>
-  <a id='userName' href='#'>test</a>
-</p>
-</div>
+
 
 
 <script>
@@ -248,5 +221,4 @@ background-color: #424242;
 			});
 		}
 	});
-	<!--글 아이콘 클릭했을 때 -->
 	</script>

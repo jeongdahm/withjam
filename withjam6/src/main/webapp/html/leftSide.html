@@ -19,39 +19,22 @@
 
 
 	<div class="Border_L " style="height: 100%; float: right" >
-		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" style="height:300px;">
-
-
+		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" 
+		style="height:300px;width:250px;padding-left:20px;">
 
 			<!-- 내정보 -->
 			MyInfo
-	<button type="button" id="read_msg" class="btn btn-default btn-xs" style="margin-left:100px">내음원보기</button>
-		<div style="height:3px;"></div>
+	<div class="write-btn" >글쓰기♬</div>
+		<div style="height:6px;"></div>
 			<div id="myInfo">
 				<div id="myPhoto_left">
-					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
-					data-toggle="modal" data-target=".bs-example-modal-sm">
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" 
+					style="width: 70px; height: 70px;border-radius: 6px 0  0 6px;">
 				</div>
 				<div id="userId_left" style="font-style:inherit;">MyName</div>
 				<div id="usermsg_left">안녕하세요</div>
-
-		
 			</div>
-			<div style="height:65x;margin:2px;">
-			<table id='myinfo2' class='table table-hover'>
-				<tr>
-					<th>관심장르</th>
-					<th>관심악기</th>
-					<th>가입일</th>
-				</tr>
-				<tr>
-					<td>클래식</td>
-					<td>바이올린</td>
-					<td>2014-12-31</td>
-				</tr>
-			</table>
-			</div>
-			<div style="height:65x;margin:2px;">
+			<div style="height:65px;margin:2px;margin-bottom:100px;">
 			<table id='myinfo3' class='table table-hover'>
 				<tr>
 					<th>My음원</th>
@@ -63,22 +46,34 @@
 					<td><a id="following">32</a></td>
 					<td><a id="follower">55</a></td>
 				</tr>
+			
+				<tr>
+					<th>관심장르</th>
+					<th>최근접속일</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>클래식</td>
+					<td>2014-12-31</td>
+					<td></td>
+				</tr>
 			</table>
 			</div>
+			
 	<!-- 밴드 선택 -->
+	<div style="display:inline">
 	가입한 밴드:	
-	<select>
+	<select class="form-control" style="width:110px;display:inline;">
   <option value="volvo">우리밴드</option>
   <option value="saab">너네밴드</option>
-  <option value="mercedes" selected>잘하는밴드</option>
+  <option value="mercedes">잘하는밴드</option>
   <option value="audi">못하는밴드</option>
-</select>
-	<button  type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
-			</div>
+</select><button  type="button" class="btn btn-default btn-xs band-detail-btn" style="display:inline">이동</button>
+		</div>	</div>
 	
-	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:230px;display:none">
+	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:255px;width:250px;display:none">
 			<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
-			<div class="band-detail scrollBar" style="height: 230px;">
+			<div class="band-detail scrollBar" style="height: 245px;">
 				<div class="Border_R maginR">
 					<div class="magin" style="float: left; width: 70px; height: 70px;">
 						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg"

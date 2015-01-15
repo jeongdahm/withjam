@@ -33,13 +33,13 @@
 	<br>
 	<div class=" divHeight">
 
-		<div id="leftSide" class="col-md-3 Border_M divHeight" style="width:300px;"></div>
+		<div id="leftSide" class="col-md-3 Border_M divHeight"></div>
 
 
-		<div id="mainPage" class="col-md-6 Border_M divHeight scrollBar" style="width:600px;"></div>
+		<div id="mainPage" class="col-md-6 Border_M divHeight scrollBar" ></div>
 
 
-		<div id="rightSide" class="col-md-3 Border_M divHeight" style="width:300px;"></div>
+		<div id="rightSide" class="col-md-3 Border_M divHeight" ></div>
 	</div>
 	
 
@@ -51,10 +51,28 @@
 		$('#leftSide').load('leftSide.html');
 		$('#rightSide').load('rightSide.html');
 		
-		
+
+	
 	
 
 	</script>
+
+<!-- rightSide에서 사용  -->
+	<script>
+function comm_music(){
+	$('#right_div4').hide();
+	$('#right_div2').show();
+	$('#right_div2').load('comm_music.html');
+}
+
+function comm_band(){
+	$('#right_div2').hide();
+	$('#right_div4').show();
+	$('#right_div4').load('comm_band.html');
+
+}
+	
+</script>
 
 </body>
 </html>

@@ -22,19 +22,19 @@ $('a').click(function(){
 <div class='friend-head'>
 <span>쪽지보관함</span></div>
 <!-- 쪽지내용 -->
-<div class="msg scrollBar" style="width:340px;height:360px;">
+<div class="msg scrollBar" style="width:350px;height:360px;">
 
 <div class="msg-detail" style="border:1px solid gray;width:325px;height:100px;display:none">
 <table>
-	<tr style="border-bottom:1px dashed gray;width:340px;">
+	<tr style="border-bottom:1px dashed gray;width:100%;">
 		<th>보낸사람</th>
 		<td>김종종</td>
 	</tr>
-<tr style="width:340px;">
+<tr style="width:100%;">
 		<th>내용</th>
 		<td>내용입니다? 내용입니다~ 내용입니다.</td>
 	</tr>
-	<tr style="border-bottom:1px dashed gray;width:340px;">
+	<tr style="border-bottom:1px dashed gray;width:100%;">
 		<th>날짜</th>
 		<td>2015-01-04</td>
 	</tr>
@@ -45,9 +45,9 @@ $('a').click(function(){
 <!-- 버튼 -->
 <br>
 <div class="correct-btn">
-	<button type="button" class="btn btn-primary btn-xs"
+	<button type="button" class="btn btn-default btn-xs"
 		onclick="takemsgFunction()">받은쪽지</button>
-	<button type="button" class="btn btn-success btn-xs"
+	<button type="button" class="btn btn-default btn-xs"
 		onclick="sendmsgFunction()">보낸쪽지</button>
 </div>
 <table id='sendmsgtable' class='table table-hover scrollBar' style='display:none'>
