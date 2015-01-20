@@ -13,6 +13,21 @@ padding-top:2px;
 float:right;
 margin-right:5px;
 }
+.msg-btn {
+	font-weight: bold;
+	text-align:center;
+	float:left;
+	border:2px solid gray;
+	width:165px;height:20px;
+	}
+.msg-btn:hover {
+	border:2px solid red;
+opacity:0.7;
+	}
+	
+	.msg-btn:active {
+font-weight: bold;
+	}
 
 
 <!--dam myInfo -->
@@ -32,23 +47,25 @@ height:70px;
 width:70px;
 border-radius: 6px 0  0 6px;
 border-bottom:1px solid gray;
+border-top:1px solid gray;
 }
 #userId_left{
  margin-left: 71px;
  height:20px;
  width:65%;
- background-color: #C7BD8A;
+ /* background-color: #C7BD8A; */
  border-radius: 0 6px 0 0;
 opacity:0.7;:
 
 padding:2px;
 border-right:1px solid gray;
+border-top:1px solid gray;
 }
 #usermsg_left{
 	margin-left: 71px;
 	height:50px;
   width:65%;
-	background-color: #E2E3DD;
+/* 	background-color: #E2E3DD; */
 	
 	border-radius: 0 0 6px 0;
 opacity:0.7;
@@ -108,44 +125,6 @@ display:inline;
 }
 
   
-<!--band 상세 -->
-
-#bandphotoleft{
-float:left;
-border-radius : 0.5em;
-
-float: left; width: 70px; height: 70px;
-border-radius: 6px  0  0 6px;
-border-bottom:1px solid gray;
-}
-#band_left{
- margin-left: 71px;
- border-bottom:1px solid gray;
- height:20px;
- width:65%;
- border-radius: 0 6px 0 0;
-opacity:0.7;
-padding:2px;
-border-right:1px solid gray;
- 
-}
-
-#bandmsg_left{
-	margin-left: 71px;
-	height:50px;
-  width:65%;
-  border-radius: 0 0 6px 0;
-opacity:0.7;
-padding:2px;
-border-bottom:1px solid gray;
-border-right:1px solid gray;
-}
-
-.bandmember{
-width:100px;float:left;border:1px solid gray;text-align:center;
-border-radius:5px;
-	
-}
 
 <!--친구 모달-->
 
@@ -185,8 +164,17 @@ margin:2px;
 
 input{
 	color:black;
+
 	
 }
 .withjam_main:active{
 border:1px solid gray;
 	}
+	
+
+.inlines{
+	display:inline;
+	
+}
+
+

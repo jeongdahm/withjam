@@ -10,11 +10,11 @@
 	float: none;
 	top: 0px;
 	left: 0px;
-	background-color: #C7BD8A;
+	background-color: #7d98b2;
 }
 .divHeight {
 	height: 100%;
-  background-color:#E2E3DD;
+/*  background-color:#EEFCFF; */
 }
 .scrollBar {
 	overflow-x: hidden;
@@ -25,10 +25,10 @@ html, body {
 	height: 96%;
 	min-width: 1000px;
 	min-height: 600px;
+	
+ background-image: url("../img/back3.png");
+ background-repeat: repeat-x;  
 
-/* 	background-image: url("../img/back1.png");
-	background-repeat:repeat-x;  #E3D4AD*/
-		background-color:#E2E3DD;
 }
 
 .Border_M1111 {
@@ -224,4 +224,90 @@ input#selectL3:checked ~ .page3 {
   }
 
 
+
+.icon-box{
+	width:35px;
+	height:35px;
+	float:left;
+	margin-right:5px;
+}
+
+<!--오른쪽 추천들 -->
+
+#right_div1, #right_div3, #right_div5{
+float:left;
+width:200px;
+height:20px;
+text-align:center;
+margin-bottom:2px;
+font-weight: bold;
+border-top:2px solid #C7BD8A;
+border-bottom:2px solid #C7BD8A;
+}
+
+#right_div1:hover, #right_div3:hover, #right_div5:hover{
+border-top:2px solid white;
+border-bottom:2px solid white;
+
+}
+
+<!--band 상세 -->
+
+#bandphotoleft{
+
+float: left; width: 70px; height: 70px;
+border-radius: 6px  0  0 6px;
+border:1px solid gray;
+}
+#band_left{
+ margin-left: 71px;
+ border-bottom:1px solid gray;
+ height:20px;
+ width:60%;
+opacity:0.7;
+padding:2px;
+border:1px solid gray;
+ 
+}
+
+#bandmsg_left{
+	margin-left: 71px;
+	height:50px;
+  width:60%;
+opacity:0.7;
+padding:2px;
+border-bottom:1px solid gray;
+border-right:1px solid gray;
+border-left:1px solid gray;
+}
+
+.bandmember{
+width:100px;float:left;border:1px solid gray;text-align:center;
+border-radius:5px;
+	
+}
+
+.showband{
+	border:1px solid gray;
+	width:200px;height:20px;
+	text-align:center;
+ margin-top:5px;
+ margin-bottom:5px;
+}
+.showband:active{
+border:2px solid gray;
+font-weight: bold;
+}
+
+#band_title{
+		border:1px solid gray;
+	width:200px;height:20px;
+	text-align:center;
+ margin-top:5px;
+ margin-bottom:5px;
+}
+#band_title:active{
+	border:2px solid gray;
+font-weight: bold;
+}
 

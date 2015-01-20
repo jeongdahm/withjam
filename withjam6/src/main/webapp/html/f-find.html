@@ -1,26 +1,25 @@
 
 <!-- --------친구 검색 ----------- -->
 <div class='friend-head'>
-	<span> <input id='search-friend-input' type='text'
-		placeholder="친구찾기.."  style="color:black;"/></span>
+<input type='text' placeholder="친구찾기.." style="width:220px;height:20px;"/>
 </div>
 <hr>
-
+ 
 <!-- --------친구 결과  ----------- -->
-<div class="f-List scrollBar"
-	style="float: left; width: 250px; height: 310px;">
-	<!-- <div class="Border_R maginR ">
-		<div class="magin" style="float: left; width: 35px; height: 35px;">
-			<img id="profileImg" class="profileImg" src="../img/temp.jpg"
-				data-toggle="modal" data-target="#myModal">
-		</div>
-		<div class="magin">
-			<label>아이디</label> <br> <label>코멘트 - - - - </label>
-		</div>
-	</div> -->
+<div class="f-List scrollBar" style="float: left; width: 250px; height: 215px;background-color:white;border-radius:5px;">
+
+
+
+<div style="float:left;margin-top:5px;">
+<img src ="../img/temp.jpg" style="margin-left:10px;width:50px;height:50px;"></div>
+<div style="float:left;color:darkblue;font-weight: bold;padding-left:5px;padding-top:5px;margin-right:5px;">내이름</div> 
+<div class="pluspng" style="float:left;"><img src="../img/plus.png" style="width:13px;height:13px;margin-top:5px;"></div>
+<div class="minuspng" style="float:left;display:none;"><img src="../img/minus.png" style="width:13px;height:13px;margin-top:5px;" ></div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 건반 </div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 100곡</div>
+
 
 </div>
-
 
 
 <script>
@@ -63,6 +62,16 @@ $("#search-friend-input").keyup(function() {
 							console.log('search fail..');
 						}
 					});
+		});
+		
+		$(".pluspng").click(function(){
+			$(".pluspng").hide();
+			$(".minuspng").show();
+		});
+		$(".minuspng").click(function(){
+			$(".minuspng").hide();
+			$(".pluspng").show();
+		
 		});
 
 </script>

@@ -1,31 +1,12 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
- -->
-<!-- <link rel='stylesheet' href='../css/bootstrap.min.css'>
-<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
-<link rel='stylesheet' href='../css/bootstrap-theme.css.map'> -->
-
-
-
-
-
-
-
-<!-- </head> -->
-<!-- <body> -->
-
-
-
 
 	<div class="Border_L " style="height: 100%; float: right" >
 		<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo" 
-		style="height:300px;width:250px;padding-left:20px;">
+		style="height:297px;width:250px;padding-left:20px;">
 
 			<!-- 내정보 -->
 			MyInfo
-	<div class="write-btn" >글쓰기♬</div>
-		<div style="height:6px;"></div>
+	<div class="write-btn" >뭐할까♬</div>
+		<div style="height:10px;"></div>
 			<div id="myInfo">
 				<div id="myPhoto_left">
 					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" 
@@ -34,7 +15,7 @@
 				<div id="userId_left" style="font-style:inherit;">MyName</div>
 				<div id="usermsg_left">안녕하세요</div>
 			</div>
-			<div style="height:65px;margin:2px;margin-bottom:100px;">
+			<div style="height:65px;margin:2px;margin-bottom:85px;">
 			<table id='myinfo3' class='table table-hover'>
 				<tr>
 					<th>My음원</th>
@@ -48,21 +29,24 @@
 				</tr>
 			
 				<tr>
+					<th>북마크</th>
 					<th>관심장르</th>
+				
 					<th>최근접속일</th>
-					<th></th>
+					
 				</tr>
 				<tr>
+					<td><a id="bookmark">12</a></td>
 					<td>클래식</td>
 					<td>2014-12-31</td>
-					<td></td>
+				
 				</tr>
 			</table>
 			</div>
 			
 	<!-- 밴드 선택 -->
 	<div style="display:inline">
-	가입한 밴드:	
+	<span style="font-weight: bold;">가입한 밴드:	</span>
 	<select class="form-control" style="width:110px;display:inline;">
   <option value="volvo">우리밴드</option>
   <option value="saab">너네밴드</option>
@@ -71,9 +55,36 @@
 </select><button  type="button" class="btn btn-default btn-xs band-detail-btn" style="display:inline">이동</button>
 		</div>	</div>
 	
-	<div class="Border_L infoFormL magin divBG shadow divRadius" id="myInfo4" style="height:255px;width:250px;display:none">
-			<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
-			<div class="band-detail scrollBar" style="height: 245px;">
+	<div class="Border_L infoFormL magin divBG shadow divRadius" 
+	id="myInfo4" style="height:290px;width:250px;margin-top:5px;">
+			
+				<!--------------- 북마크 화면-------------- -->
+		<div class="bookmark-detail scrollBar" style="height: 250px;margin-left:10px;">
+		<div class="right_div5">북마크</div>
+			<table>
+				<tr>
+					<td><div class="magin"
+							style="float: left; width: 35px; height: 35px;">
+							<img id="profileImg" src="../img/temp.jpg">
+						</div></td>
+					<td>제목|참가인원|등록일</td>
+					<td style="color: red;"></td>
+				</tr>
+				<tr>
+					<td><div class="magin"
+							style="float: left; width: 35px; height: 35px;">
+							<img id="profileImg" src="../img/temp.jpg">
+						</div></td>
+					<td>제목|참가인원|등록일</td>
+					<td style="color: red;">삭제</td>
+				</tr>
+
+			</table>
+
+</div>
+	<!--------------- 밴드 클릭했을 때 나타나는 화면-------------- -->
+			<div class="band-detail scrollBar" style="height: 245px;display:none;margin-left:10px;">
+					<div class="right_div5">밴드상세</div>
 				<div class="Border_R maginR">
 					<div class="magin" style="float: left; width: 70px; height: 70px;">
 						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg"
@@ -86,36 +97,37 @@
 						<div id="bandmsg_left">
 							<label>밴드코멘트</label>
 						</div>
-
-						<div class="band-btn"
-							style="width: 200px; height: 30px; test-align: right;">
-							<button id="band-detail" type="button"
-								class="btn btn-default btn-xs" style="float: right;">밴드글보기</button>
-						</div>
-						구성원<br>
-						<div class="bandmember">
-							<label>리더</label>|<label>김종종</label>
-						</div>
-						<div class="bandmember">
-							<label>멤버</label>|<label>김원원</label>
-						</div>
-						<div class="bandmember">
-							<label>멤버</label>|<label>윤종종</label>
-						</div>
-
-
-
-
-					</div>
+	
+							<div class="showband"style="">밴드글보기</div>
+						
+						<div class="right_div5">구성원</div>
+					<table>
+						<tr>
+							<th>밴드장</th>
+							<td>둘리</td>
+							<td>강퇴</td>
+						</tr>
+						<tr>
+							<th>매니저</th>
+							<td>도우너</td>
+							<td>강퇴</td>
+						</tr>
+						<tr>
+							<th>밴드원</th>
+							<td>고길동</td>
+							<td>강퇴</td>
+						</tr>
+					</table>
+				</div>
 				</div>
 				<br>
 				<hr>
 				<div class="accordion Border_R">
-					<p id="band_title" style="width: 400px; text-align: center;">밴드정보수정</p>
+					<p id="band_title" style="width: 200px; height:20px;text-align: center;">밴드정보수정</p>
 					<div class="band_content">
-						밴드사진<br> <input type="file"><br> 밴드명<br> <input
-							type="text" class="form-control" placeholder="Text input"><br>
-						장르 <select class="form-control">
+						<span style="display:inline">밴드사진</span><br> <input type="file" style="display:inline"><br>
+						 <span style="display:inline">밴드명</span><br> <input type="text" class="form-control" placeholder="Text input" style="display:inline"><br>
+						<span style="display:inline">장르</span> <select class="form-control" style="display:inline">
 							<option>k-pop</option>
 							<option>발라드</option>
 							<option>락</option>
@@ -138,40 +150,53 @@
 			</div>
 			<!--------------- 팔로잉 클릭했을 때 나타나는 화면---------------  -->
 
-			<div class="following scrollBar" style="height: 230px;">
-			
+			<div class="following scrollBar" style="height: 230px;display:none;margin-left:10px;">
+					<div class="right_div5">팔로잉</div>
+					
+					<div style="float:left;margin-top:5px;">
+<img src ="../img/temp.jpg" style="margin-left:10px;width:50px;height:50px;"></div>
+<div style="float:left;color:darkblue;font-weight: bold;padding-left:5px;padding-top:5px;margin-right:5px;">내이름</div> 
+<div class="pluspng" style="float:left;display:none;"><img src="../img/plus.png" style="width:13px;height:13px;margin-top:5px;"></div>
+<div class="minuspng" style="float:left;"><img src="../img/minus.png" style="width:13px;height:13px;margin-top:5px;" ></div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 건반 </div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 100곡</div>
+
 			</div>
 
 			<!--------------- 팔로워 클릭했을 때 나타나는 화면-------------- -->
 			
 			
-			<div class="follower scrollBar" style="height: 230px;">
+			<div class="follower scrollBar" style="height: 230px;display:none;margin-left:10px;">
+		<div class="right_div5">팔로워들</div>
+		
+		<div style="float:left;margin-top:5px;">
+<img src ="../img/temp.jpg" style="margin-left:10px;width:50px;height:50px;"></div>
+<div style="float:left;color:darkblue;font-weight: bold;padding-left:5px;padding-top:5px;margin-right:5px;">내이름</div> 
+<div class="pluspng" style="float:left;"><img src="../img/plus.png" style="width:13px;height:13px;margin-top:5px;"></div>
+<div class="minuspng" style="float:left;display:none;"><img src="../img/minus.png" style="width:13px;height:13px;margin-top:5px;" ></div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 건반 </div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 100곡</div>
+
 
 			</div>
 
-			<!------------------- modal ------------------>
 
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-
-
-						<div class="friend-modal-content"></div>
-						<div class="band-content"></div>
-						<div class="myphoto-big"></div>
-
-					</div>
-				</div>
-			</div>
-
-			<!-- modal끝 -->
 
 
 
 		</div>
 	</div>
+<script>
+$(".pluspng").click(function(){
+	$(".pluspng").hide();
+	$(".minuspng").show();
+});
+$(".minuspng").click(function(){
+	$(".minuspng").hide();
+	$(".pluspng").show();
 
+});
+</script>
 
 <script type="text/javascript" src='../js/leftSide.js'></script>	
 <script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>

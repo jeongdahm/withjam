@@ -53,11 +53,10 @@ $(".profileImg").click(function() {
 
 $("#following").click(
 		function() {
-			$('#myInfo4').show();
+			$('.bookmark-detail').hide();
 			$('.follower').hide();
 			$('.band-detail').hide();
 			$('.following').show();
-
 			$.getJSON('/withjam6/json/auth/loginUser.do', function(data) {
 				if (data.status == 'fail') {
 					console.log('loginUser fail..');
@@ -81,7 +80,7 @@ $("#following").click(
 		});
 
 $("#follower").click(function() {
-	$('#myInfo4').show();
+	$('.bookmark-detail').hide();
 	$('.following').hide();
 	$('.band-detail').hide();
 	$('.follower').show();
@@ -107,10 +106,18 @@ $("#follower").click(function() {
 });
 
 $(".band-detail-btn").click(function() {
-	$('#myInfo4').show();
+	$('.bookmark-detail').hide();
 	$('.following').hide();
 	$('.follower').hide();
 	$('.band-detail').show();
+});
+
+$("#bookmark").click(function() {
+
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').hide();
+	$('.bookmark-detail').show();
 });
 
 

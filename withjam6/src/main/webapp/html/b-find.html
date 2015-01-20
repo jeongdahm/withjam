@@ -6,30 +6,33 @@ $(".band-detail").click(function(){
 	$('.band-detail').show();
 });
 
+$(".pluspng").click(function(){
+	$(".pluspng").hide();
+	$(".minuspng").show();
+});
+$(".minuspng").click(function(){
+	$(".minuspng").hide();
+	$(".pluspng").show();
+
+});
 </script>
 
 
 <!-- 밴드 검색 -->
-<div class='friend-head'>
-	<span>
-		<input class='band-test' type='text' placeholder="밴드찾기.." style="color:black;" /></span>
+
+
+<div class='friend-head' >
+		<input type='text' placeholder="밴드찾기.." style="width:220px;height:20px;" />
 	</div>
 <hr>
 
 <!-- 밴드 결과  -->
-<div class="f-List scrollBar" style="float:left; width:250px; height:320px;padding:10px;">
-	<div class="Border_R ">
-					<div class="magin band-detail" style="float: left; width: 35px; height: 35px;">
-						<img id="profileImg" class="band-detail" src="../img/temp.jpg">
-					</div>
-					<div  class="magin">
-						<label>밴드명</label>|<label>리더</label> 
-						<br> 
-						<label>밴드인원</label>|<label>장르</label>
-					</div>
-				</div>
-
-
-
-
+<div class="f-List scrollBar" style="float: left; width: 250px; height: 215px;background-color:white;border-radius:5px;">
+<div style="float:left;margin-top:5px;">
+<img src ="../img/temp.jpg" style="margin-left:10px;width:50px;height:50px;"></div>
+<div style="float:left;color:darkblue;font-weight: bold;padding-left:5px;margin-top:5px;">밴드이름</div>
+<div class="pluspng" style="float:left;"><img src="../img/plus.png" style="width:13px;height:13px;margin-top:5px;"></div>
+<div class="minuspng" style="float:left;display:none;"><img src="../img/minus.png" style="width:13px;height:13px;margin-top:5px;" ></div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 리더 | 밴드인원수 </div>
+<div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 장르</div>
 </div>
