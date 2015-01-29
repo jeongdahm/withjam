@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='mainFrame.css'>
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.min.js'></script>
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+label{
+	font-size: 11px;
+}
+img {
+	height: 30px;
+	width: 30px;
+}
+
+.Border_R1111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+.testMargin{
+	margin: 2px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+.infoFormR {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 25%;
+}
+
+.menuTap1 {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 220px;
+	height: 98%;
+}
+
+.maginR {
+	margin: 2px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectR1:checked+label.friendList {
+	background: blue;
+	color: white;
+}
+
+input#selectR2:checked+label.bookmarkList {
+	background: red;
+	color: white;
+}
+
+input#selectR3:checked+label.bandList {
+	background: green;
+	color: white;
+}
+
+input#selectR1, input#selectR2, input#selectR3 {
+	display: none;
+}
+
+.Taplabel {
+	display: inline-block;
+	width: 80px;
+	height: 25px;
+	background: #eef;
+	text-align: center;
+	line-height: 30px;
+	border-bottom:1px solid gray;
+	border-right:1px solid gray;
+	border-radius:5px;
+	margin-left:60px;
+	
+}
+
+.page1, .page2, .page3 {
+	display: none;
+}
+
+input#selectR1:checked ~ .page1 {
+	display: block;
+}
+
+input#selectR2:checked ~ .page2 {
+	display: block;
+}
+
+input#selectR3:checked ~ .page3 {
+	display: block;
+}
+#createBand{
+width:190px;
+text-align: center;
+border-radius:3px;
+
+}
+.c_band{
+margin-top:3px;
+}
+#b-makebtn{
+float:right;
+padding-right:3px;
+margin-top:10px;
+}
+.Border_R{
+margin-top:3px;
+}
+
+#right_div2, #right_div4{
+margin:2px 1px 1px 1px;
+float:left;
+width:200px;
+height:250px;
+
+}
+
+table,tr{
+
+width:200px;
+padding-left:5px;
+}
+
+tr{
+border-bottom:1px solid #C7BD8A;
+height:32px;
+}
+tr:hover{
+font-weight: bold;
+}
+
+
+#right_div1-hover{
+color:red;
+}
+
+#right_div6 {
+font-weight: bold;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+#right_div1, #right_div3, .right_div5{
+width:200px;
+height:20px;
+text-align:center;
+margin-bottom:2px;
+font-weight: bold;
+border-top:2px solid #C7BD8A;
+border-bottom:2px solid #C7BD8A;
+}
+
+#right_div1:hover, #right_div3:hover, .right_div5:hover{
+border-top:2px solid white;
+border-bottom:2px solid white;
+
+}
+</style>
+
+</head>
+<body>
+
+	<!-- 윗칸 -->
+	<div class="Border_R " style="height: 305px;" >
+
+		<div class="Border_R menuTap1 divBG divRadius shadow">
+		<div id="right_div1" onclick="comm_music()">Today추천음악</div>   
+		
+		<!--  노래 추천  -->
+		<div id="right_div2" >
+		<table>
+		<tr>
+		<th>순위</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　1</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　2</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　3</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　4</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　5</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　6</th><td>곡제목/작성자</td>
+		</tr>
+		<tr>
+		<th>　7</th><td>곡제목/작성자</td>
+		</tr>
+			
+</table>
+		</div>      
+		<!--  노래추천 끝  -->
+		
+	</div>
+
+	<div class="Border_R " style="height: 295px;margin-top:5px;" >		
+	<div class="Border_R menuTap1 divBG divRadius shadow">
+	<div id="right_div3" onclick="comm_band()">Today추천밴드</div>
+	<!-- 밴드추천 -->
+	<div id="right_div4">
+<table>
+		<tr>
+		<th>순위</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　1</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　2</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　3</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　4</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　5</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　6</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		<tr>
+		<th>　7</th><td>밴드이름/장르/인원수/</td>
+		</tr>
+		
+		
+</table>
+</div>
+	</div>
+	</div>
+	</div>
+	
+</body>
+</html>

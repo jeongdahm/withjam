@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+label{
+	font-size: 10px;
+}
+img {
+	height: 30px;
+	width: 30px;
+}
+
+.Border_R1111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+.testMargin{
+	margin: 2px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+.infoFormR {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 25%;
+}
+
+.menuTap1 {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 98%;
+}
+
+.maginR {
+	margin: 2px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectR1:checked+label.friendList {
+	background: blue;
+	color: white;
+}
+
+input#selectR2:checked+label.bookmarkList {
+	background: red;
+	color: white;
+}
+
+input#selectR3:checked+label.bandList {
+	background: green;
+	color: white;
+}
+
+input#selectR1, input#selectR2, input#selectR3 {
+	display: none;
+}
+
+.Taplabel {
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	background: #eef;
+	text-align: center;
+	line-height: 30px;
+}
+
+.page1, .page2, .page3 {
+	display: none;
+}
+
+input#selectR1:checked ~ .page1 {
+	display: block;
+}
+
+input#selectR2:checked ~ .page2 {
+	display: block;
+}
+
+input#selectR3:checked ~ .page3 {
+	display: block;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+</style>
+
+<script type="text/javascript">
+
+//찾기 메뉴 
+$(function() {
+	$(".c_band").hide();
+	
+	$("#createBand").click(function() {
+		$(".c_band").slideToggle("middle"); //밴드
+		return false;
+	});
+	
+
+});
+
+
+</script>
+
+</head>
+<body>
+	<div class="Border_R " style="height: 100%; float: left">
+
+		<div class="Border_R menuTap1 divBG shadow divRadius">
+
+			<input id="selectR1" name="selectMenu_R" type="radio" checked> <label
+				for="selectR1" class="friendList Taplabel">친구</label> <input
+				id="selectR2" name="selectMenu_R" type="radio"> <label
+				for="selectR2" class="bookmarkList Taplabel">북마크</label> <input
+				id="selectR3" name="selectMenu_R" type="radio"><label
+				for="selectR3" class="bandList Taplabel">밴드</label>
+
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+			<div class="page1 " >
+
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>아이디</label> <br> <label>코멘트 - - - - </label>
+					</div>
+				</div>
+				
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>아이디</label> <br> <label>코멘트 - - - - </label>
+					</div>
+				</div>
+				
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>아이디</label> <br> <label>코멘트 - - - - </label>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+			<div class="page2">
+			
+			
+				<div class="Border_R maginR" >
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>제목</label><label>아이디</label> 
+						<br> 
+						<label>참가인원</label><label>추천수</label><label>등록일</label>
+					</div>
+				</div>
+				
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>제목</label><label>아이디</label> 
+						<br> 
+						<label>참가인원</label><label>추천수</label><label>등록일</label>
+					</div>
+				</div>
+				
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>제목</label><label>아이디</label> 
+						<br> 
+						<label>참가인원</label><label>추천수</label><label>등록일</label>
+					</div>
+				</div>
+			
+			</div>
+
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+			<div class="page3 " >
+			<div class="accordion Border_R" >
+				<p id="createBand">밴드 만들기</p>
+				<div class="c_band">
+					<div><label style="float: left;">밴드명:</label><input type="text" ></div><br>
+					
+					<div><label style="float: left;">장르:</label>
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">락</option>
+						<option value="band2">힙합</option>
+					</select></div><br>
+
+					<div><label style="float: left;">인원제한:</label>
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">1</option>
+						<option value="band2">2</option>
+					</select></div><br>
+
+					<div><label style="float: left;">설명:</label><input type="text" ></div>
+					<div><button>밴드 만들기</button></div>
+				</div>
+
+			</div>
+			
+			<div class="Border_R ">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>밴드명</label><label>리더</label> 
+						<br> 
+						<label>밴드인원</label><label>장르</label>
+					</div>
+				</div>
+			
+			<div class="Border_R ">
+					<div class="magin" style="float: left; width: 35px; height: 35px;">
+						<img id="profileImg" src="../img/temp.jpg">
+					</div>
+					<div  class="magin">
+						<label>밴드명</label><label>리더</label> 
+						<br> 
+						<label>밴드인원</label><label>장르</label>
+					</div>
+				</div>
+			
+			</div>
+
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+		</div>
+	</div>
+</body>
+</html>

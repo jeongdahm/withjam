@@ -1,0 +1,104 @@
+<!-- <div class="make-band">
+	<span>밴드 만들기</span>
+	<hr>
+	<div>
+		<label style="float: left;">밴 드 명:</label><input type="text" id='bandName'>
+	</div>
+	<br>
+
+	<div>
+		<label style="float: left;">장 르:</label> <select name="band"
+			class="styled-select" id='genreNo'>
+			<option value="" selected="selected">선택</option>
+			<option value="1">클래식</option>
+			<option value="2">재즈</option>
+			<option value="3">가요</option>
+			<option value="4">락</option>
+			<option value="5">힙합</option>
+			<option value="6">기타등등</option>
+		</select>
+	</div>
+	<br>
+
+
+	<div>
+		<label style="float: left;">설 명:</label><input type="text"  id='bandComment'>
+	</div>
+	<div id="b-makebtn">
+		<button class='makeBandBtn'>밴드 만들기</button>
+	</div>
+	<hr>
+</div> -->	
+		<div class="make-band" >
+			<h5>밴드 만들기</h5>
+				<div style="padding-top:10px;border-radius:5px;">
+					<div><div style="float:left;">밴 드 명:</div>
+					<input type="text" style="width:170px;height:20px;" id='bandName'></div><br>
+					
+					<div><div style="float:left;">장　　르:</div>
+					<select name="band" class="styled-select form-control"style="width:170px;height:20px;" id='genreNo'>
+						<option value="" selected="selected">선택</option>
+			            <option value="1">클래식</option>
+			            <option value="2">재즈</option>
+			            <option value="3">가요</option>
+			            <option value="4">락</option>
+			            <option value="5">힙합</option>
+			            <option value="6">기타등등</option>
+					</select></div><br>
+
+					<!-- <div><div id="right_div6" style="float:left;">인원제한:</div> -->
+					<!-- <select name="band" class="styled-select form-control" style="width:170px;height:20px;" >
+						<option value="" selected="selected">선택</option>
+						<option value="band1">1</option>
+						<option value="band2">2</option>
+					</select></div><br> -->
+					
+					<!-- <div id="b-makebtn">
+		                <button class='makeBandBtn'>밴드 만들기</button>
+	                </div> -->
+
+					<div><div style="float:left;"id='bandComment'>설　　명:</div> <textarea  rows="3" ></textarea>
+					
+					
+					
+					<div id="b-makebtn" style="color:black;float:right;"><button>밴드 만들기</button></div>
+					<br>
+			</div>
+			</div>
+</div>
+
+<script>
+$('#b-makebtn').click(function(event){
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+			
+			/* var gernreNo = Integer.parseInt($('#gernrNo').val()); */
+			console.log($('#genreNo').val());
+	
+    $.post('../json/band/makeBand.do'
+        , {
+          bandName : $('#bandName').val(),
+          gname : $('#gname').val(),
+          genreNo : $('#genreNo').val(),
+          bandComment : $('#bandComment').val(),
+          uid : loginUser.uid
+        }
+        , function(data){
+          if (data.status == 'success') {
+             console.log('make band ..');
+             MyInfo();
+          } else {
+            console.log('make band fail..');
+          }
+        }
+        , 'json');
+		}
+	});
+  });
+
+</script>

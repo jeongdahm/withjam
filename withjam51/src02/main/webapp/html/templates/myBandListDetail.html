@@ -1,0 +1,111 @@
+<!-- {{myBandListDetail.bandNo}} 
+{{myBandListDetail.uid}} 
+{{myBandListDetail.bLevel}} 
+{{myBandListDetail.bJoinDate}} -->
+
+<!-- protected String bandName;
+	protected String bandComment;
+	protected Date bandDate;
+	protected String bPhoto; -->
+
+<!-- <div class="Border_R maginR">
+	<div class="magin">
+		
+		<div class="magin" style="float: left; width: 35px; height: 35px;">
+			<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+				data-toggle="modal" data-target="#myModal">
+		</div>
+		<div>밴드명 : {{myBandListDetail.bandName}}</div>
+		<div>밴드창립일 : {{myBandListDetail.bandDate}}</div>
+
+		<div>코멘트 : {{myBandListDetail.bandComment}}</div>
+
+		<div class="band-btn"
+			style="width: 200px; height: 30px; test-align: right;">
+			<button id="band-detail" type="button" class="btn btn-default btn-xs"
+				style="float: right;">밴드글보기</button>
+		</div>
+		구성원<br>
+		{{#each myBandMember}}
+		<div class="magin" style="float: left; width: 35px; height: 35px;">
+			<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+				data-toggle="modal" data-target="#myModal">
+		</div>
+		<div>이름 : {{uname}}</div>
+		<div>밴드가입일 : {{bJoinDate}}</div>
+        <div>코멘트 : {{comment}}</div>
+		{{/each}}
+	
+
+
+{{myBandListDetail.bLevel}}
+
+		</div>
+	</div>
+	<br>
+	<hr> -->
+	
+
+ 
+ 
+
+				<div class="Border_R maginR">
+					<div class="magin" style="float: left; width: 70px; height: 70px;">
+						<img id="bandphotoleft" class="bandImg" src="../img/face.jpg"
+							style="float: left; width: 70px; height: 70px;">
+					</div>
+					<div class="magin">
+						<div id="band_left">
+							<label>{{myBandListDetail.bandName}}</label>
+						</div>
+						<div id="bandmsg_left">
+							<label>{{myBandListDetail.bandComment}}</label>
+						</div>
+	
+							<div class="showband"style="">밴드글보기</div>
+						
+						<div class="right_div5">구성원</div>
+					<table>
+						<tr>
+							<th>밴드장</th>
+							<td>둘리</td>
+							<td>강퇴</td>
+						</tr>
+						<tr>
+							<th>매니저</th>
+							<td>도우너</td>
+							<td>강퇴</td>
+						</tr>
+						<tr>
+							<th>밴드원</th>
+							<td>고길동</td>
+							<td>강퇴</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+				<br>
+				<hr>
+				<div class="accordion Border_R">
+					<p id="band_title" style="width: 200px; height:20px;text-align: center;">밴드정보수정</p>
+					<div class="band_content">
+						<span style="display:inline">밴드사진</span><br> <input type="file" style="display:inline"><br>
+						 <span style="display:inline">밴드명</span><br> <input type="text" class="form-control" placeholder="Text input" style="display:inline"><br>
+						<span style="display:inline">장르</span> <select class="form-control" style="display:inline">
+							<option>k-pop</option>
+							<option>발라드</option>
+							<option>락</option>
+							<option>트로트</option>
+							<option>힙합</option>
+							<option>메탈</option>
+							<option>클래식</option>
+							<option>기타등등</option>
+							<option>4</option>
+							<option>5</option>
+						</select> 밴드설명<br>
+						<textarea class="form-control" rows="3"></textarea>
+						<br>
+						<div id="b-makebtn">
+							<button>수정완료</button>
+						</div>
+					</div>

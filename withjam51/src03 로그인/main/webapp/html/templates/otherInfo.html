@@ -1,0 +1,207 @@
+ <!-- OtherInfo 
+<button type="button" id="read_msg" class="btn btn-default btn-xs"
+	style="margin-left: 100px">내음원보기</button>
+<div style="height: 3px;"></div>
+<div id="myInfo">
+	<div id="myPhoto_left">
+		<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg"
+			style="width: 70px; height: 70px;" >
+	</div>
+	<div id="userId_left">{{myInfo.uname}}</div>
+	<div id="usermsg_left">{{myInfo.comment}}</div>
+
+
+</div>
+<div style="height: 65x; margin: 2px;">
+	<table id='myinfo2' class='table table-hover'>
+		<tr>
+			<th>관심장르</th>
+			<th>관심악기</th>
+			<th>가입일</th>
+		</tr>
+		<tr>
+			<td>{{myInfo.gname}}</td>
+			<td>{{myInfo.iname}}</td>
+			<td>..</td>
+		</tr>
+	</table>
+</div>
+<div style="height: 65x; margin: 2px;">
+	<table id='myinfo3' class='table table-hover'>
+		<tr>
+			<th>음원수</th>
+			<th>팔로우</th>
+			<th>팔로워</th>
+		</tr>
+		<tr>
+			<td><a>{{myInfo.boardCnt}}</a></td>
+			<td><a id="following" data-uid='{{myInfo.uid}}'>{{myInfo.followCnt}}</a></td>
+			<td><a id="follower" data-uid='{{myInfo.uid}}'>{{myInfo.followerCnt}}</a></td>
+		</tr>
+	</table>
+</div>
+밴드 선택
+가입한 밴드:
+<select class='my-band-list'>
+    {{#each myBandList}}
+	<option  data-uid='{{uid}}' data-bandNo='{{bandNo}}' data-bandGrade='{{bandGrade}}'>{{bandName}}</option>
+	{{/each}}
+</select>
+<button type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
+
+ -->
+ 
+ 
+ 
+MyInfo
+	<div class="write-btn" >뭐할까♬</div>
+		<div style="height:10px;"></div>
+			<div id="myInfo">
+				<div id="myPhoto_left">
+					<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" 
+					style="width: 70px; height: 70px;border-radius: 6px 0  0 6px;">
+				</div>
+				<div id="userId_left" style="font-style:inherit;">{{myInfo.uname}}</div>
+				<div id="usermsg_left" style="overflow: hidden;">{{myInfo.comment}}</div>
+			</div>
+			<div style="height:65px;margin:2px;margin-bottom:85px;">
+			<table id='myinfo3' class='table table-hover'>
+				<tr>
+					<th>My음원</th>
+					<th>팔로잉</th>
+					<th>팔로워</th>
+				</tr>
+				<tr>
+					<td><a>{{myInfo.boardCnt}}</a></td>
+			<td><a id="following" data-uid='{{myInfo.uid}}'>{{myInfo.followCnt}}</a></td>
+			<td><a id="follower" data-uid='{{myInfo.uid}}'>{{myInfo.followerCnt}}</a></td>
+				</tr>
+			
+				<tr>
+					<th>북마크</th>
+					<th>관심장르</th>
+				
+					<th>관심악기</th>
+					
+				</tr>
+				<tr>
+					<td><a id="bookmark">12</a></td>
+			<td>{{myInfo.gname}}</td>
+			<td>{{myInfo.iname}}</td>
+				
+				</tr>
+			</table>
+			</div>
+			
+	<!-- 밴드 선택 -->
+	<div style="display:inline">
+	<span style="font-weight: bold;">가입한 밴드:	</span>
+	<select class="form-control" style="width:110px;display:inline;">
+  {{#each myBandList}}
+	<option  data-uid='{{uid}}' data-bandNo='{{bandNo}}' data-bandGrade='{{bandGrade}}'>{{bandName}}</option>
+	{{/each}}
+</select><button  type="button" class="btn btn-default btn-xs band-detail-btn" style="display:inline">이동</button>
+		</div> 
+
+
+<script>			
+
+function OtherFollowList(fUid) {
+	$('.bookmark-detail').hide();
+	$('.follower').hide();
+	$('.band-detail').hide();
+	$('.following').show();
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+		
+
+	$.getJSON('../json/friend/otherFollowList.do?uid=' + loginUser.uid + '&fUid=' + fUid, function(data) {
+		console.log(data.friends);
+		require([ 'text!templates/otherFollow.html' ], function(html) {
+			var template = Handlebars.compile(html);
+			$('.following').html(template(data));
+		});
+	});
+	}
+	});
+}
+
+
+$("#following").click(function(){
+	console.log($(this).attr('data-uid'));
+	OtherFollowList($(this).attr('data-uid'));
+});
+
+function OtherFollowerList(fUid) {
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.band-detail').hide();
+	$('.follower').show();
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+
+	$.getJSON('../json/friend/otherFollowerList.do?uid=' + loginUser.uid + '&fUid=' + fUid, function(data) {
+		console.log(data.friends);
+		require([ 'text!templates/otherFollower.html' ], function(html) {
+			var template = Handlebars.compile(html);
+			$('.follower').html(template(data));
+		});
+	});
+	}
+	});
+} 
+
+
+$("#follower").click(function() {
+	OtherFollowerList($(this).attr('data-uid'));
+
+});
+
+$(".band-detail-btn").click(function() {
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').show();
+	
+	
+	
+	console.log($('.my-band-list').attr('data-bandNo'));
+	
+	
+	var bandName = $('.my-band-list').val();
+	console.log(bandName);
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+			console.log(bandName);
+
+			$.getJSON('../json/band/myBandListDetail.do?uid='
+					+ loginUser.uid + '&bandName=' + bandName
+				, function(data) {
+				console.log(data);
+				require([ 'text!templates/myBandListDetail.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('.band-detail').html(template(data));
+				});
+			});
+		}
+	});  
+	
+});	
+
+
+</script>

@@ -1,0 +1,168 @@
+
+
+
+
+	<div style="height:30px;"></div>
+	<img id="myphotoleft" class="profileImg" src="../img/myphoto.jpg" style="width: 190px; height:190px;">
+				
+	<div id="userId_left"><h1>{{myInfo.uname}}</h1></div>
+	<div id="usermsg_left" style="overflow: hidden;color:gray;width:190px;">{{myInfo.comment}}</div>
+			<br><br>
+			<div style="height:70px;margin:2px;margin-bottom:85px;">
+			<table id="myinfo3" class="table" style="width:190px;text-align:center;">
+				<tbody><tr>
+					<th><img src="../img/search1.png" style="width:35px;height:35px;"></th>
+					<th><a>{{myInfo.boardCnt}}</a></th>
+				</tr>
+				<tr>
+						<th><img src="../img/follow.png" style="width:35px;height:35px;">	</th>
+				<th><a id="follower">{{myInfo.followerCnt}}</a></th>
+
+			</tbody></table>
+			</div>
+			
+	<!-- 밴드 선택 -->
+	<div style="display:inline">
+	<span style="font-weight: bold;">가입한 밴드:	</span>
+	<select class="form-control my-band-list" style="width:110px;display:inline;">
+</select><button type="button" class="btn btn-default btn-xs band-detail-btn" style="display:inline">이동</button>
+		</div>
+
+
+<script>			
+
+function followList(){
+	$('.bookmark-detail').hide();
+	$('.follower').hide();
+	$('.band-detail').hide();
+	$('.following').show();
+
+			$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+
+					$.getJSON('../json/friend/myFollowList.do?uid='
+							+ loginUser.uid, function(data) {
+						console.log(data.friends);
+						require([ 'text!templates/myFollow.html' ], function(
+								html) {
+							var template = Handlebars.compile(html);
+							$('.following').html(template(data));
+						});
+					});
+				}
+			});
+}
+
+$("#following").click(function(){
+	followList();
+});
+
+		/* function() {
+			$('#myInfo4').show();
+			$('.follower').hide();
+			$('.band-detail').hide();
+			$('.following').show();
+
+			$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					console.log(loginUser);
+
+					$.getJSON('../json/friend/myFollowList.do?uid='
+							+ loginUser.uid, function(data) {
+						console.log(data);
+						require([ 'text!templates/myFollow.html' ], function(
+								html) {
+							var template = Handlebars.compile(html);
+							$('.following').html(template(data));
+						});
+					});
+				}
+			}); */
+			
+			/* followList();
+			
+			
+		}); */
+
+$("#follower").click(function() {
+	$('.bookmark-detail').hide();
+	$('.following').hide();
+	$('.band-detail').hide();
+	$('.follower').show();
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+
+			$.getJSON('../json/friend/myFollowerList.do?uid='
+					+ loginUser.uid, function(data) {
+				console.log(data);
+				require([ 'text!templates/myFollower.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('.follower').html(template(data));
+				});
+			});
+		}
+	});
+});
+
+$(".band-detail-btn").click(function() {
+	$('.bookmark-detail').hide();
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').show();
+	
+	
+	
+	console.log($('.my-band-list').attr('data-bandNo'));
+	
+	
+	var bandName = $('.my-band-list').val();
+	console.log(bandName);
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+			console.log(bandName);
+
+			$.getJSON('../json/band/myBandListDetail.do?uid='
+					+ loginUser.uid + '&bandName=' + bandName
+				, function(data) {
+				console.log(data);
+				require([ 'text!templates/myBandListDetail.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('.band-detail').html(template(data));
+				});
+			});
+		}
+	});  
+	
+});	
+
+
+
+$("#bookmark").click(function() {
+
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').hide();
+	$('.bookmark-detail').show();
+});
+
+
+</script>

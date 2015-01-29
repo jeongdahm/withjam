@@ -1,0 +1,108 @@
+
+
+{{#each friends}}
+<div class='friend-search-list' data-searchInfo='{{UNAME}}' style="margin-top: 32px;">
+	<div
+		style="width: 35px; height: 35px; float: left; float: left; margin-top: 2%;">
+		<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+			data-toggle="modal" data-target="#myModal">
+	</div>
+
+	<div style="border: 1px solid gray; float: left; width: 85%;word-wrap:break-word;margin-top:">
+
+		<label>이름 : <a>{{UNAME}}</a>&nbsp&nbsp&nbsp음원수 : {{CNT}}</label><br>
+		<!-- <div>음원수 : {{CNT}}</div> -->
+		<label>코멘트 : {{COMMENT}}</label>		
+		
+			<div>
+				<button class='btnFollow {{FOLLOWYN}}' data-fUid='{{fUid}}'
+					id='btn-follow'></button>
+			</div>
+
+		</div>
+	
+	</div>
+	{{/each}}
+
+	<script>
+		$('.friend-search-list').click(function() {
+			var searchInfo = $(this).attr('data-searchInfo');
+
+			/* console.log(fUname); */
+
+			$('#search-friend-input').val(searchInfo);
+
+			SearchInsert(searchInfo);
+
+		});
+
+		$(".btnFollow")
+				.click(
+						function() {
+							console.log('test');
+
+							var btnFollow = $(this);
+							$
+									.getJSON(
+											'/withjam13/json/auth/loginUser.do',
+											function(data) {
+												if (data.status == 'fail') {
+													console
+															.log('loginUser fail..');
+												} else {
+													var loginUser = data.loginUser;
+
+													if (btnFollow.attr('class') == 'btnFollow follow') {
+
+														console.log(loginUser);
+
+														$
+																.getJSON(
+																		'../json/friend/FriendDelete.do?uid='
+																				+ loginUser.uid
+																				+ '&fUid='
+																				+ btnFollow
+																						.attr('data-fUid'),
+																		function(
+																				data) {
+																			if (data.status == 'success') {
+																				console
+																						.log('delete success..');
+																				btnFollow
+																						.removeClass('follow');
+																				btnFollow
+																						.addClass('unfollow');
+																				MyInfo();
+																			} else {
+																				console
+																						.log('delete fail..');
+																			}
+																		});
+													} else {
+														$
+																.getJSON(
+																		'../json/friend/FriendAdd.do?uid='
+																				+ loginUser.uid
+																				+ '&fUid='
+																				+ btnFollow
+																						.attr('data-fUid'),
+																		function(
+																				data) {
+																			if (data.status == 'success') {
+																				console
+																						.log('add success..');
+																				btnFollow
+																						.removeClass('unfollow');
+																				btnFollow
+																						.addClass('follow');
+																				MyInfo();
+																			} else {
+																				console
+																						.log('add fail..');
+																			}
+																		});
+													}
+												}
+											});
+						});
+	</script>

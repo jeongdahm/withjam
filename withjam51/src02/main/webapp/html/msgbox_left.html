@@ -1,0 +1,180 @@
+<script>
+
+function takemsgFunction() {
+	document.getElementById("sendmsgtable").style.display = "none";
+	document.getElementById("takemsgtable").style.display = "";
+	$(".msg-detail").hide();
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+
+			$.getJSON('../json/message/takeMsgBox.do?uid='
+					+ loginUser.uid , function(data) {
+				console.log(data);
+				require([ 'text!templates/takeMsgBox.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('#takemsgtable').html(template(data));
+				});
+			});
+		}
+	});	
+	
+	
+}
+function sendmsgFunction() {
+	document.getElementById("sendmsgtable").style.display = "";
+	document.getElementById("takemsgtable").style.display = "none";
+	$(".msg-detail").hide();
+	
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+
+			$.getJSON('../json/message/sendMsgBox.do?uid='
+					+ loginUser.uid , function(data) {
+				console.log(data);
+				require([ 'text!templates/sendMsgBox.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('#sendmsgtable').html(template(data));
+				});
+			});
+		}
+	});	
+	
+	
+}
+
+$('a').click(function(){
+	$(".msg-detail").show();
+});
+
+
+
+</script>
+<!-- 쪽지 기능 -->
+		<h5>쪽지보관함</h5>
+<!-- 쪽지내용 -->
+<div class="msg scrollBar" style="width:350px;height:360px;border-radius:5px;">
+
+<div class="msg-detail" style="border:1px solid gray;width:330px;height:100px;display:none">
+<table style="width:320px;">
+	<tr >
+		<th style="width:80px;">보낸사람</th>
+		<td style="width:100px;">김종종</td>
+	</tr>
+<tr >
+		<th style="width:80px;">내용</th>
+		<td style="width:200px;">내용입니다? 내용입니다~ 내용입니다.</td>
+	</tr>
+	<tr >
+		<th style="width:80px;">날짜</th>
+		<td style="width:200px;">2015-01-04</td>
+	</tr>
+	
+	</table>
+	
+</div>
+<!-- 버튼 -->
+<br>
+<div class="correct-btn">
+<div  class="msg-btn" onclick="takemsgFunction()">받은쪽지</div>
+<div class="msg-btn" onclick="sendmsgFunction()">보낸쪽지</div>
+	
+
+<!-- 받은쪽지 -->
+<table id='takemsgtable' class='table table-hover scrollBar'>
+	<!-- <tr>
+		<th style="width:20px;">#</th>
+		<th style="width:55px;">내용</th>
+		<th style="width:55px;">보낸사람</th>
+		<th style="width:55px;">날짜</th>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td><a>받았다 메세지 1</a></td>
+		<td>이용용</td>
+		<td>12/27</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td><a>받았다 메세지 2222</a></td>
+		<td>한진진</td>
+		<td>12/07</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>받았다 메세지 3333</td>
+		<td>나정정</td>
+		<td>12/01</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>받았다 메세지 4444</td>
+		<td>김종종</td>
+		<td>12/01</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>받았다 메세지 5555</td>
+		<td>김원기</td>
+		<td>11/01</td>
+	</tr> -->
+</table>
+</div>
+<!-- 보낸쪽지 -->
+<div id='sendmsgtable'></div>
+<div></div>
+<table id='sendmsgtable' class='table table-hover scrollBar' style='display:none'>
+	<!-- <tr>
+		<th style="width:20px;">#</th>
+		<th style="width:55px;">내용</th>
+		<th style="width:55px;">받는사람</th>
+		<th style="width:55px;">날짜</th>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td><a>보낸메세지1111</a></td>
+		<td>이용용</td>
+		<td>12/27</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td><a>보낸메세지2222</a></td>
+		<td>한진진</td>
+		<td>12/07</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>보낸메세지3333</td>
+		<td>나정정</td>
+		<td>12/01</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>보낸메세지5555</td>
+		<td>김종종</td>
+		<td>12/01</td>
+	</tr>
+	<tr>
+		<td><input type="checkbox"></td>
+		<td>보낸메세지6666</td>
+		<td>김원기</td>
+		<td>11/01</td>
+	</tr> -->
+<!-- </table> -->
+
+<!-- <hr> -->
+<!-- <button type="button" class="btn btn-danger btn-xs">삭제</button> -->
+</table>
+</div>

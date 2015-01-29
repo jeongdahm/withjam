@@ -1,0 +1,74 @@
+<!-- <table  class='table table-hover scrollBar' >
+<tr>
+		<th style="width:55px;">#</th>
+		<th style="width:55px;">내용</th>
+		<th style="width:55px;">보낸사람</th>
+		<th style="width:55px;">날짜</th>
+</tr>
+{{#each Msgs}}	
+	<tr>
+		<td><input type="checkbox" data-msgNo='{{msgNo}}' name='checkTest' value='on'></td>
+		<td><a>{{title}}</a></td>
+		<td>{{fUname}}</td>
+		<td>{{sendTime}}</td>
+	</tr>
+{{/each}}
+
+
+</table> -->
+ 
+ <table  class='table table-hover scrollBar' >
+ <tr>
+      <th style="width:20px;">#</th>
+      <th style="width:55px;">내용</th>
+      <th style="width:55px;">보낸사람</th>
+      <th style="width:55px;">날짜</th>
+   </tr>
+   {{#each Msgs}}	
+   <tr>
+      <td><input type="checkbox" data-msgNo='{{msgNo}}' name='checkTest' value='on'></td>
+      <td><a>{{title}}</a></td>
+      <td>{{fUname}}</td>
+      <td>{{sendTime}}</td>
+   </tr>
+   {{/each}}
+   </table>
+
+<button type="button" class="btn btn-danger btn-xs" data-uid='{{uid}}' id='checkTest'>삭제</button>
+
+<script>
+
+
+$("#checkTest").click(function(event){
+	  event.preventDefault();
+	  var msgNo = [];
+	  /* 첵크 벨류 가져올 변수 선언 */ 
+	  var checkVal = []; 
+	  $("input:checkbox:checked").map(function(){
+	    msgNo.push($(this).attr('data-msgNo'));
+	  });
+	  
+	  /* 첵크된 벨류 가져오기 */
+	  $("input:checkbox:checked").map(function(){
+		  checkVal.push($(this).val());
+		  });
+	  console.log(msgNo);
+	  console.log(checkVal);
+	  console.log(msgNo.length);
+	  
+	  
+             for(var i=0; i<msgNo.length;i++){
+				$.getJSON('../json/message/myTakeMsgDelCheck.do?msgNo='
+						+ msgNo[i]
+				        + '&checkVal='
+				        + checkVal[i]
+				   , function(data) {
+					if (data.status=='success'){
+						console.log(data.status);
+					}else{
+						console.log('msgDelete fail..');
+					}
+				});
+             } 
+	});
+</script>

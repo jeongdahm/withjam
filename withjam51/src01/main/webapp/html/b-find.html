@@ -1,0 +1,79 @@
+
+
+
+<!-- 밴드 검색 -->
+<div class='friend-head'>
+	<span>밴드찾기 <input class='band-test' type='text' id='searchBand'
+		placeholder="밴드찾기.." /></span>
+</div>
+<hr>
+
+<!-- 밴드 결과  -->
+<div class="f-List scrollBar"
+	style="float: left; width: 290px; height: 320px; padding: 10px;">
+	<div class="Border_R ">
+		<div class="magin band-detail"
+			style="float: left; width: 35px; height: 35px;">
+			<img id="profileImg" class="band-detail" src="../img/temp.jpg">
+		</div>
+		<div class="magin">
+			<label>밴드명</label>|<label>리더</label> <br> <label>밴드인원</label>|<label>장르</label>
+		</div>
+	</div>
+</div>
+
+
+<!-- searchBandList -->
+
+
+<script>
+	$(".band-detail").click(function() {
+		$('#myInfo4').show();
+		$('.following').hide();
+		$('.follower').hide();
+		$('.band-detail').show();
+
+	});
+	
+	$(".band-test").keyup(function() {
+		var searchBand = $('#searchBand').val();
+		console.log(searchBand);
+		$.getJSON('/withjam9/json/auth/loginUser.do', function(data) {
+			if (data.status == 'fail') {
+				console.log('loginUser fail..');
+			} else {
+				var loginUser = data.loginUser;
+				
+				
+		        $.get("http://localhost:3000/searchBandList?uid="+loginUser.uid+"&search="+searchBand,
+				function(data) {
+					if (data.length != 0) {
+						
+						console.log(data);
+						
+						var searchbands = {
+								bands :data
+						}
+						console.log(searchbands);
+						
+			
+							require([ 'text!templates/searchBandList.html' ], function(
+									html) {
+								var template = Handlebars.compile(html);
+								$('.f-List').html(template(searchbands));
+							}); 
+						
+						
+					}else{
+						console.log('search fail..');
+						require([ 'text!templates/searchBandList.html' ], function(
+								html) {
+							var template = Handlebars.compile(html);
+							$('.f-List').html(template(data));
+						}); 
+					}
+				});
+			}	
+		});
+	});
+</script>

@@ -1,0 +1,128 @@
+<script>
+$(document).ready(function() {
+	//쪽지보내기 메뉴 
+	$(function() {
+		$(".msg_content").hide();
+		$("#msg_title").click(function() {
+			$(".msg_content").slideToggle("middle"); 
+			return false;
+		});
+	});
+});
+
+
+//친구의 팔로잉, 팔로워 
+$("#modal-following").click(function(){
+	$('.follower').hide();
+	$('.following').show();
+	
+});
+$("#modal-follower").click(function(){
+	$('.following').hide();
+	$('.follower').show();
+});
+
+
+</script>
+
+<!-- 내정보 -->
+<div class="friend-modal">
+<div class="friend-modal-left">
+			<h5>MyInfo</h5>
+			<div id="myInfo">
+				<div id="myPhoto_left">
+					<img id="myphotoleft" src="../img/myphoto.jpg" style="width: 70px; height: 70px;"
+					data-toggle="modal" data-target=".bs-example-modal-sm">
+				</div>
+				<div id="userId_left">MyName</div>
+				<div id="usermsg_left">안녕하세요</div>
+
+				<div id="button_myInfo">
+					<button type="button" id="read_msg" class="btn btn-default btn-xs">전체글보기</button>
+				</div>
+			</div>
+			<hr>
+			<h5>MyName님의</h5>
+			<table id='myinfo2' class='table table-hover'>
+				<tr>
+					<th>관심장르</th>
+					<th>관심악기</th>
+					<th>가입일</th>
+				</tr>
+				<tr>
+					<td>클래식</td>
+					<td>바이올린</td>
+					<td>2014-12-31</td>
+				</tr>
+			</table>
+			<br>
+			<table id='myinfo3' class='table table-hover'>
+				<tr>
+					<th>My음원</th>
+					<th>팔로잉</th>
+					<th>팔로워</th>
+				</tr>
+				<tr>
+					<td><a>50</a></td>
+					<td><a id="modal-following">32</a></td>
+					<td><a id="modal-follower">55</a></td>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+			<div style="float:right;">
+					<button type="button" id="read_msg" class="btn btn-default btn-xs">친구맺기</button>
+					<button type="button" id="read_msg" class="btn btn-default btn-xs">친구끊기</button></div><br>
+	<!-- 밴드 선택 -->
+	가입한 밴드:	
+	<select>
+  <option value="volvo">우리밴드</option>
+  <option value="saab">너네밴드</option>
+  <option value="mercedes" selected>잘하는밴드</option>
+  <option value="audi">못하는밴드</option>
+</select>
+	<button type="button" class="btn btn-default btn-xs">이동</button>
+			<!-- 쪽지보내기 -->
+				<div class="accordion Border_R" >
+				<p id="msg_title" style="width:300px;text-align:center;">쪽지보내기</p>
+				<div class="msg_content">
+ 				<textarea class="form-control" rows="3" placeholder="내용"></textarea>
+				<div id="b-makebtn"><button>보내기</button></div>
+					<hr>
+				</div>
+
+			</div>
+			
+		</div>
+		<div class="friend-modal-right">
+		<!-- 친구의 팔로잉 -->
+		<div class="following scrollBar" style="height:100%;display:none">
+			<div class="Border_R maginR">
+				<div class="magin" style="float: left; width: 35px; height: 35px;">
+					<img id="profileImg" src="../img/temp.jpg" data-toggle="modal"
+						data-target="#myModal">
+				</div>
+				<div class="magin">
+					<label>팔로잉</label> <label>/음원수 </label><br> <label>코멘트
+						- - - - </label>
+				</div>
+			</div>
+
+		</div>
+		<!-- 친구의 팔로워  -->
+		<div class="follower scrollBar" style="height:100%;display:none">
+			<div class="Border_R maginR">
+				<div class="magin" style="float: left; width: 35px; height: 35px;">
+					<img id="profileImg" src="../img/temp.jpg" data-toggle="modal"
+						data-target="#myModal">
+				</div>
+				<div class="magin">
+					<label>팔로워</label> <label>/음원수 </label><br> <label>코멘트
+						- - - - </label>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

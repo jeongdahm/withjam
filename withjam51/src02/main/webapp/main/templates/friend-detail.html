@@ -1,0 +1,17 @@
+<!-- <result column="BNO" property="bno" />
+<result column="UID" property="uid" />
+<result column="TITLE" property="title" />
+<result column="CONTENT" property="content" />
+<result column="BDATE" property="bdate" />
+<result column="BF_NAME" property="bfName" /> -->
+
+<div>{{friendMemberDetail.email}}</div>
+<div>{{friendMemberDetail.uname}}</div>
+
+{{#each friendDtail}}
+<div class="data-friend-detail" data-uid='{{uid}}'>
+	<div>{{content}}</div>
+	<div>{{bdate}}</div>
+	<div>{{bfName}}</div>
+</div>
+{{/each}}

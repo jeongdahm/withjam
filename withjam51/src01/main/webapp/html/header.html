@@ -1,0 +1,228 @@
+
+<script>
+
+
+/* $(document).ready(function(){ */
+	<!--친구 아이콘 클릭했을 때 -->
+
+  
+/* }); */
+
+</script>
+
+<!-- 왼쪽 아이콘  -->
+
+
+<div class="header-L" style="height:48px; width:700px; float:left;padding-top:8px;padding-left:50px;">
+	<a href="mainFrame.html" style="display: table-cell;margin-right:10px;width:200px;"><img id="withjam_main" src="../img/with-wwww.png" style="width: 150px; height: 35px;"></a>
+<!-- 서치 -->
+<div style="position:relative;display:inline-block;margin-top:2px;display:table-cell;width: 505px;
+height: 35px;">		
+<input type="search" placeholder="Search" autocomplete="off" style="position:absolute;height:32px;width:500px;border-radius:4px;">
+<button class="headerSearch__submit submit" id="searchbtn" type="submit" style="position: absolute;
+transform: translate(470px, 4px);">Search</button>
+</div>
+
+</div>
+
+<!-- 랭킹 -->
+<div id="ranking" style="color:gray;float:left;margin-top: 15px;margin-left: 50px;"><ol><li>안녕하시오</li></ol></div>
+
+<!-- 오른쪽 아이콘부분 -->
+<div class="header-R right-icon" style="height:48px; width:400px; float:right;padding-top:10px;padding-left:80px;">
+
+<div class="icon-box">
+ <img id="band1png" class="png" src="../img/make-band-w.png" width="30" height="30" title="밴드만들기"></div>
+				 <div class="icon-box">
+	<img id="msgpng" class="png" src="../img/msg-w.png" width="30" height="30" title="쪽지"></div>
+					<div class="icon-box">
+ <img id="settingpng" class="png" src="../img/setting-w.png" width="30" height="30" title="설정"></div>
+					<div class="icon-box">
+	<img id="logoutpng" class="png" src="../img/logout-w.png" width="30" height="30" title="로그아웃"></div>
+</div>
+
+
+<!-- 아이콘 클릭시 div부분 -->
+
+<!-- 검색 -->
+<div class="search-this" style="width: 510px; height: 300px; margin-top: 48px;
+ margin-left: 240px; display: none; position: absolute; color: rgb(132, 132, 132); 
+ border: 1px solid rgb(51, 51, 51); text-shadow: rgb(0, 0, 0) 2px 2px; 
+ background-color: rgb(51, 51, 51);"></div>
+<!-- 랭킹 -->
+<div class="ranking-this" style="width: 190px; height: 300px; margin-top: 5px;
+ margin-left: 750px; color: rgb(132, 132, 132); border: 1px solid gray; z-index: 2000; 
+ display: none; background-color: rgb(51, 51, 51);">
+
+</div>
+
+<!-- 밴드만들기 -->
+<div class="band1-this" style="width: 250px; height: 300px; margin-top: 48px; margin-left: 850px; 
+display: none; color: rgb(132, 132, 132); border: 1px solid rgb(51, 51, 51); 
+background-color: rgb(51, 51, 51);"></div>
+<!-- 쪽지 -->
+<div class="msg-this" style="width: 370px; height: 400px; margin-top: 48px; margin-left: 850px; 
+display: none; color: rgb(132, 132, 132); border: 1px solid rgb(51, 51, 51); 
+background-color: rgb(51, 51, 51);"></div>
+<!-- 설정 -->
+<div class="setting-this" style="width: 250px; height: 300px; margin-top: 48px; margin-left: 950px; 
+display: none; color: rgb(132, 132, 132); border: 1px solid rgb(51, 51, 51); 
+background-color: rgb(51, 51, 51);"></div>
+<div class="logout-this"></div>
+
+<script>
+  realTimeSearchRancking(); 
+
+<!--검색할때-->
+  $("#searchbtn").click(function(){
+ 	 $(".setting-this").hide();
+  	$(".band-this").hide();
+  	 $(".band1-this").hide();
+  	$(".msg-this").hide();
+    $(".search-this").toggle();
+    $('.search-this').load('allsearch.html');   
+  });
+  
+  <!--랭킹-->
+  $("#ranking").mouseenter(function(){
+  	$(".search-this").hide();
+ 	 $(".setting-this").hide();
+ 	 $(".msg-this").hide();
+ 	$(".band1-this").hide();
+ 	$(".ranking-this").toggle();
+ 	$(".ranking-this").load('ranking.html');
+ 
+  });
+  $(".ranking-this").mouseleave(function(){
+  	$(".ranking-this").hide();
+  });
+	<!--밴드만들기 아이콘 클릭했을 때 -->
+  $("#band1png").click(function(){
+  	$(".search-this").hide();
+  	 $(".setting-this").hide();
+  	 $(".msg-this").hide();
+  	 /* $(".band-this").hide(); */
+    $(".band1-this").toggle();
+    $('.band1-this').load('make-band.html');
+  });
+
+	<!--쪽지 아이콘 클릭했을 때 -->
+  $("#msgpng").click(function(){
+  	$(".search-this").hide();
+  	 $(".setting-this").hide();
+   	/*  $(".band-this").hide(); */
+   	 $(".band1-this").hide();
+    $(".msg-this").toggle();
+    $('.msg-this').load('msgbox_left.html');
+  });
+  
+
+	<!--설정 아이콘 클릭했을 때 -->
+  $("#settingpng").click(function(){
+  	$(".search-this").hide();
+  	$(".band-this").hide();
+  	$(".band1-this").hide();
+  	$(".msg-this").hide();
+    $(".setting-this").toggle();
+    $('.setting-this').load('setting_left.html');
+    
+    
+  });
+  
+
+  
+
+  <!--바탕 클릭했을 때 꺼짐 -->
+  $(".divHeight").click(function(){
+  	$(".search-this").hide();
+     $(".setting-this").hide();
+  	/*  $(".band-this").hide(); */
+  	 $(".msg-this").hide();
+  	 $(".band1-this").hide();
+  });
+  
+  $('.logout-this').click(function(){
+	  /* $.getJSON('/withjam51/json/auth/logout.do', function(data){
+	    location.href = '/withjam51/auth/LoginPage.html'; 
+	  }); */
+	    console.log('logout test');
+	});
+
+
+	$.getJSON('/withjam51/json/auth/loginUser.do', function(data){
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+			
+		} else {
+			
+			/* if (data.photo) {
+				  $('#userPhoto').attr('src', data.loginUser.photo);
+			} */
+			
+		  $('#userName').html(data.loginUser.uname);
+		  $('#userName').click(function(){
+				alert('사용자 정보 조회 창으로 보낼 예정');
+			});
+		}
+	});
+	
+	$('.BoardSearch').keyup(function(key){
+		var boardSearch = null;
+		
+		console.log($('.BoardSearch').val());
+		
+		if($('.BoardSearch').val()==''){
+			boardSearch = 'jfadfldjfhafkdsfhriluhfhdh';
+		}else{
+			boardSearch = $('.BoardSearch').val();
+		}
+		
+		
+		       $.get("http://localhost:3000/searchBoard?uname="+boardSearch
+		    		   +"&title="+boardSearch,
+						function(data) {
+							if (data.length != 0) {
+								
+								console.log(data);
+								
+								var searchBoard = {
+										board :data
+								}
+								console.log(searchBoard);
+													
+									require([ 'text!templates/searchBoardList.html' ], function(
+											html) {
+										var template = Handlebars.compile(html);
+										$('.search-board-list').html(template(searchBoard));
+									}); 
+								
+								
+							}else{
+								console.log('search fail..');
+								require([ 'text!templates/searchBoardList.html' ], function(
+										html) {
+									var template = Handlebars.compile(html);
+									$('.search-board-list').html(template(data));
+								}); 
+							}
+						});
+		       
+		       if (key.keyCode == 13) {
+					/* console.log($(this).val()); */
+					SearchInsert($(this).val());
+				    realTimeSearchRancking();
+			    }
+	});
+	
+function realTimeSearchRancking(){
+	$.getJSON('../json/search/realTimeSearchRancking.do', function(data) {
+		console.log(data.chartList);
+		require([ 'text!templates/realTimeSearchRancking.html' ], function(
+				html) {
+			var template = Handlebars.compile(html);
+			$('.real-time-search-list').html(template(data));
+		});
+	});
+}
+	<!--글 아이콘 클릭했을 때 -->
+	</script>
