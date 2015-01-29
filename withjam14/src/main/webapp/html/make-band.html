@@ -1,0 +1,142 @@
+<style>
+.make-band-header{
+  width: 100%;
+  height: 30px;
+  border-bottom: #1e1e1e 1px solid;
+}
+
+.make-band-center{
+  width: 100%;
+  height: 100px;
+  border-bottom: #1e1e1e 1px solid;
+  border-top: 1px solid #585858;
+}
+
+.band-for-label{
+  float: left;
+}
+
+.band-for-label2{
+  float: left;
+  margin-left: 22px;
+}
+
+.band-for-input{
+  float: left;
+  margin-left: 30px;
+  width: 250px;
+}
+
+.band-for-input2{
+  float: left;
+  margin-left: 30px;
+  width: 250px;
+}
+
+.band-for-div{
+  height: 30px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.make-band-bottom{
+  width: 100%;
+  height: 150px;
+  border-bottom: #1e1e1e 1px solid;
+  border-top: 1px solid #585858;
+}
+
+.radio-for-secret{
+
+  margin-left: 44px;
+}
+
+.band-for-button-div{
+  width: 30%;
+  margin-left: 60%;
+}
+
+.band-for-button-div>button{
+  margin-left: 8px;
+}
+
+</style>
+<div class="make-band" >
+<div><img src='../img/search3-w.png'></div>
+			<div class='make-band-header'>
+		    회원님과 친구들을 위한 공유 그룹을 만들어 보세요.
+			</div>
+			<div class='make-band-center'>
+			
+			  <div class='band-for-div'>
+			  <label class='band-for-label'>밴드 이름: </label><div><input type='text' class='band-for-input'></div>
+			  </div>
+			  <div></div>
+			  
+			  <div class='band-for-div'>
+			  <label class='band-for-label2'>멤    버: </label><div><input type='text' class='band-for-input2' placeholder="누구를 추가할까요"></div>
+			  </div>
+			  <div></div>
+			  
+			</div>
+			
+			<div class='make-band-bottom'>
+			   <label class='band-for-label'>공개범위</label>
+			   
+		    <div class="radio">
+              <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>공개<br>
+              누구나 그룹과 그룹 멤버 및 게시물을 볼 수 있습니다.
+              </label>
+              </div>
+           <div class="radio radio-for-secret">
+              <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">비밀<br>
+              그룹 멤버만 그룹과 게시물을 볼 수 있습니다.
+              </label>
+            </div>
+			   
+			</div>
+			
+			<div class='band-for-button-div'>
+			<button>취소</button>
+			<button>등록</button>
+			</div>
+				
+</div>
+
+<script>
+$('#b-makebtn').click(function(event){
+	$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			
+			console.log(loginUser);
+			
+			/* var gernreNo = Integer.parseInt($('#gernrNo').val()); */
+			console.log($('#genreNo').val());
+	
+    $.post('../json/band/makeBand.do'
+        , {
+          bandName : $('#bandName').val(),
+          gname : $('#gname').val(),
+          genreNo : $('#genreNo').val(),
+          bandComment : $('#bandComment').val(),
+          uid : loginUser.uid
+        }
+        , function(data){
+          if (data.status == 'success') {
+             console.log('make band ..');
+             MyInfo();
+          } else {
+            console.log('make band fail..');
+          }
+        }
+        , 'json');
+		}
+	});
+  });
+
+</script>

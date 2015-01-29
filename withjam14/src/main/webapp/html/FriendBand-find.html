@@ -1,0 +1,128 @@
+
+
+<!-- --------친구 검색 ----------- -->
+<div class='friend-head' style="position: absolute; background: white; width: 90%;">
+	<span>친구/밴드 검색.. <input id='search-friend-input' type='text'
+		placeholder="검색 .." /></span>
+</div>
+<hr>
+<div style="width: 100%;height: 30px;text-align: center;border-bottom: solid gray 1px;
+            position: absolute;top: 40px;background: white;z-index: 10000;">친구</div>
+<div style="width: 100%;height: 30px;text-align: center;border-bottom: solid gray 1px;
+            position: absolute;top: 291px;background: white;z-index: 10000;">밴드</div>
+<!-- --------친구 결과  ----------- -->
+<!-- <div class="f-List" style="float: left;">
+</div> -->
+
+<!-- <div class="b-List" style="float: left;">
+</div> -->
+
+<div style='border: solid 1px gray;height: 250px;width: 300px;overflow: scroll;position: relative;' 
+     class='search-friend-list'>
+</div>
+<div style='border: solid 1px gray;height: 250px;width: 300px;overflow: scroll;position: relative;' 
+     class='search-band-list'>   
+</div> 
+
+
+<script>
+
+
+$("#search-friend-input").keyup(function(key) {
+			var searchFriend = $('#search-friend-input').val();
+			console.log(searchFriend);
+			$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					
+					$.get("http://localhost:3000/searchFriendList?uid1="+loginUser.uid
+							+"&search1="+searchFriend
+							+"&search2="+searchFriend
+							+"&uid2="+loginUser.uid,
+							function(data) {
+								if (data.length != 0) {
+									
+									console.log(data);
+									
+									var searchFriend = {
+											friends :data
+									}
+									console.log(searchFriend);
+									
+						
+										require([ 'text!templates/searchFriendList.html' ], function(
+												html) {
+											var template = Handlebars.compile(html);
+											$('.search-friend-list').html(template(searchFriend));
+										}); 
+									
+									
+								}else{
+									console.log('search fail..');
+									require([ 'text!templates/searchFriendList.html' ], function(
+											html) {
+										var template = Handlebars.compile(html);
+										$('.search-friend-list').html(template(data));
+									}); 
+								}
+							});
+						}	
+					});	 
+			
+			         
+			 $.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					console.log("bandLoginUser"+data.loginUser.uid);
+					
+					
+			        $.get("http://localhost:3000/searchBandList?uid="+loginUser.uid
+			        		+"&search1="+searchFriend
+			        		+"&search2="+searchFriend
+			        		+"&search3="+searchFriend,
+					function(data) {
+						if (data.length != 0) {
+							
+							console.log(data);
+							
+							var searchbands = {
+									bands :data
+							}
+							console.log(searchbands);
+							
+				
+								require([ 'text!templates/searchBandList.html' ], function(
+										html) {
+									var template = Handlebars.compile(html);
+									$('.search-band-list').html(template(searchbands));
+								}); 
+							
+							
+						}else{
+							console.log('search fail..');
+							require([ 'text!templates/searchBandList.html' ], function(
+									html) {
+								var template = Handlebars.compile(html);
+								$('.search-band-list').html(template(data));
+							}); 
+						}
+					});
+				}	
+			}); 
+			
+			
+			
+			
+			
+			
+			if (key.keyCode == 13) {
+				/* console.log($(this).val()); */
+				SearchInsert($(this).val());
+		    }
+		});
+
+</script>

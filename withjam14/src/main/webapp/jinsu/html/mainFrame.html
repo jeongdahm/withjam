@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<!-- 
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+ -->
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+<style>
+#layer_fixed {
+	height: 40px;
+	width: 100%;
+	z-index: 999;
+	color: #555;
+	font-size: 12px;
+	position: fixed;
+	float: none;
+	top: 0px;
+	left: 0px;
+	background-color: #eee;
+}
+
+.scrollBar {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+html, body {
+	height: 96%;
+}
+
+.divHeight {
+	height: 100%;
+}
+
+.testBorder {
+	border: 1px solid black;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	border: 1px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
+	{
+	display: block;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #efefef;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+	height: 10px;
+	width: 50px;
+	background: rgba(0, 0, 0, .2);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+/* 탭관련 */
+.tapStyle {
+	border: 1px solid black;
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+.tapContent {
+	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+
+
+
+
+
+</head>
+<body>
+
+	<div class=" Border_M" id="layer_fixed">
+		<div class="col-md-12">WithJAM</div>
+	</div>
+	<br>
+	<br>
+
+	<div class=" divHeight ">
+
+		<div id="leftSide" class="col-md-3  divHeight testBorder">
+		
+		<div style="margin-bottom:10px">
+		<a href="#" class="easyui-linkbutton" onclick="addTab('google','http://www.google.com')">google</a>
+		<a href="#" class="easyui-linkbutton" onclick="addTab('jquery','http://jquery.com/')">jquery</a>
+		<a href="#" class="easyui-linkbutton" onclick="addTab('easyui','http://jeasyui.com/')">easyui</a>
+	</div>
+		
+		
+<!-- 
+			<button id="content0" class="content" onclick="addTap(this)">Test01</button>
+			<button id="delete0" class="content" onclick="deleteTap(this)">delete01</button>
+			<br>
+			<button id="content1" class="content" onclick="addTap(this)">Test02</button>
+			<button id="delete1" class="content" onclick="deleteTap(this)">delete02</button>
+			<br>
+			<button id="content2" class="content" onclick="addTap(this)">Test03</button>
+			<button id="delete2" class="content" onclick="deleteTap(this)">delete03</button>
+			<br>
+			<button id="content3" class="content" onclick="addTap(this)">Test04</button>
+			<button id="delete3" class="content" onclick="deleteTap(this)">delete04</button>
+			<br>
+			<button id="content4" class="content" onclick="addTap(this)">Test05</button>
+			<button id="delete4" class="content" onclick="deleteTap(this)">delete05</button>
+			<br>
+			<button id="content5" class="content" onclick="addTap(this)">Test06</button>
+			<button id="delete5" class="content" onclick="deleteTap(this)">delete06</button>
+			<br>
+ -->
+
+		</div>
+
+
+		<div id="mainPage" class="col-md-6 Border_M divHeight scrollBar testBorder">
+		
+		<div id="tt" class="easyui-tabs testBorder" style="width:100%;height:100%;">
+			<div title="Home">
+			</div>
+		</div>
+		
+		
+<!-- 
+			<div id="tapSide" class="testBorder" style="height: 5%;"></div>
+
+			<div id="contentSide" class="testBorder" style="height: 95%;">
+			</div>
+ -->
+
+		</div>
+
+
+		<div id="rightSide" class="col-md-3 Border_M divHeight testBorder"></div>
+	</div>
+
+
+	<script>
+		
+
+	function addTab(title, url){
+		if ($('#tt').tabs('exists', title)){
+			$('#tt').tabs('select', title);
+		} else {
+			var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+			$('#tt').tabs('add',{
+				title:title,
+				content:content,
+				closable:true
+			});
+		}
+	}
+
+
+	
+	
+	
+	/* -- - - - - - -  - - - - - - - - - - - - - - - - -- -- - - - -- - - -- - - -- - - */
+		var tapCount = 0;
+		var tapId = 0;
+		var tapList = [];
+
+		function addTap(e) {
+
+			var test = 0;
+
+			console.log(tapCount.size);
+			if (tapCount == 5) {
+				return 0;
+			}
+
+			console.log(e.id);
+
+			for ( var i in tapList) {
+				if (tapList[i] == e.id) {
+					test++;
+				}
+			}
+			if (test < 1) {
+				console.log("없다");
+				
+				tapList[tapCount] = e.id;
+
+				var div = document.createElement('div');
+				div.classList.add("tapStyle");
+				div.classList.add("deleteTap"+tapId);
+				tapSide.appendChild(div);
+			
+				var div2 = document.createElement('div');
+				div2.classList.add("tapContent");
+				div2.classList.add("deleteTap"+tapId);
+				contentSide.appendChild(div2);
+				
+				tapCount++;
+				tapId++;
+				
+			} else {
+				console.log("있다.");
+			}
+
+		}
+		
+		function deleteTap(e){
+			console.log(e.id);
+		}
+	</script>
+
+</body>
+</html>

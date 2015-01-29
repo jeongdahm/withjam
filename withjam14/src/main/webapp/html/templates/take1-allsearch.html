@@ -1,0 +1,49 @@
+<style>
+.searchlist-icon-div{
+	float:right;margin-right:10px;
+	width: 25px;
+height: 25px;
+}
+
+.members{
+/* width:30px;height:30px;float:right;margin-right:10px;opacity:.6; */
+background-image: url("../img/search2-w.png");
+width: 25px;
+height: 25px;
+}
+.board{
+/* width:30px;height:30px;float:right;margin-right:10px;opacity:.6; */
+background-image: url("../img/search1-w.png");
+width: 25px;
+height: 25px;
+}
+
+.band{
+/* width:30px;height:30px;float:right;margin-right:10px;opacity:.6; */
+background-image: url("../img/search3-w.png");
+width: 20px;
+height: 20px;
+}
+
+.search-key-word{
+  color: white;
+}
+</style>
+<div ><label>Search For...  </label><label class='search-key-word'></label></div>
+
+{{#each searchList}}
+<div style="width:500px;height:50px;padding:10px;" class='search-this'>
+
+<img src="{{UPHOTO}}"  style="width:30px;height:30px;margin-left:5px;">
+<span style="margin-left:5px;"><a>{{UNAME}}</a></span>
+<div class='searchlist-icon-div'><img class='{{SORT}}'></div>
+<!-- <img src="../img/search1-w.png"  style="width:30px;height:30px;float:right;margin-right:10px;opacity:.6;"> -->
+</div>
+{{/each}}
+
+
+<script>
+console.log('test'+$("#allsearch").val());
+$('.search-key-word').html($("#allsearch").val());
+
+</script>

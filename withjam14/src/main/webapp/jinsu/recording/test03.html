@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+<script>
+	
+
+	var soundID1 = "takemyhand";
+	var soundID2 = "remake";
+	var soundID3 = "blackice";
+	var soundID4 = "blackend";
+
+	var mutedSound1;
+	var mutedSound2;
+	var mutedSound3;
+	var mutedSound4;
+
+	function loadSound() {
+		createjs.Sound.registerSound("../music/02 Take My Hand.mp3", soundID1);
+		createjs.Sound.registerSound("../music/01 Re-make.mp3", soundID2);
+		createjs.Sound.registerSound("../music/29 Black Ice.mp3", soundID3);
+		createjs.Sound.registerSound("../music/01 Metallica Blackened.mp3",
+				soundID4);
+
+	}
+
+	function playSound() {
+		mutedSound1 = createjs.Sound.play(soundID1);
+		mutedSound2 = createjs.Sound.play(soundID2);
+		mutedSound3 = createjs.Sound.play(soundID3);
+		mutedSound4 = createjs.Sound.play(soundID4);
+	}
+	
+	function stopSound(){
+		createjs.Sound.stop();
+	}
+
+	
+	var changeVolume = function(val) {
+		createjs.Sound.setVolume(val / 100);
+	}
+	
+	
+
+	function mute1() {
+		if (mutedSound1.getMuted()) {
+			mutedSound1.setMuted(false);
+		} else {
+			mutedSound1.setMuted(true);
+		}
+	}
+	function mute2() {
+		if (mutedSound2.getMuted()) {
+			mutedSound2.setMuted(false);
+		} else {
+			mutedSound2.setMuted(true);
+		}
+	}
+	function mute3() {
+		if (mutedSound3.getMuted()) {
+			mutedSound3.setMuted(false);
+		} else {
+			mutedSound3.setMuted(true);
+		}
+	}
+	function mute4() {
+		if (mutedSound4.getMuted()) {
+			mutedSound4.setMuted(false);
+		} else {
+			mutedSound4.setMuted(true);
+		}
+	}
+</script>
+</head>
+
+
+<body onload="loadSound();">
+
+	<button onclick="playSound();" class="playSound">Play</button>
+	<button onclick="stopSound();" class="stopSound">Stop</button>
+
+	<br> volume
+	<input id="slider" type="range" min="0" value="50" max="100" step="1"
+		onchange="changeVolume(this.value)" />
+
+	<br>
+              
+	<button onclick="mute1();">mute1</button>
+	<button onclick="mute2();">mute2</button>
+	<button onclick="mute3();">mute3</button>
+	<button onclick="mute4();">mute4</button>
+
+</body>
+
+
+
+</html>

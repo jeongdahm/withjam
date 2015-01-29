@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="../js/createjs/preloadjs-NEXT.min.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/soundjs-NEXT.combined.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/flashaudioplugin-NEXT.combined.js"></script>
+
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+<script src="../js/recordmp3js/recordmp3.js"></script>
+
+<style>
+.nonselect {
+	background-color: #ddf;
+}
+.select {
+	background-color: #eef;
+}
+.titleTab {
+	/* border: 1px solid black; */
+	width: 50%;
+	height: 25px;
+	text-align: center;
+}
+.contentTab {
+	/* border: 1px solid black; */
+	width: 100%;
+	height: 100%;
+}
+#playerForm, #loadingForm {
+	height: 50px;
+}
+.floatDiv {
+	float: left;
+}
+.td1 {
+	width: 45px;
+	height: 45px;
+}
+
+.td2 {
+	width: 80px;
+}
+
+.td3 {
+	width: 100%;
+}
+
+.td4 {
+	width: 50px;
+	height: 45px;
+}
+
+.playerSize {
+	height: 100%;
+	width: 100%;
+}
+
+.playerHeader {
+	height: 15%;
+}
+
+.playerContent {
+	height: 250px;
+}
+
+.playerFooter {
+	height: 20%;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+.scrollBar {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
+	{
+	display: block;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #efefef;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+	height: 10px;
+	width: 50px;
+	background: rgba(0, 0, 0, .2);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+.playerBtn {
+	width: 40px;
+	height: 40px;
+}
+
+.pbtns {
+	width: 45px;
+	height: 100%;
+}
+
+.iconSize {
+	width: 20px;
+	height: 20px;
+}
+
+.divBG {
+	background-color: #eef;
+}
+
+#save {
+	opacity: 0.25;
+}
+
+#save[download] {
+	opacity: 1;
+}
+
+.mute {
+	background-color: #ccf;
+}
+
+label {
+	font-size: 12px;
+}
+
+.divBG {
+	background-color: #eef;
+}
+
+.divBG2 {
+	background-color: #eee;
+	border-radius: 5px;
+	border: 1px solid #ccf;
+}
+
+.divBG3 {
+	background-color: #ddf;
+	border-radius: 5px;
+}
+
+.btns {
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.tb5 {
+	/* border:2px solid #765942; */
+	border-radius: 10px;
+	height: 22px;
+	width: 400px;
+}
+
+textarea {
+	width: 99%;
+	overflow: visible;
+	/* border: 2px solid #765942; */
+	border-radius: 10px;
+	/* height: 60px; */
+	/* width: 230px; */
+}
+
+.divRadius {
+	border-radius: 4px;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.replyBorder {
+	/* border: 1px solid red;   */
+	padding: 5px;
+	height: 40px;
+}
+
+.divPadding {
+	padding: 5px;
+}
+
+.testBorder {
+	width: 100%;
+	/* border: 1px solid red; */
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+.slider{
+	width: 100px; 
+}
+
+</style>
+
+</head>
+<body>
+
+	<div style="width: 100%;" class="divBG">
+		<div style="height: 35px; background-color: #ddf; padding: 5px;">
+			
+			<!-- 제목 -->
+			<label style="font-size: 25px;">Title</label>
+			<div style="float: right; text-align: right;">
+				 <label>작성자</label> <label>2015.01.01</label><br> 
+				 <label>추천:99</label> <label>참가자:4</label>
+			</div>
+		</div>
+
+		<div class="divRadius ">
+
+			<div class="playerHeader">
+				<div id="loadingForm" style="text-align: center;">
+					<br>
+					<div id="status" onclick="init()" >JAM Session</div>
+				</div>
+
+				<div id="playerForm" >
+					<table style="margin: auto; width: 100%; text-align: center;">
+						<tr>
+							<td width="10%"><img id="playBtn" onclick="playSound();"
+								class="playerBtn" src="../img/buttonPlay.png"> <img
+								id="stopBtn" onclick="stopSound();" class="playerBtn"
+								src="../img/buttonStop.png">
+							</td>
+							<td><label id="time1-1">00</label> : <label id="time1-2">00</label>
+								/ <label id="time2-1">00</label> : <label id="time2-2">00</label>
+							</td>
+
+							<!-- <div style="float: right"> -->
+							<td width="40%">
+								<img id="speaker" src="../img/speaker.png" class="iconSize">
+								
+								<input id="slider" type="range" min="0" value="50" max="100" step="1"
+								onchange="changeVolume(this.value)" />
+							</td>
+							<td><button>북마크</button>
+							</td>
+						</tr>
+						<!-- </div> -->
+					</table>
+				</div>
+			</div>
+
+<div class="hidePlayer">
+			<div class="playerContent scrollBar">
+				<table style="width: 100%;">
+					<tr>
+						<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+						</td>
+						<td class="td2">작성자1<br>2015.01.01
+						</td>
+						<td class="td3"><label>Comment</label></td>
+
+						<td class="td4">
+							<button onclick="mute(this);" id="0" type='button' class="pbtns">mute</button>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+						</td>
+						<td class="td2">작성자2<br>2015.01.01
+						</td>
+						<td class="td3"><label>Comment</label></td>
+
+						<td class="td4">
+							<button onclick="mute(this);" id="1" type='button' class="pbtns">mute</button>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+						</td>
+						<td class="td2">작성자3<br>2015.01.01
+						</td>
+						<td class="td3"><label>Comment</label></td>
+
+						<td class="td4">
+							<button onclick="mute(this);" id="2" type='button' class="pbtns">mute</button>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+						</td>
+						<td class="td2">작성자4<br>2015.01.01
+						</td>
+						<td class="td3"><label>Comment</label></td>
+
+						<td class="td4">
+							<button onclick="mute(this);" id="3" type='button' class="pbtns">mute</button>
+						</td>
+					</tr>
+
+
+				</table>
+			</div>
+
+			<hr>
+
+			<div class="playerFooter">
+
+				<table>
+					<tr>
+						<td rowspan="2"><img id="profileImg" src="../img/temp.jpg"></td>
+						<td width="90%" colspan="2"><input placeholder="Comment"
+							type="text" size="60%"></td>
+						<td rowspan="2" width="10%"><button
+								style="width: 100%; height: 100%;">등록</button></td>
+					</tr>
+					<tr>
+						<td width="40%">
+							<button onclick="startRecording(this);">record</button>
+							<button onclick="stopRecording(this);" disabled>stop</button>
+							<button onclick="micSetting(this)">mic</button>
+
+						</td>
+						<td width="60%"><label id="log">audio check</label></td>
+					</tr>
+
+				</table>
+
+				<hr>
+
+				<!-- 녹음 리스트 -->
+				<table id="recordingslist" style="text-align: center;">
+				</table>
+			</div>
+</div>
+
+
+			<div class="divPadding ">
+				<!-- 내용  -->
+				<div class="content testBorder">
+					<textarea rows="5" cols="60" name="contents">글 내용</textarea>
+				</div>
+			</div>
+
+			<div class="divPadding">
+				<!-- 나머지 -->
+				<div class="option testBorder ">
+
+
+
+					<div>
+						<label>제한</label> <select name="band" class="styled-select">
+							<option value="band0" selected="selected">없음</option>
+							<option value="band1">밴드1</option>
+							<option value="band2">밴드2</option>
+						</select> <label>장르</label> <select name="genre" class="styled-select">
+							<option value="genre0" selected="selected">없음</option>
+							<option value="genre1">락</option>
+							<option value="genre2">힙합</option>
+						</select>
+
+						<div style="float: right;">
+
+							<div style="float: left;">
+
+								<button id='btnUpdate' class="btns" type='button'>수정</button>
+								<button id='btnDelete' class="btns" type='button'>삭제</button>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+			<!-- ---------------------- -->
+			<div class="testBorder testBG">
+				<!-- 일반 택스트 댓글 -->
+
+				<table>
+					<tr>
+						<td><img id="profileImg" src="../img/temp.jpg"></td>
+						<td><label>작성자</label><br> <label>2014.12.15</label></td>
+						<td width="100%"><label>댓글의 내용 입니다.</label></td>
+						<td>
+							<button type='button' class="btns">삭제</button>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img id="profileImg" src="../img/temp.jpg"></td>
+						<td><label>작성자</label><br> <label>2014.12.15</label></td>
+						<td width="100%"><label>댓글의 내용 입니다.</label></td>
+						<td>
+							<button type='button' class="btns">삭제</button>
+						</td>
+					</tr>
+
+
+					<!-- --------------- -->
+					<tr>
+						<td width="100%" colspan="3"><input placeholder=" 댓글을 입력하세요."
+							class="tb5" type="text" name="tag" style="width: 100%"></td>
+						<td><button type='button' class="btns">등록</button></td>
+
+					</tr>
+
+				</table>
+			</div>
+		</div>
+
+
+		<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+
+	</div>
+
+
+
+
+	<script>
+	
+	
+	//hidePlayer
+		$(".hidePlayer").hide();
+	function loadingComplete() {
+		$(".hidePlayer").slideToggle("middle");
+	}
+	
+		$("#selectTab1").addClass("select");
+		$("#selectTab2").addClass("nonselect");
+		$("#tab2").hide();
+		$("#selectTab1").click(function() {
+			$("#selectTab1").addClass("select");
+			$("#selectTab2").removeClass("select");
+			$("#selectTab2").addClass("nonselect");
+			$("#selectTab1").removeClass("nonselect");
+			$("#tab1").show();
+			$("#tab2").hide();
+		});
+		$("#selectTab2").click(function() {
+			$("#selectTab2").addClass("select");
+			$("#selectTab1").removeClass("select");
+			$("#selectTab1").addClass("nonselect");
+			$("#selectTab2").removeClass("nonselect");
+			$("#tab2").show();
+			$("#tab1").hide();
+		});
+
+		$("#playerForm").hide();
+
+		$("#stopBtn").hide();
+		$("#playBtn").click(function() {
+			$("#stopBtn").show();
+			$("#playBtn").hide();
+		});
+		$("#stopBtn").click(function() {
+			$("#stopBtn").hide();
+			$("#playBtn").show();
+		});
+
+		var params = {};
+		var pieces = window.location.search.slice(1).split("&");
+		for (var i = 0, l = pieces.length; i < l; i++) {
+			var parts = pieces[i].split("=");
+			params[parts[0]] = parts[1];
+		}
+
+		var queue;
+		var displayStatus;
+
+		//interval 종료용
+		var intervalName;
+
+		//메인 음원의 총 플레이 시간
+		var timeTS;
+
+		function micSetting(button){
+			
+			
+			//recorder 준비 부분 //
+			try {
+				// webkit shim
+				window.AudioContext = window.AudioContext
+						|| window.webkitAudioContext;
+				navigator.getUserMedia = (navigator.getUserMedia
+						|| navigator.webkitGetUserMedia
+						|| navigator.mozGetUserMedia || navigator.msGetUserMedia);
+				window.URL = window.URL || window.webkitURL;
+
+				audio_context = new AudioContext;
+				
+				__log('Audio context set up.');
+				__log('navigator.getUserMedia '
+						+ (navigator.getUserMedia ? 'available.'
+								: 'not present!'));
+
+				button.disabled = true;
+			} catch (e) {
+				alert('No web audio support in this browser!');
+			}
+
+			navigator.getUserMedia({
+				audio : true
+			}, startUserMedia, function(e) {
+				__log('No live audio input: ' + e);
+			});
+
+		}
+		
+		function init() {
+
+			//마이크 사용허가 부분 분리
+			
+			//player 준비 부분
+			createjs.FlashAudioPlugin.swfPath = "../flashaudio/";
+
+			if (params.type == "flash") {
+				createjs.Sound.registerPlugins([ createjs.FlashAudioPlugin ]);
+			} else if (params.type == "html5") {
+				createjs.Sound.registerPlugins([ createjs.HTMLAudioPlugin ]);
+			} else {
+				createjs.Sound.registerPlugins([ createjs.WebAudioPlugin,
+						createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin ]);
+			}
+
+			displayStatus = document.getElementById("status");
+
+			//로딩을 위해 manifest 에 담는다.
+			var assetsPath = "../music/";
+			var manifest = [ {
+				id : "soundID0",
+				src : assetsPath + "Metallica - My Apocalypse.mp3"
+			}, {
+				id : "soundID1",
+				src : assetsPath + "029 - Aerosmith - Dream On.mp3"
+			}, {
+				id : "soundID2",
+				src : assetsPath + "Incubus-04-Anna Molly.mp3"
+			}, {
+				id : "soundID3",
+				src : assetsPath + "Disturbed-14-Pain Redefined.mp3"
+			} ];
+
+			// 큐 생성.. 
+			queue = new createjs.LoadQueue();
+			createjs.Sound.alternateExtensions = [ "mp3" ];
+			queue.installPlugin(createjs.Sound);
+			queue.addEventListener("complete", loadComplete);
+			queue.addEventListener("fileload", fileComplete);
+			queue.addEventListener("error", handleFileError);
+			queue.addEventListener("fileprogress", handleFileProgress);
+			queue.addEventListener("progress", handleProgress);
+			queue.loadManifest(manifest);
+
+		}
+
+		function handleFileError(evt) {
+			console.log("error ", evt);
+			displayStatus.innerText = "Error"
+		}
+
+		function handleFileProgress(evt) {
+			displayStatus.innerText = "File Loading: "
+					+ (queue.progress.toFixed(2) * 100) + "%";
+		}
+
+		function handleProgress(evt) {
+			displayStatus.innerText = "Loading: "
+					+ (queue.progress.toFixed(2) * 100) + "%";
+		}
+
+		function loadComplete(evt) {
+			// 로드 완료
+			displayStatus.innerText = "Done";
+
+			$("#playerForm").show();
+			$("#loadingForm").hide();
+			
+			loadingComplete();
+		}
+
+		function fileComplete(evt) {
+			console.log("Callback file loaded ", evt);
+		}
+		function playSound() {
+
+			stopSound();
+
+			//불러온 음원을 동시에 실행 
+			playList = [ {
+				id : createjs.Sound.play("soundID0")
+			}, {
+				id : createjs.Sound.play("soundID1")
+			}, {
+				id : createjs.Sound.play("soundID2")
+			}, {
+				id : createjs.Sound.play("soundID3")
+			} ];
+
+			playTimer(playList[0].id);
+
+		}
+		function playTimer(sound) {
+
+			var soundTime = sound.duration; // ms 단위로
+
+			timeTS = parseInt(soundTime / 1000) + 1;
+
+			var timeM = parseInt((soundTime / 1000) / 60);
+			var timeS = parseInt(soundTime / 1000) % 60;
+
+			if (timeM < 10) {
+				timeM = "0" + timeM;
+			}
+			if (timeS < 10) {
+				timeS = "0" + timeS;
+			} else {
+				timeS = timeS;
+			}
+/* 
+			console.log(parseInt(soundTime / 1000)); // 총 시간(초)
+			console.log(parseInt((soundTime / 1000) / 60)); //분
+			console.log(parseInt(soundTime / 1000) % 60); // 초
+ */
+			//음원의 시간 표시용
+			document.getElementById('time2-1').innerText = timeM;
+			document.getElementById('time2-2').innerText = timeS;
+
+			var countTS = 0;
+			var countM = 0;
+			var countS = 0;
+			var viewS;
+			var viewM;
+
+			intervalName = setInterval(function() {
+
+				countTS++;
+
+				if ((countTS + 1) == timeTS) { // 플레이 완료시
+					stopSound(); // 사운드 종료
+				}
+
+				// 초 단위 표시용
+				if (countS < 59) {
+					countS++;
+				} else {
+					countM++;
+					countS = 0;
+				}
+
+				// 00 01 형태로 만들기 위한 부분
+				if (countM < 10) {
+					viewM = "0" + countM;
+				} else {
+					viewM = countM;
+				}
+				if (countS < 10) {
+					viewS = "0" + countS;
+				} else {
+					viewS = countS;
+				}
+
+				document.getElementById('time1-1').innerText = viewM;
+				document.getElementById('time1-2').innerText = viewS;
+			}, 1000);
+		}
+
+		function stopSound() {
+			createjs.Sound.stop();
+			clearInterval(intervalName);
+
+			//시간을 00:00 형태로 만들기 위해
+			document.getElementById('time1-1').innerText = "00";
+			document.getElementById('time1-2').innerText = "00";
+			
+		}
+
+		// 볼륨 조절	
+		var changeVolume = function(val) {
+			createjs.Sound.setVolume(val / 100);
+		}
+
+		//-----------------------------------------------------------------------//
+
+		function mute(e) {
+
+			var eid = parseInt(e.id);
+			if (playList[eid].id.getMuted()) {
+				playList[eid].id.setMuted(false);
+			} else {
+				playList[eid].id.setMuted(true);
+			}
+
+			if (e.classList.contains("mute")) {
+				e.classList.remove("mute");
+			} else {
+				e.classList.add("mute");
+			}
+		}
+
+		//---------------------------------------------------------------------//
+		//녹음 파트. 
+		function __log(e, data) {
+			log.innerHTML = "\n" + e + " " + (data || '');
+		}
+
+		var mp3Blob;
+		var audio_context;
+		var recorder;
+
+		function startUserMedia(stream) {
+			var input = audio_context.createMediaStreamSource(stream);
+			__log('Media stream created.');
+			__log("input sample rate " + input.context.sampleRate);
+
+			input.connect(audio_context.destination);
+			__log('Input connected to audio context destination.');
+
+			recorder = new Recorder(input);
+			__log('Ready');
+		}
+
+		function startRecording(button) {
+			recorder && recorder.record();
+			button.disabled = true;
+			button.nextElementSibling.disabled = false;
+			__log('Recording...');
+
+			playSound();
+			
+			
+			$("#stopBtn").show();
+			$("#playBtn").hide();
+		
+		}
+
+		function stopRecording(button) {
+			recorder && recorder.stop();
+			button.disabled = true;
+			button.previousElementSibling.disabled = false;
+			__log('Stopped recording.');
+
+			// create WAV download link using audio data blob
+			createDownloadLink();
+
+			recorder.clear();
+			stopSound();
+			$("#stopBtn").hide();
+			$("#playBtn").show();
+		}
+
+		//wav 파일 다운로드 생성
+		function createDownloadLink() {
+			recorder && recorder.exportWAV(function(blob) {
+				/*var url = URL.createObjectURL(blob);
+				var li = document.createElement('li');
+				var au = document.createElement('audio');
+				var hf = document.createElement('a');
+				
+				au.controls = true;
+				au.src = url;
+				hf.href = url;
+				hf.download = new Date().toISOString() + '.wav';
+				hf.innerHTML = hf.download;
+				li.appendChild(au);
+				li.appendChild(hf);
+				recordingslist.appendChild(li);*/
+			});
+		}
+	</script>
+
+</body>
+</html>

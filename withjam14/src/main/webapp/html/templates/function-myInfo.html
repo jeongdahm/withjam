@@ -1,0 +1,167 @@
+ 
+	<div style="height:30px;"></div>
+	<img id="myphotoleft" class="profileImg" src="{{myInfo.uphoto}}" style="width: 190px; height:190px;">
+				
+	<div id="userId_left"> <h1>{{myInfo.uname}}</h1> </div>
+	<div id="usermsg_left" >{{myInfo.comment}}</div>
+			<br><br>
+			<div style="height:70px;margin:2px;margin-bottom:85px;">
+			<table id="myinfo3" class="table" style="width:190px;text-align:center;">
+				<tbody><tr>
+					<th><img src="../img/search1.png" style="width:35px;height:35px;"></th>
+					<th><a>{{myInfo.boardCnt}}</a></th>
+				</tr>
+				<tr>
+						<th><img src="../img/follow.png" style="width:35px;height:35px;">	</th>
+				<th><a id="follower">{{myInfo.followerCnt}}</a></th>
+
+			</tbody></table>
+			</div>
+
+<!-- 밴드 선택 -->
+가입한 밴드:
+<select class='my-band-list'>
+ {{#each myBandList}}
+	<option   data-uid='{{uid}}' data-bandNo='{{bandNo}}' data-bandGrade='{{bandGrade}}'>{{bandName}}</option>
+{{/each}}
+</select>
+<button type="button" class="btn btn-default btn-xs band-detail-btn">이동</button>
+
+
+
+
+
+<script>			
+
+$('#follower').click(function(){
+	console.log('2222');
+$( "#recommend-side" ).animate({ "margin-left": "-=" + '30%' }, 1000 ,function(){}); 
+	 
+});
+
+function followList(){
+		$('#myInfo4').show();
+			$('.follower').hide();
+			$('.band-detail').hide();
+			$('.following').show();
+
+			$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					console.log(loginUser);
+
+					$.getJSON('../json/friend/myFollowList.do?uid='
+							+ loginUser.uid, function(data) {
+						console.log(data);
+						require([ 'text!templates/myFollow.html' ], function(
+								html) {
+							var template = Handlebars.compile(html);
+							$('.following').html(template(data));
+						});
+					});
+				}
+			});
+}
+
+$("#following").click(function(){
+	followList();
+});
+
+		/* function() {
+			$('#myInfo4').show();
+			$('.follower').hide();
+			$('.band-detail').hide();
+			$('.following').show();
+
+			$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					console.log(loginUser);
+
+					$.getJSON('../json/friend/myFollowList.do?uid='
+							+ loginUser.uid, function(data) {
+						console.log(data);
+						require([ 'text!templates/myFollow.html' ], function(
+								html) {
+							var template = Handlebars.compile(html);
+							$('.following').html(template(data));
+						});
+					});
+				}
+			}); */
+			
+			/* followList();
+			
+			
+		}); */
+
+$("#follower").click(function() {
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.band-detail').hide();
+	$('.follower').show();
+	
+	$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+
+			$.getJSON('../json/friend/myFollowerList.do?uid='
+					+ loginUser.uid, function(data) {
+				console.log(data);
+				require([ 'text!templates/myFollower.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('.follower').html(template(data));
+				});
+			});
+		}
+	});
+});
+
+$(".band-detail-btn").click(function() {
+	$('#myInfo4').show();
+	$('.following').hide();
+	$('.follower').hide();
+	$('.band-detail').show();
+	
+	
+	
+	console.log($('.my-band-list').attr('data-bandNo'));
+	
+	
+	var bandName = $('.my-band-list').val();
+	console.log(bandName);
+	
+	$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+		
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+			console.log(bandName);
+
+			$.getJSON('../json/band/myBandListDetail.do?uid='
+					+ loginUser.uid + '&bandName=' + bandName
+				, function(data) {
+				console.log(data);
+				require([ 'text!templates/myBandListDetail.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('.band-detail').html(template(data));
+				});
+			});
+		}
+	});  
+	
+});	
+
+
+</script>

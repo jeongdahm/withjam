@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
+<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+<script src='../js/jquery-1.11.1.js'></script>
+<!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
+<script type="text/javascript" src='../js/require.js'></script>
+
+<script type="text/javascript"
+	src="../js/createjs/preloadjs-NEXT.min.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/soundjs-NEXT.combined.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/flashaudioplugin-NEXT.combined.js"></script>
+
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+<script src="../js/recordmp3js/recordmp3.js"></script>
+
+
+<style>
+.playerBtn{
+	width: 45px;
+	height: 45px;
+}
+#titleSize{
+	font-size: 20px;
+}
+#writerSize{
+	font-size: 15px;
+}
+#speaker{
+	width: 15px;
+	height: 15px;
+}
+#slider{
+	width: 70px;
+	height: 13px;
+}
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+.writerName{
+	width: 80px;
+	text-align: left;
+}
+.pbtns{
+	width: 100%;
+}
+.totalWidth{
+	 width: 380px;
+}
+audio{
+	width: 270px;
+}
+.location{
+	position: absolute;
+	bottom: 0px;
+	right: 100px;
+}
+.secretDiv{
+	width: 380px;
+	height: 400px;
+}
+.bottomLocation{
+	bottom: 0px;
+	position: absolute;
+}
+
+.backGroundColor{
+	background-color: #333;
+	color: #fff;
+}
+.divRadius{
+	border-radius: 6px;
+}
+#deleteImg{
+	width: 12px;
+	height: 12px;
+}
+.recordImg{
+	width: 22px;
+	height: 22px;
+}
+#checkTest{
+	display: none;
+}
+#checkTest + label{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border: 2px solid #bcbcbc;
+	cursor: pointer;
+}
+#checkTest:checked + label:after{
+	position: relative;
+	top: -3px;
+	left: 0px;
+	content: '\2714';
+	font-size: 25px;
+}
+
+
+</style>
+<body >
+
+<button id="song01">song01</button>
+<button id="song02">song02</button>
+
+
+
+<div class="secretDiv location" >
+
+
+</div>
+<script>
+
+
+		$.getJSON('../../json/board/BoardList.do',
+			function(data) {
+			console.log(data);
+			require([ 'text!templates/player-list.html' ], function(
+					html) {
+				var template = Handlebars.compile(html);
+				$('.secretDiv').html(template(data));
+			});
+		});
+		
+			
+
+</script>
+
+</body>
+
+</html>

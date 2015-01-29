@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<link rel="stylesheet" href="mainFrame.css">
+
+<script type="text/javascript" src='../js/handlebars-v2.0.0.js'></script>
+<script src='../js/jquery-1.11.1.js'></script>
+<script src='jquery-form.js'></script>
+<script type="text/javascript" src='../js/require.js'></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/modernizr.custom.js"></script>
+<script src="../js/jquerypp.custom.js"></script>
+<script src="../js/recordmp3js/recordmp3.js"></script>
+<script type="text/javascript" src='leftSide.js'></script>	
+
+<meta charset="UTF-8">
+
+<title>위잼</title>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body{font-family:'Nanum Gothic';}
+.Border_M{
+border: 1px solid #1e1e1e;
+}
+</style>
+
+
+</head>
+<body>
+
+    
+
+	<div class=" Border_M" id="layer_fixed">
+		<div id="header_main"></div>
+
+	</div>
+
+	<div class='header-shadow'>
+    
+    </div>
+	
+	<div class=" divHeight">
+
+		<div id="leftSide"></div>
+
+
+		<div id="mainPage"></div>
+
+
+		<div id="rightSide"></div>
+	</div>
+
+
+
+	<script>
+	    $('.send-message').hide(); 
+	    
+		$('#layer_fixed').load('header.html');
+		$('#mainPage').load('content_wn.html');
+		$('#leftSide').load('leftSide.html');
+		$('#rightSide').load('rightSide.html');
+
+		function SearchInsert(searchInfo) {
+			$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+				if (data.status == 'fail') {
+					console.log('loginUser fail..');
+				} else {
+					var loginUser = data.loginUser;
+					/* console.log(fUname); */
+					$.post('../json/search/searchInsert.do', {
+						searchUid : loginUser.uid,
+						searchInfo : searchInfo
+					}, function(data) {
+						if (data.status == 'success') {
+							console.log('searchInsertSuccess..');
+						} else {
+							console.log('searchInsertFail..');
+						}
+					}, 'json');
+				}
+			});
+		}
+	</script>
+
+</body>
+</html>

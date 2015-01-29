@@ -1,0 +1,27 @@
+<!-- {{#each friends}}
+<div>팔로잉</div>
+<div class="magin" style="float: left; width: 35px; height: 35px;">
+	<img id="profileImg" class="profileImg" src="../img/temp.jpg"
+		data-toggle="modal" data-target="#myModal">
+</div>
+<div>이름 : {{uname}}</div>
+<div>음원수 : {{cnt}}</div>
+<div>코멘트 : {{comment}}</div>
+<div>
+	<button class='btnFollow {{followYN}}' data-fUid='{{fUid}}'
+		id='btn-follow'></button>
+</div>
+
+{{/each}}  -->
+
+
+
+{{#each friends}}
+	<div class='member-list-detail-div'>
+		<div class='member-photo'></div>
+		<div class='member-info-name'>{{uname}}</div>
+		<div class='member-info-etc'>
+			<div>{{cnt}} &nbsp;&nbsp;||&nbsp;&nbsp;0</div>
+		</div>
+	</div>
+{{/each}}
