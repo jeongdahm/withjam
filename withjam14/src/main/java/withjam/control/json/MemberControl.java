@@ -46,7 +46,9 @@ public class MemberControl {
 //    	String fileuploadRealPath = 
 //    			servletContext.getRealPath("/fileupload");
     			String filename = System.currentTimeMillis() + "_"; 
-    			File file = new File("C:/workspace/withjam14/src/main/webapp/fileupload/" + filename);
+    		/*	C:/Users/Administrator/git/withjam/withjam14/src/main/webapp/fileupload/*/
+    		/*	C:/workspace/withjam14/src/main/webapp/fileupload/*/
+    			File file = new File("C:/Users/Administrator/git/withjam/withjam14/src/main/webapp/fileupload/" + filename);
     			myPhoto.transferTo(file);		
     			
     			System.out.println(myPhoto);

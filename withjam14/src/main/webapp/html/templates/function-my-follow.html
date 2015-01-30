@@ -1,27 +1,16 @@
-<!-- {{#each friends}}
-<div>팔로잉</div>
-<div class="magin" style="float: left; width: 35px; height: 35px;">
-	<img id="profileImg" class="profileImg" src="../img/temp.jpg"
-		data-toggle="modal" data-target="#myModal">
-</div>
-<div>이름 : {{uname}}</div>
-<div>음원수 : {{cnt}}</div>
-<div>코멘트 : {{comment}}</div>
-<div>
-	<button class='btnFollow {{followYN}}' data-fUid='{{fUid}}'
-		id='btn-follow'></button>
-</div>
-
-{{/each}}  -->
-
-
+<div style="font-size:15px;font-weight:bold;color:orange;">■Followers!</div>
 
 {{#each friends}}
-	<div class='member-list-detail-div'>
-		<div class='member-photo'></div>
-		<div class='member-info-name'>{{uname}}</div>
+	<div id='member-list-detail-div' style="	width:100%; height:110px; border: 1px solid #e7e7e7;float:left;margin:5px;">
+		<div class='member-photo'><img src="../fileupload/{{uphoto}}" style="width:100px;height:100px"></div>
+		<div class='member-info-name' ><h5  style="margin:5px;">{{uname}}</h5></div>
 		<div class='member-info-etc'>
-			<div>{{cnt}} &nbsp;&nbsp;||&nbsp;&nbsp;0</div>
+		
+		<div style="margin:5px;">
+		<img src="../img/search1.png" style="width:20px;height:20px;">: {{boardCnt}} ||
+		<img src="../img/follow.png" style="width:20px;height:20px;">:{{followerCnt}}
+		</div>
 		</div>
 	</div>
 {{/each}}
+

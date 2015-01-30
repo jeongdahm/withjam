@@ -51,6 +51,7 @@ public class Member implements Serializable {
 	protected String gname;
 	protected String iname;
 	
+	
 
 	
 	

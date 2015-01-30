@@ -39,7 +39,7 @@ hoverevent div
 <div style="float: left;">
 <div style="float:left;margin-top:5px;"><img src ="../img/temp.jpg" style="margin-left:10px;width:50px;height:50px;"></div> 
 <div style="float:left;color:darkblue;font-weight: bold;padding-left:5px;padding-top:5px;margin-right:5px;">
-<a class='uname' data-fUid='{{fUid}}'>{{uname}}</a></div> 
+<!-- <a class='uname' data-fUid='{{fUid}}'>{{uname}}</a>--></div>  
 <div data-fUid='{{fUid}}' class="follow-state {{followYN}}" style="float:left;width:13px;height:13px;margin-top:5px" ></div>
 <!-- <div class="minuspng" style="float:left;"><img src="../img/minus.png" style="width:13px;height:13px;margin-top:5px;" ></div> -->
 <div style="float:left;font-weight: bold;width:150px;padding-left:5px;"> 건반 </div>
@@ -122,7 +122,7 @@ hoverevent div
 	
 	
 	
-	function OtherInfo(uid) {
+/* 	function OtherInfo(uid) {
 
 		$.getJSON('../json/friend/myInfo.do?uid=' + uid, function(data) {
 			console.log(data.myInfo);
@@ -132,7 +132,7 @@ hoverevent div
 				$('#myInfo').html(template(data));
 			});
 		});
-	}
+	} */
 	
 	/* $('.follower-photo').click(function() {
 		console.log($(this).attr('data-fUid'));
@@ -142,19 +142,19 @@ hoverevent div
 	
 	
 	
-	$('.uname').click(function() {
+/* 	$('.uname').click(function() {
 		console.log($(this).attr('data-fUid'));
 		OtherInfo($(this).attr('data-fUid'));
 		OtherFollowerList($(this).attr('data-fUid'));
-	});
+	}); */
 	
-	$('.uname').mouseenter(function(){
+/* 	$('.uname').mouseenter(function(){
 		/* $('.hover-info').css('display',''); */
 		var uname = $(this).attr('data-uname');
 		console.log(uname+'...mouseenter');
 		/* $('.hover-info').show(); */
 		$('.'+uname).show();
-	});
+	}); */
 	
 	$('.hover-info').mouseenter(function(){
 		$(this).show();
@@ -164,11 +164,11 @@ hoverevent div
 		$(this).hide();
 	});
 	
-	$('.uname').mouseleave(function(){
+/* 	$('.uname').mouseleave(function(){
 		var uname = $(this).attr('data-uname');
 		console.log(uname+'...mouseleave');
 		$('.'+uname).hide();
-	});
+	}); */
 	
 	
 </script>

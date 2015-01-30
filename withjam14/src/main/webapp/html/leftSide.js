@@ -146,7 +146,7 @@ function MyInfo() {
 		} else {
 			var loginUser = data.loginUser;
 
-			$.getJSON('../json/friend/myInfo.do?uid=' + loginUser.uid,
+/*			$.getJSON('../json/friend/myInfo.do?uid=' + loginUser.uid,
 					function(data) {
 
 						require([ 'text!templates/myInfo.html' ],
@@ -154,7 +154,7 @@ function MyInfo() {
 									var template = Handlebars.compile(html);
 									$('#myInfo').html(template(data));
 								});
-					});
+					});*/
 		}
 	})
 }

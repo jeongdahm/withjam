@@ -23,6 +23,9 @@
 		<result column="CNT" property="cnt" />
 		<result column="F_UID" property="fUid" />
 		<result column="FOLLOW_YN" property="followYN" />
+		<result column="FOLLOWER_CNT" property="followerCnt" />
+		<result column="FOLLOW_CNT" property="followCnt" />
+		<result column="BOARD_CNT" property="boardCnt" />
 	</resultMap>
 
 
@@ -47,7 +50,8 @@
 		,B.EMAIL
 		,B.COMMENT
 		,C.CNT
-		,'follow' FOLLOW_YN
+		,'follow' FOLLOW_YN,
+		B.UPHOTO
 		FROM
 		(SELECT A.* FROM FRIEND A WHERE UID=#{uid}) A
 		LEFT OUTER JOIN MEMBERS B
@@ -57,22 +61,29 @@
 	</select>
 	
 	<select id='myFollowerList' parameterType="int" resultMap="memberMap2">
-	    SELECT
-		A.UID F_UID
-		,A.F_UID UID
-		,B.UNAME
-		,B.EMAIL
-		,B.COMMENT
-		,C.CNT
-		,CASE WHEN D.UID IS NULL THEN 'unfollow' ELSE 'follow' END FOLLOW_YN
-		FROM
-		(SELECT A.* FROM FRIEND A WHERE F_UID=#{uid}) A
-		LEFT OUTER JOIN MEMBERS B
-		ON A.UID = B.UID
-		LEFT OUTER JOIN (SELECT UID,COUNT(*) CNT FROM BOARD GROUP BY UID) C
-		ON A.UID = C.UID
-        LEFT OUTER JOIN (SELECT A.* FROM FRIEND A WHERE UID=#{uid}) D
-        ON A.UID = D.F_UID
+	     SELECT
+      A.UID F_UID
+      ,A.F_UID UID
+      ,B.UNAME
+      ,B.EMAIL
+      ,B.COMMENT
+      ,ifnull(C.CNT,0) BOARD_CNT
+      ,B.UPHOTO
+	  ,E.CNT  FOLLOWER_CNT 
+      ,CASE WHEN D.UID IS NULL THEN 'unfollow' ELSE 'follow' END FOLLOW_YN
+      FROM
+      (SELECT A.* FROM FRIEND A WHERE F_UID=#{uid}) A
+      LEFT OUTER JOIN MEMBERS B
+      ON A.UID = B.UID
+      LEFT OUTER JOIN (SELECT UID,COUNT(*) CNT FROM BOARD GROUP BY UID) C
+      ON A.UID = C.UID
+	  LEFT OUTER JOIN (SELECT A.* FROM FRIEND A WHERE UID=#{uid}) D
+	  ON A.UID = D.F_UID
+      LEFT OUTER JOIN (SELECT UID,COUNT(*) CNT FROM FRIEND GROUP BY UID) E
+      ON A.UID = E.UID
+  
+	    
+	   
 	</select>
 
 	<select id="friendsMaxNo" parameterType="int" resultMap="friendMap">

@@ -52,6 +52,7 @@ border: 1px solid #1e1e1e;
 
 
 		<div id="rightSide"></div>
+		<div id="recommend-side" ></div>
 	</div>
 
 
@@ -84,6 +85,30 @@ border: 1px solid #1e1e1e;
 				}
 			});
 		}
+		
+
+		$.getJSON('/withjam14/json/auth/loginUser.do', function(data) {
+			if (data.status == 'fail') {
+				console.log('loginUser fail..');
+			} else {
+				var loginUser = data.loginUser;
+				console.log(loginUser);
+
+				$.getJSON('../json/friend/myFollowerList.do?uid='
+						+ loginUser.uid, function(data) {
+					console.log("-------------------");
+					console.log(data);
+					require([ 'text!templates/function-my-follow.html' ], function(
+							html) {
+						var template = Handlebars.compile(html);
+						$('#recommend-side').html(template(data));
+					});
+				});
+			}
+		}); 
+
+
+	
 	</script>
 
 </body>
