@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+
+.testBorder {
+	border: 1px solid black;
+}
+.testPadding{
+	padding: 5px;
+}
+.testFloat {
+	float: left;
+}
+
+#profileImg {
+	width: 40px;
+	height: 40px;
+}
+
+</style>
+<script type="text/javascript">
+	//찾기 메뉴 
+	$(function() {
+		$(".submenu1").hide();
+		$(".submenu2").hide();
+		$(".submenu3").hide();
+
+		$("#searchBoard").click(function() {
+			$(".submenu1").slideToggle("middle"); //글 찾기
+			$(".submenu2").hide();
+			$(".submenu3").hide();
+			return false;
+		});
+		$("#searchAccount").click(function() {
+			$(".submenu2").slideToggle("middle"); //사람 찾기
+			$(".submenu1").hide();
+			$(".submenu3").hide();
+			return false;
+		});
+		$("#searchFriend").click(function() {
+			$(".submenu3").slideToggle("middle"); //밴드 찾기
+			$(".submenu1").hide();
+			$(".submenu2").hide();
+			return false;
+		});
+
+	});
+</script>
+</head>
+<body>
+
+	<table border="1" class="table ">
+		<!-- <th>찾기</th> -->
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchBoard" class=" accordion">
+			<td>글 찾기 >
+		
+			<div class="submenu1 testBorder">
+					<!-- 글 찾기 메뉴 -->
+					<div class="testBorder">
+					<label>장르</label> 
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">락</option>
+						<option value="band2">힙합</option>
+					</select>
+						<input type="radio" name="chk_option" value="일간">일간 
+						<input type="radio" name="chk_option" value="주간">주간 
+						<input type="radio" name="chk_option" value="누적">누적
+					</div>
+
+
+				<!-- 수정할것.. -->
+					<div class="testBorder " >
+						<img style="float: left;" id="profileImg" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchAccount" class=" accordion ">
+			<td>사람 찾기 >
+			<div class="submenu2 testBorder">
+					<!-- 사람 찾기 메뉴 -->
+					<div class="testBorder">
+						<label>장르</label> 
+					<select name="band" class="styled-select">
+						<option value="" selected="selected">선택</option>
+						<option value="band1">락</option>
+						<option value="band2">힙합</option>
+					</select>
+					</div>
+					
+					
+					<!-- 수정할것.. -->
+					<div class="testBorder" >
+						<img style="float: left;" id="profileImg" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+		<tr id="searchFriend" class=" accordion ">
+			<td>밴드 찾기 >
+			<div class="submenu3 testBorder">
+					<!-- 밴드 찾기 메뉴 -->
+					<div>
+						<input placeholder=" 아이디를 입력하세요." type="text" >
+					</div>
+					<div>
+					
+					<!-- 수정할것.. -->
+					<div class="testBorder" >
+						<img style="float: left;" id="profileImg" src="../img/temp.jpg">
+						<div>
+							<div><label style="float: left;">제목 </label><label style="float: right;">추천수</label></div>
+							<div><label style="float: left;">작성자 </label><label style="float: right;">작성일</label></div>
+						</div>
+					</div>
+					
+					</div>
+
+				</div></td>
+		</tr>
+		<!-- - - - - - - - - - - - - - - - - - -->
+	</table>
+
+</body>
+</html>

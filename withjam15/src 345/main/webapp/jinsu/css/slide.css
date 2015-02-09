@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* default */
+
+/* slide */
+.slides{position:relative;width:100%}
+.slides .slide{overflow:hidden;position:relative;width:90%;height:250px}
+.slides .slide li{display:block;width:90%;height:250px}
+.slides .slide li a{display:block}
+.slides a.prev,.slides a.next{display:inline-block;z-index:100;overflow:hidden;position:absolute;top:10px;width:14px;height:14px;background:url(../img/sp_page.gif) 0 0 no-repeat;line-height:999px;vertical-align:top}
+.slides a.prev{right:25px;background-position:0 0}
+.slides a.prev:hover{background-position:0 -20px}
+.slides a.next{right:10px;width:15px;background-position:-20px 0}
+.slides a.next:hover{background-position:-20px -20px}
+.slides .page{z-index:100;position:absolute;top:140px;left:0;width:250px;text-align:center;list-style:none}
+.slides .page li{display:inline-block;_display:inline;margin:0 1px;_zoom:1}
+.slides .page li a{display:block;overflow:hidden;width:12px;height:12px;background:url(../img/sp_page.png) 0 0 no-repeat;line-height:999px;vertical-align:top}
+.slides .page li.current a{background-position:0 -12px}

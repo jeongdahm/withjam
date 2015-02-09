@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+<script>
+
+	var soundID1 = "takemyhand";
+	var soundID2 = "remake";
+	var soundID3 = "blackice";
+	var soundID4 = "blackend";
+
+	var mutedSound1;
+	var mutedSound2;
+	var mutedSound3;
+	var mutedSound4;
+
+	function loadSound() {
+		createjs.Sound.registerSound("../music/02 Take My Hand.mp3", soundID1);
+		createjs.Sound.registerSound("../music/01 Re-make.mp3", soundID2);
+		createjs.Sound.registerSound("../music/29 Black Ice.mp3", soundID3);
+		createjs.Sound.registerSound("../music/01 Metallica Blackened.mp3", soundID4);
+		
+	}
+	
+	
+	function playSound() {
+		mutedSound1 = createjs.Sound.play(soundID1);
+		mutedSound2 = createjs.Sound.play(soundID2);
+		mutedSound3 = createjs.Sound.play(soundID3);
+		mutedSound4 = createjs.Sound.play(soundID4);
+
+	}
+	
+	function toggleMuted() {
+		if (this.getMuted()) {
+			this.setMuted(false);
+		} else {
+			this.setMuted(true);
+		}
+	}
+	/* 
+	function test2() {
+		if (mutedSound2.getMuted()) {
+			mutedSound2.setMuted(false);
+		} else {
+			mutedSound2.setMuted(true);
+		}
+	}
+	function test3() {
+		if (mutedSound3.getMuted()) {
+			mutedSound3.setMuted(false);
+		} else {
+			mutedSound3.setMuted(true);
+		}
+	}
+	function test4() {
+		if (mutedSound4.getMuted()) {
+			mutedSound4.setMuted(false);
+		} else {
+			mutedSound4.setMuted(true);
+		}
+	}
+	 */
+
+</script>
+</head>
+
+
+<body onload="loadSound();">
+
+	<p id="state">state</p>
+
+	<br>
+
+	<button onclick="playSound();" class="playSound">Play Sound</button>
+
+	<button onclick="toggleMuted();" class="test1">test1</button>
+	<button onclick="test2();" class="test2">test2</button>
+	<button onclick="test3();" class="test3">test3</button>
+	<button onclick="test4();" class="test4">test4</button>
+
+</body>
+
+
+
+</html>

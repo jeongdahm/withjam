@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 로그인 폼 -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<link href="http://fonts.googleapis.com/css?family=Audiowide"
+	rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300'
+	rel='stylesheet' type='text/css'>
+
+
+<link rel='stylesheet' href='../css/bootstrap.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.min.css'>
+<link rel='stylesheet' href='../css/bootstrap-theme.css.map'>
+<script src='../js/jquery-1.11.1.js'></script>
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+ -->
+<script src="../js/slides.min.jquery.js"></script>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+<style type="text/css">
+html, body {
+	width: 100%;
+	height: 100%;
+	
+	background-image: url("../img/back3.png");
+ 	background-repeat: repeat-x;  
+}
+
+#rightSide {
+
+	width: 38%;
+	height: 100%;
+	
+}
+
+#leftSide {
+	width: 62%;
+	height: 100%;
+}
+
+#loginForm {
+/* 
+	width: 250px;
+	height: 180px;
+	 */
+	 width: 100%;
+	 height: 100%;
+	padding: 10px;
+	 /* 
+	margin: 10px;
+	 */
+	border-radius: 5px;
+}
+#registerForm{
+/* 
+	width: 250px;
+	height: 280px;
+	 */
+	 width: 100%;
+	 height: 100%;
+	padding: 10px;
+	 /* 
+	margin: 10px;
+	 */
+	border-radius: 5px;
+}
+#infoForm{
+/* 
+	width: 565px;
+	height: 280px;
+	 */
+	  width: 90%;
+	 height: 60%;
+	padding: 9px;
+	margin: 10px;
+	
+	border-radius: 5px;
+}
+input{
+	width: 90%;
+	margin: 5px;
+}
+.sideUp{
+	height: 210px;
+	border: 1px solid #fff;
+}
+.sideDown{
+	height: 320px;
+	border: 1px solid #fff;
+}
+.formBorder{
+	border: 5px solid #eeeecf;
+}
+.formColor{
+	background-color: #eef;
+}
+.bgColor{
+	background-color: #ddf;
+} 
+.underDiv{
+	border: 5px solid #eeeecf; 
+	border-radius: 5px; 
+	padding: 10px; 
+	margin:0 auto; 
+	width: 70%; 
+	height: 80%; 
+	background-color: #fff;
+}
+
+.btnWidth{
+	padding: 2px;
+	width: 40%;
+}
+
+/* - - - - - -움직이는 타이틀 관련- - - - - - */
+h1{
+  font-family: 'Audiowide';
+  font-size:8em;
+  /* position:absolute;  */
+  top:100px; bottom:0; left:0; right:0;
+	 height:150px; width:70%;  
+	
+  
+  -webkit-animation: floating-text 2s ease alternate infinite;
+     -moz-animation: floating-text 2s ease alternate infinite;
+      -ms-animation: floating-text 2s ease alternate infinite;
+       -o-animation: floating-text 2s ease alternate infinite;
+          animation: floating-text 2s ease alternate infinite;
+}
+@-webkit-keyframes floating-text {
+  0% {  
+    -webkit-transform: translateY(.1em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+
+  }
+  100% {
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+@-moz-keyframes floating-text {
+  0% {  
+    -moz-transform: translateY(.1em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+  }
+  100% {
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+@-ms-keyframes floating-text {
+  0% {  
+    -ms-transform: translateY(.1em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+
+  }
+  100% {
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+@-o-keyframes floating-text {
+  0% {  
+    -o-transform: translateY(.1em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+
+  }
+  100% {
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+@keyframes floating-text {
+  0% {  
+    transform: translateY(.1em);
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .3em .2em rgba(0,0,0,.3);
+
+  }
+  100% {
+    text-shadow:0 0 .5em rgba(255,255,255,.4),
+      0 0 .2em rgba(0,0,0,.3),
+      0 .5em .5em rgba(0,0,0,.3);
+  }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* slide 관련 */
+.slides{position:relative;width:100%}
+.slides .slide{overflow:hidden;position:relative;width:90%;height:250px}
+.slides .slide li{display:block;width:90%;height:250px}
+.slides .slide li a{display:block}
+.slides a.prev,.slides a.next{display:inline-block;z-index:100;overflow:hidden;position:absolute;top:10px;width:14px;height:14px;background:url(../img/sp_page.gif) 0 0 no-repeat;line-height:999px;vertical-align:top}
+.slides a.prev{right:25px;background-position:0 0}
+.slides a.prev:hover{background-position:0 -20px}
+.slides a.next{right:10px;width:15px;background-position:-20px 0}
+.slides a.next:hover{background-position:-20px -20px}
+.slides .page{z-index:100;position:absolute;top:140px;left:0;width:250px;text-align:center;list-style:none}
+.slides .page li{display:inline-block;_display:inline;margin:0 1px;_zoom:1}
+.slides .page li a{display:block;overflow:hidden;width:12px;height:12px;line-height:999px;vertical-align:top}
+.slides .page li.current a{background-position:0 -12px}
+
+
+
+</style>
+
+<script>
+$(function(){
+	var startSlide = 1;
+	for(var i=1; i<=3; i++) {
+		$('#slides'+i).slides({
+			container: 'slide',
+			pagination: true,
+			generateNextPrev: true,
+			next: 'next',
+			prev: 'prev',
+			generatePagination: true,
+			paginationClass: 'page',
+			start: 1,
+			effect: 'slide',
+			slideSpeed: 500,
+			play: 3500,
+			pause: 0,
+			start: startSlide
+		});
+	}
+});
+
+function layer_move(num) {
+	for(var i=1; i<=$('.sanchor li').size(); i++) {
+		if (i==num) {
+			$('#slides'+i).show();
+		} else {
+			$('#slides'+i).hide();
+		}
+	}
+	$('.sanchor li').each(function(i) {
+		$(this).find('a').removeClass();
+		if (num == i+1)
+		{
+			$(this).find('a').addClass('sanchor_on');
+		}
+	});
+}
+
+</script>
+
+</head>
+<body class="bgColor">
+<br><br><br>
+	
+	
+	<div class="underDiv">
+	<!-- 왼쪽 파트, 타이틀 및 정보 -->
+
+	<div style="float: left; width: 70%; height: 100%; " >
+		<div style="margin: 0 auto; ">
+			<h1 style="margin:5px 30px;">WithJAM</h1>
+		</div>
+		<br>
+		<br>
+			<div id="infoForm" class="formColor formBorder" style="margin: 0 auto;">
+			
+				<div id="slides1" class="slides">
+					<ul class="slide">
+						<li>사이트 소개 or 사용법 등 1</li>
+						<li>사이트 소개 or 사용법 등 2</li>
+						<li>사이트 소개 or 사용법 등 3</li>
+					</ul>
+				</div>
+
+			</div>
+	</div>
+
+
+	<!-- 오른쪽 파트, 로그인 및 회원가입 -->
+
+	<div style="float: right; width: 30%; height: 100%; padding: 5px; ">
+	<div>
+		<div id="loginForm" class="formColor formBorder">
+			<label>Log-in</label> <br>
+			<input type="text" placeholder="E-mail"> <br>
+			<input type="text" placeholder="Password"> <br>
+			<br>
+			<button class="btnWidth" >log-in</button>
+		</div>
+	</div>
+	<br>
+	<div style="height: 60%;">
+		<div id="registerForm" class="formColor formBorder">
+		<label>Sign-up</label><br>
+			<input type="text" placeholder="E-mail"> <br>
+			<input type="text" placeholder="Password"> <br>
+			<input type="text" placeholder="Re-Enter"> <br>
+			<input type="text" placeholder="NickName"> <br>
+			
+			<label>선호 장르 : </label>
+			<select name="genre" class="styled-select" style="width: 80px;">
+							<option value="genre0" selected="selected">없음</option>
+							<option value="genre1" >락</option>
+							<option value="genre2">힙합</option>
+			</select>
+			<br>
+			<label>관심 악기 : </label>
+			<select name=instruments class="styled-select" style="width: 80px;">
+							<option value="instruments0" selected="selected">없음</option>
+							<option value="instruments1" >기타</option>
+							<option value="instruments2" >베이스</option>
+			</select>
+			
+			<div>
+				<button class="btnWidth" >sign-up</button> 
+			</div>
+			
+		</div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>

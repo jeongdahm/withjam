@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.floatDiv {
+	float: left;
+}
+
+.playerBtn {
+	width: 40px;
+	height: 40px;
+}
+
+.iconSize {
+	width: 20px;
+	height: 20px;
+}
+
+.divBG {
+	background-color: #eef;
+}
+
+label {
+	font-size: 12px;
+}
+
+.testBG2 {
+	background-color: #aaa;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+
+.divBG {
+	background-color: #eef;
+}
+
+.divBG2 {
+	background-color: #eee;
+	border-radius: 5px;
+	border: 1px solid #ccf;
+}
+
+.divBG3 {
+	background-color: #ddf;
+	border-radius: 5px;
+}
+
+.btns {
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.tb5 {
+	/* border:2px solid #765942; */
+	border-radius: 10px;
+	height: 22px;
+	width: 400px;
+}
+
+textarea {
+	width: 99%;
+	overflow: visible;
+	/* border: 2px solid #765942; */
+	border-radius: 10px;
+	/* height: 60px; */
+	/* width: 230px; */
+}
+
+.divRadius {
+	border-radius: 4px;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.replyBorder {
+	/* border: 1px solid red;   */
+	padding: 5px;
+	height: 40px;
+}
+
+.mreplyBorder {
+	padding: 5px;
+	height: 100px;
+}
+
+.divPadding {
+	padding: 5px;
+}
+
+.btnCheckAll {
+	width: 50px;
+	height: 80px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+#mprofileImg {
+	width: 70px;
+	height: 70px;
+}
+</style>
+
+</head>
+
+<div class="divRadius divBG">
+
+			<div class="divPadding ">
+
+				<!-- 내용  -->
+				<div class="content testBorder">
+					<textarea rows="5" cols="60" name="contents">글 내용</textarea>
+				</div>
+			</div>
+
+			<div class="divPadding">
+				<!-- 나머지 -->
+				<div class="option testBorder ">
+					<div>
+						<label>태그</label> <label>#guitar</label>
+					</div>
+					<br>
+					<div>
+						<label>참여 제한</label> <select name="band" class="styled-select">
+							<option value="" selected="selected">없음</option>
+							<option value="band1">밴드1</option>
+							<option value="band2">밴드2</option>
+						</select>
+
+						<div style="float: right;">
+
+							<div style="float: left;">
+								<!-- 		
+				<input type="checkbox" name="option" value="secret">비밀글 
+ -->
+								<button id='btnUpdate' class="btns" type='button'>수정</button>
+								<button id='btnDelete' class="btns" type='button'>삭제</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		
+
+		<hr>
+		<!-- ---------------------- -->
+
+
+		<div class="testBorder testBG">
+			<!-- 일반 택스트 댓글 -->
+
+			<div class="replyBorder">
+				<div style="float: left;">
+					<img id="profileImg" src="../img/temp.jpg">
+				</div>
+				<div style="float: left;">
+					<label>작성자</label><br>
+					<label>2014.12.15</label>
+				</div>
+				<div style="float: left;">
+					<label>댓글의 내용 입니다.</label>
+				</div>
+				<div style="float: right;">
+					<button type='button' class="btns">삭제</button>
+				</div>
+			</div>
+
+			<div class="replyBorder">
+				<div style="float: left;">
+					<img id="profileImg" src="../img/temp.jpg">
+				</div>
+				<div style="float: left;">
+					<label>작성자</label><br>
+					<label>2014.12.15</label>
+				</div>
+				<div style="float: left;">
+					<label>댓글의 내용 입니다.</label>
+				</div>
+				<div style="float: right;">
+					<button type='button' class="btns">삭제</button>
+				</div>
+			</div>
+
+			<!-- --------------- -->
+			<br>
+
+			<div class="replyBorder">
+				<div style="float: left; width: 70%">
+					<input placeholder=" 댓글을 입력하세2요." class="tb5" type="text"
+						name="tag" style="width: 100%">
+				</div>
+				<div style="float: right;">
+					<button type='button' class="btns">등록</button>
+				</div>
+			</div>
+		</div>
+
+
+</div>
+
+</body>
+</html>

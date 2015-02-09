@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+.divBG {
+	background-color: #eef;
+}
+
+label {
+	font-size: 12px;
+}
+
+.divBG {
+	background-color: #eef;
+}
+
+.divBG2 {
+	background-color: #eee;
+	border-radius: 5px;
+	border: 1px solid #ccf;
+}
+
+.divBG3 {
+	background-color: #ddf;
+	border-radius: 5px;
+}
+
+.btns {
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+
+
+textarea {
+	width: 99%;
+	overflow: visible;
+	/* border: 2px solid #765942; */
+	border-radius: 10px;
+	/* height: 60px; */
+	/* width: 230px; */
+}
+
+.divRadius {
+	border-radius: 4px;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.divPadding {
+	padding: 5px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+#imgSize{
+	width: 45%;
+	height: 45%;
+}
+
+
+</style>
+
+</head>
+
+<div class="divRadius divBG">
+
+			<div class="divPadding ">
+				<div class="floatLeft">
+					<img id="profileImg" src="../img/temp.jpg">
+					<label style="font-size: 30px;">Title</label>
+				</div>
+				<div style="float: right;">
+					<label>작성자</label>
+					<label>2015.01.01</label>
+					<br>
+					<label>참가자:9</label>
+					<label>리플:9</label>
+					<label>추천:99</label>
+				</div>
+				<br><br>
+				<hr>
+				
+
+				<!-- 내용  -->
+				<div class="content testBorder">
+					<textarea rows="3" cols="60" name="contents" disabled="disabled">글 내용</textarea>
+				</div>
+			</div>
+
+			<div class="divPadding">
+				<!-- 나머지 -->
+				<div class="option testBorder ">
+					<div>
+						<label>장르</label> 
+						<select name="genre" class="styled-select" disabled="disabled" >
+							<option value="genre0">없음</option>
+							<option value="genre1" selected="selected">락</option>
+							<option value="genre2">힙합</option>
+						</select>
+					
+						<label>참여 제한</label> 
+						<select name="band" class="styled-select" disabled="disabled">
+							<option value="band0">없음</option>
+							<option value="band1">밴드1</option>
+							<option value="band2" selected="selected">밴드2</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+		
+
+</div>
+
+</body>
+</html>

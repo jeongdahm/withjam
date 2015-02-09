@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+
+label {
+	font-size: 10px;
+}
+
+img {
+	height: 30px;
+	width: 30px;
+}
+
+.Border_R1111 {
+	border: 1px solid black;
+}
+
+.testFloat {
+	float: left;
+}
+
+.testMargin {
+	margin: 2px;
+}
+
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+.infoFormR {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 25%;
+}
+
+.menuTap1 {
+	padding: 5px;
+	margin: 5px;
+	font-size: 12px;
+	width: 210px;
+	height: 98%;
+}
+
+.maginR {
+	margin: 2px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+input#selectR1:checked+label.friendList {
+	background: blue;
+	color: white;
+}
+
+input#selectR2:checked+label.bookmarkList {
+	background: red;
+	color: white;
+}
+
+input#selectR3:checked+label.bandList {
+	background: green;
+	color: white;
+}
+
+input#selectR1, input#selectR2, input#selectR3, input#selectR4 {
+	display: none;
+}
+
+.Taplabel {
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	background: #eef;
+	text-align: center;
+	line-height: 30px;
+}
+
+.page1, .page2, .page3, .page4 {
+	display: none;
+}
+
+input#selectR1:checked ~ .page1 {
+	display: block;
+}
+
+input#selectR2:checked ~ .page2 {
+	display: block;
+}
+
+input#selectR3:checked ~ .page3 {
+	display: block;
+}
+
+input#selectR4:checked ~ .page4 {
+	display: block;
+}

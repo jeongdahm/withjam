@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SoundJS: Preload & Sound APIs</title>
+</head>
+
+<body onload="init()">
+
+
+
+<div class="content" id="content" style="height: auto">
+<!-- 
+	<div class="plugin">
+		<p id="activePlugin">Active Plugin is</p>
+	</div>
+ -->
+	<p id="status">Loading...</p>
+</div>
+
+
+<script type="text/javascript" src="../js/createjs/preloadjs-NEXT.min.js"></script>
+<script type="text/javascript" src="../js/createjs/soundjs-NEXT.combined.js"></script>
+<!-- Note: FlashAudioPlugin is only needed to support older browsers -->
+<script type="text/javascript" src="../js/createjs/flashaudioplugin-NEXT.combined.js"></script>
+
+<!-- We also provide hosted minified versions of all CreateJS libraries.
+	http://code.createjs.com -->
+
+<script id="editable">
+	// Read the URL Params. We need to do this to determine the plugin mode.
+	var params = {};
+	var pieces = window.location.search.slice(1).split("&");
+	for (var i = 0, l = pieces.length; i < l; i++) {
+		var parts = pieces[i].split("=");
+		params[parts[0]] = parts[1];
+	}
+
+	var queue;
+	var displayStatus;
+
+	function init() {
+		createjs.FlashAudioPlugin.swfPath = "../flashaudio/"; // Initialize the base path from this document to the Flash Plugin
+		if (params.type == "flash") {
+			createjs.Sound.registerPlugins([createjs.FlashAudioPlugin]);
+		} else if (params.type == "html5") {
+			createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin]);
+		} else {
+			createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin]);
+		}
+
+		displayStatus = document.getElementById("status");
+
+		// Create a single item to load.
+		var assetsPath = "../music/";
+		//var item = {src:assetsPath+"M-GameBG.ogg", id:"music"};
+		var manifest = [
+			{id: "music", src: assetsPath + "05 I Want My Tears Back.mp3"}
+		]
+
+		// Instantiate a queue.
+		queue = new createjs.LoadQueue();
+		createjs.Sound.alternateExtensions = ["mp3"];	// add other extensions to try loading if the src file extension is not supported
+		queue.installPlugin(createjs.Sound);
+		queue.addEventListener("complete", loadComplete);
+		queue.addEventListener("fileload", fileComplete);
+		queue.addEventListener("error", handleFileError);
+		queue.addEventListener("fileprogress", handleFileProgress);
+		queue.addEventListener("progress", handleProgress);
+		queue.loadManifest(manifest);
+		//queue.loadFile(item, true);  // to load a single item
+	}
+
+	function handleFileError(evt) {
+		console.log("error ", evt);
+		// An error occurred.
+		displayStatus.innerText = "Error"
+	}
+
+	function handleFileProgress(evt) {
+		// Progress happened.
+		displayStatus.innerText = "Event File Loading: " + (queue.progress.toFixed(2) * 100) + "%";
+	}
+
+	function handleProgress(evt) {
+		// Progress happened.
+		displayStatus.innerText = "Event Loading: " + (queue.progress.toFixed(2) * 100) + "%";
+	}
+
+	function loadComplete(evt) {
+		// Load completed.
+		displayStatus.innerText = "Done";
+		playSound("music");
+	}
+
+	function fileComplete(evt) {
+		console.log("Event Callback file loaded ", evt);
+	}
+
+	function playSound(name) {
+		// Play the sound using the ID created above.
+		return createjs.Sound.play(name);
+	}
+
+</script>
+
+</body>
+</html>

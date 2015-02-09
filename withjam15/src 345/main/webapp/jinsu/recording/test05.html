@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link
+	href="../jquery/jplayer/skin/blue.monday/css/jplayer.blue.monday.min.css"
+	rel="stylesheet" type="text/css" />
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
+
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+
+<script src="../js/audiodisplay.js"></script>
+	<script src="../js/recorderjs/recorder.js"></script>
+	<script src="../js/main.js"></script>
+
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+.floatDiv{
+	float: left;
+}
+
+.td1 {
+	width: 45px;
+	height: 45px;
+}
+
+.td2 {
+	width: 80px;
+}
+
+.td3 {
+	width: 100%;
+}
+
+.td4 {
+	width: 50px;
+	height: 45px;
+}
+
+.playerSize {
+	height: 300px;
+	width: 100%;
+}
+
+.playerHeader {
+	border: 1px solid red;
+	height: 15%;
+}
+
+.playerContent {
+	border: 1px solid red;
+	height: 65%;
+}
+
+.playerFooter {
+	border: 1px solid red;
+	height: 20%;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+.scrollBar {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment
+	{
+	display: block;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #efefef;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .2)
+}
+
+::-webkit-scrollbar-thumb {
+	height: 10px;
+	width: 50px;
+	background: rgba(0, 0, 0, .2);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .1)
+}
+
+.playerBtn {
+	width: 40px;
+	height: 40px;
+}
+
+#profileImg {
+	width: 43px;
+	height: 43px;
+}
+
+.btns {
+	width: 45px;
+	height: 100%;
+}
+.iconSize{
+	width: 20px;
+	height: 20px;
+}
+
+#save { opacity: 0.25;}
+#save[download] { opacity: 1;}
+
+</style>
+
+<script>
+
+</script>
+<script>
+	
+
+	var soundID1 = "takemyhand";
+	var soundID2 = "remake";
+	var soundID3 = "blackice";
+	var soundID4 = "blackend";
+
+	var mutedSound1;
+	var mutedSound2;
+	var mutedSound3;
+	var mutedSound4;
+
+	function loadSound() {
+		createjs.Sound.registerSound("../music/02 Take My Hand.mp3", soundID1);
+		createjs.Sound.registerSound("../music/01 Re-make.mp3", soundID2);
+		createjs.Sound.registerSound("../music/29 Black Ice.mp3", soundID3);
+		createjs.Sound.registerSound("../music/01 Metallica Blackened.mp3",
+				soundID4);
+
+	}
+
+	function playSound() {
+		mutedSound1 = createjs.Sound.play(soundID1);
+		mutedSound2 = createjs.Sound.play(soundID2);
+		mutedSound3 = createjs.Sound.play(soundID3);
+		mutedSound4 = createjs.Sound.play(soundID4);
+	}
+	
+	function stopSound(){
+		createjs.Sound.stop();
+	}
+
+	
+	var changeVolume = function(val) {
+		createjs.Sound.setVolume(val / 100);
+	}
+
+	function mute1() {
+		if (mutedSound1.getMuted()) {
+			mutedSound1.setMuted(false);
+		} else {
+			mutedSound1.setMuted(true);
+		}
+	}
+	function mute2() {
+		if (mutedSound2.getMuted()) {
+			mutedSound2.setMuted(false);
+		} else {
+			mutedSound2.setMuted(true);
+		}
+	}
+	function mute3() {
+		if (mutedSound3.getMuted()) {
+			mutedSound3.setMuted(false);
+		} else {
+			mutedSound3.setMuted(true);
+		}
+	}
+	function mute4() {
+		if (mutedSound4.getMuted()) {
+			mutedSound4.setMuted(false);
+		} else {
+			mutedSound4.setMuted(true);
+		}
+	}
+</script>
+</head>
+<body onload="loadSound();">
+
+	<div class="playerSize">
+
+		<div class="playerHeader">
+			<img id="playBtn" onclick="playSound();" class="playerBtn"
+				src="../img/buttonPlay.png"> 
+			<img id="StopBtn"
+				onclick="stopSound();" class="playerBtn" src="../img/buttonStop.png">
+			<label id="time1">00:00</label> /
+			<label id="time2">00:00</label>
+			<div style="float: right">
+			<img id="speaker" src="../img/speaker.png" class="iconSize">
+			<input id="slider" type="range" min="0" value="50" max="100" step="1" 
+				onchange="changeVolume(this.value)" />
+			</div>
+		</div>
+
+		<div class="playerContent scrollBar">
+			<table border="1" style="width: 100%;">
+				<tr>
+					<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+					</td>
+					<td class="td2">작성자1<br>2015.01.01
+					</td>
+					<td class="td3">코멘트 작성 공간</td>
+					<td class="td4">
+						<button onclick="mute1();" id="muteBtn" type='button' class="btns">do</button>
+						<!-- <button onclick="mute1();" id="unmuteBtn" type='button' class="btns">undo</button> -->
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+					</td>
+					<td class="td2">작성자2<br>2015.01.01
+					</td>
+					<td class="td3">코멘트 작성 공간</td>
+					<td class="td4">
+						<button onclick="mute2();" id="muteBtn" type='button' class="btns">do</button>
+						<!-- <button onclick="mute2();" id="unmuteBtn" type='button' class="btns">undo</button> -->
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+					</td>
+					<td class="td2">작성자3<br>2015.01.01
+					</td>
+					<td class="td3">코멘트 작성 공간</td>
+					<td class="td4">
+						<button onclick="mute3();" id="muteBtn" type='button' class="btns">do</button>
+						<!-- <button onclick="mute3();" id="unmuteBtn" type='button' class="btns">undo</button> -->
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="td1"><img id="profileImg" src="../img/temp.jpg">
+					</td>
+					<td class="td2">작성자4<br>2015.01.01
+					</td>
+					<td class="td3">코멘트 작성 공간</td>
+					<td class="td4">
+						<button onclick="mute4();" id="muteBtn" type='button' class="btns">do</button>
+						<!-- <button onclick="mute4();" id="unmuteBtn" type='button' class="btns">undo</button> -->
+					</td>
+				</tr>
+				
+				
+			</table>
+		</div>
+
+		<div class="playerFooter">
+			<div class="floatDiv "><img id="profileImg" src="../img/temp.jpg"></div>
+			<div class="floatDiv "><input placeholder=" 코맨트를 입력하세요." type="text" size="25"></div>
+			
+			<div class="floatDiv">
+				<img id="record" class="iconSize" src="../img/record.png" onclick="toggleRecording(this);">
+				<label>00:00</label>
+				<a id="save" href="#">다운로드</a>
+			<br>
+				<input type='file' id='audiofile'>
+			</div>
+			<div  class="floatDiv ">
+				<button>등록</button>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

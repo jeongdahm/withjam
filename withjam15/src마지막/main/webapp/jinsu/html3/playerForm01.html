@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="../js/createjs/preloadjs-NEXT.min.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/soundjs-NEXT.combined.js"></script>
+<script type="text/javascript"
+	src="../js/createjs/flashaudioplugin-NEXT.combined.js"></script>
+
+<script src="//code.createjs.com/createjs-2014.12.12.min.js"></script>
+<script src="../js/recordmp3js/recordmp3.js"></script>
+
+
+<style>
+.playerBtn{
+	width: 35px;
+	height: 35px;
+}
+#titleSize{
+	font-size: 20px;
+}
+#writerSize{
+	font-size: 15px;
+}
+#speaker{
+	width: 15px;
+	height: 15px;
+}
+#slider{
+	width: 70px;
+	height: 13px;
+}
+
+
+
+
+</style>
+<body>
+
+	<div id="playerForm">
+	<table border="1">
+		<tr>
+			<td rowspan="2" style="width: 50px; text-align: center;">
+				<img id="playBtn" onclick="playSound();" class="playerBtn"
+					src="../img/buttonPlay.png"> 
+				<img id="stopBtn" onclick="stopSound();" class="playerBtn" 
+					src="../img/buttonStop.png">
+			</td>
+			<td colspan="2" style="width: 180px;">
+				<label id="titleSize">
+					<marquee scrolldelay="200">title</marquee>
+				</label>
+			</td>
+			<td style="text-align: right; width: 80px;">
+				<label id="writerSize">writer</label>
+			</td>
+		</tr>
+		<tr style="text-align: center;">
+			<td>
+				<label id="time1-1">00</label> : <label id="time1-2">00</label>
+				/ <label id="time2-1">00</label> : <label id="time2-2">00</label>
+			</td>
+			<td >
+				<img id="speaker" src="../img/speaker.png" class="iconSize">
+			</td>
+			<td>			
+				<input id="slider" type="range"  min="0" value="50" max="100" 
+				step="1" onchange="changeVolume(this.value)" />
+			</td>
+		</tr>
+	</table>
+	</div>
+
+
+
+<script>
+	$("#stopBtn").hide();
+	$("#playBtn").click(function() {
+		$("#stopBtn").show();
+		$("#playBtn").hide();
+	});
+	$("#stopBtn").click(function() {
+		$("#stopBtn").hide();
+		$("#playBtn").show();
+	});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
+
+
+</head>
+<body>
+
+	<audio id="audio01" controls="" preload="auto" autoplay="" loop="">
+		<source src="../music/29 Black Ice.mp3" type="audio/mp3" />
+	</audio>
+	<br>
+	<audio id="audio02" controls="" preload="auto" autoplay="" loop="">
+		<source src="../music/02 Take My Hand.mp3" type="audio/mp3" />
+	</audio>
+	<br>
+	<audio id="audio03" controls="" preload="auto" autoplay="" loop="">
+		<source src="../music/01 Re-make.mp3" type="audio/mp3" />
+	</audio>
+	<br>
+	<button id="muted01">mute1</button>
+	<button id="muted02">mute2</button>
+	<button id="muted03">mute3</button>
+
+	<script>
+/* 
+		var audioElm1 = document.getElementById("audio01");
+		var audioElm2 = document.getElementById("audio02");
+		var audioElm3 = document.getElementById("audio03");
+		var muted01 = document.getElementById("muted01");
+		var muted02 = document.getElementById("muted02");
+		var muted03 = document.getElementById("muted03");
+ */
+		
+		
+		$("#muted01").click(function() {
+			if ($("#audio01").muted == true) {
+				$("#audio01").muted = false;
+				console.log("a");
+			} else {
+				$("#audio01").muted = true;
+				console.log("b");
+			}
+		});
+	</script>
+
+
+
+</body>
+</html>

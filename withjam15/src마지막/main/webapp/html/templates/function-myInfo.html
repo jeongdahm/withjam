@@ -1,0 +1,147 @@
+<div style="height:30px;"></div>
+   <img class="myphotoleft" class="profileImg" src="{{myInfo.uphoto}}" style="width: 190px; height:190px;">
+            
+   <div class="userId_left"> <h1>{{myInfo.uname}}</h1> </div>
+   <div class="usermsg_left" >{{myInfo.comment}}</div>
+         <br><br>
+         <div style="height:130px;margin:2px;margin-bottom:85px;">
+         <table id="myinfo3" class="table" style="width:190px;text-align:center;">
+            <tbody><tr>
+               <th><img src="../img/search1.png" style="width:35px;height:35px;"></th>
+               <th><a>{{myInfo.boardCnt}}</a></th>
+            </tr>
+            <tr>
+            <th><img src="../img/follow1.png" style="width:35px;height:35px;">   </th>
+            <th><a class="followbtn" style="cursor:pointer">{{myInfo.followCnt}}</a></th>
+                 </tr>
+            <tr>
+                  <th><img src="../img/follower1.png" style="width:35px;height:35px;">   </th>
+            <th><a class="follower" style="cursor:pointer">{{myInfo.followerCnt}}</a></th>
+                  </tr>
+         </tbody></table>
+         </div>
+
+<!-- <!— 밴드 선택 —>
+<!— 가입한 밴드: —> -->
+<img src='../img/search3.png'>
+<select class='my-band-list'>
+{{#each myBandList}}
+   <option   data-uid='{{uid}}' data-bandNo='{{bandNo}}' data-bandGrade='{{bandGrade}}'>{{bandName}}</option>
+{{/each}}
+</select>
+<button type="button" class="btn btn-default btn-xs band-detail-btn" style='color: #FA5858'>이동</button>
+
+
+
+
+
+<script>    
+
+$('.followbtn').click(function(){
+	
+	  
+	  var marginLeft = $("#recommend-side-follow").css("margin-left");
+	  
+	  console.log("marginLeft2==> " + marginLeft);
+
+	  if( marginLeft == '0px'){
+	     $("#recommend-side-follow").animate({ "margin-left": '-25%' }, 1000 ,function(){}); 
+	     
+	  }else {
+	     $("#recommend-side-follow").animate({ "margin-left": '0%' }, 1000 ,function(){}); 
+	  } 
+
+	});
+$('.follower').click(function(){
+   
+   var marginLeft = $("#recommend-side").css("margin-left");
+   
+   console.log("marginLeft==> " + marginLeft);
+
+   if( marginLeft == '0px'){
+      $("#recommend-side").animate({ "margin-left": '-25%' }, 1000 ,function(){}); 
+      
+   }else {
+      $("#recommend-side").animate({ "margin-left": '0%' }, 1000 ,function(){}); 
+   }
+
+});
+
+
+/*바탕 클릭하면 들어감 */
+ $(".divHeight").click(function(){
+   
+   var marginLeft = $("#recommend-side").css("margin-left");
+   var marginLeft1 = $("#recommend-side-band").css("margin-left");
+   
+	 if( marginLeft == '0px'){
+     
+  }else {
+    $("#recommend-side").animate({ "margin-left": '0%' }, 1000 ,function(){}); 
+  } 
+	 
+	 if( marginLeft1 == '0px'){
+	     
+	  }else {
+	    $("#recommend-side-band").animate({ "margin-left": '0%' }, 1000 ,function(){}); 
+	  } 
+	 
+	 
+}); 
+
+/*밴드 	버튼 클릭하면 오른쪽 나옴 */
+ $('.band-detail-btn').click(function(){
+   
+   var marginLeft = $("#recommend-side-band").css("margin-left");
+   console.log("marginLeft==> " + marginLeft);
+
+   if( marginLeft == '0px'){
+      $("#recommend-side-band").animate({ "margin-left": '-25%' }, 1000 ,function(){}); 
+      
+   }else {
+      $("#recommend-side-band").animate({ "margin-left": '0%' }, 1000 ,function(){}); 
+   }
+
+});
+
+
+/*내 밴드 오른쪽에 나오게함*/
+$(".band-detail-btn").click(function() {
+	
+	console.log($('.my-band-list').attr('data-bandNo'));
+	
+	
+	var bandName = $('.my-band-list').val();
+	console.log(bandName);
+	
+	$.getJSON('/withjam15/json/auth/loginUser.do', function(data) {
+		
+		if (data.status == 'fail') {
+			console.log('loginUser fail..');
+		} else {
+			var loginUser = data.loginUser;
+			console.log(loginUser);
+			console.log(bandName);
+
+			$.getJSON('../json/band/myBandListDetail.do?uid='
+					+ loginUser.uid + '&bandName=' + bandName
+				, function(data) {
+				console.log(data);
+				require([ 'text!templates/function-my-band.html' ], function(
+						html) {
+					var template = Handlebars.compile(html);
+					$('#recommend-side-band').html(template(data));
+				});
+			});
+		}
+	}); 
+	
+	
+	
+	
+});	 
+
+
+
+
+</script>

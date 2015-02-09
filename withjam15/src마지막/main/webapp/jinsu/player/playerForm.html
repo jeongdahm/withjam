@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+<style>
+.select {
+	background-color: #eef;
+}
+
+.titleTab {
+	border: 1px solid black;
+	width: 49.1%;
+	height: 30px;
+}
+
+.contentTab {
+	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+
+	<div>
+		<div>
+			<h1>Title</h1>
+		</div>
+		<div>
+			<div id="selectTab1" class="titleTab" style="float: left;">Contents</div>
+			<div id="selectTab2" class="titleTab" style="float: right;">Player</div>
+		</div>
+		<br>
+		<br>
+		<div id="tab1" class="contentTab"></div>
+		<div id="tab2" class="contentTab"></div>
+	</div>
+
+
+
+	<script>
+	
+	$('#tab1').load('../player/content3.html');
+	$('#tab2').load('../player/player2_Test2.html');
+	
+		$("#selectTab1").addClass("select");
+		$("#tab2").hide();
+		$("#selectTab1").click(function() {
+			$("#selectTab1").addClass("select");
+			$("#selectTab2").removeClass("select");
+			$("#tab1").show();
+			$("#tab2").hide();
+		});
+		$("#selectTab2").click(function() {
+			$("#selectTab2").addClass("select");
+			$("#selectTab1").removeClass("select");
+			$("#tab2").show();
+			$("#tab1").hide();
+		});
+	</script>
+
+</body>
+</html>

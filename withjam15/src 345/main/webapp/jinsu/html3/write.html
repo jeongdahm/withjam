@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="../jquery/jplayer/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script src='../js/jquery-1.11.1.js'></script>
+<script type="text/javascript"	src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.jplayer.min.js"></script>
+	
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css"> 
+
+label{
+	font-size: 12px;
+}
+
+.divBG{
+	background-color: #eef;
+}
+.divBG2{
+	background-color: #eee;
+	border-radius: 5px;
+	border:1px solid #ccf;
+}
+
+.btns{
+	height: 22px;
+	width: 65px;
+	background-color: #3447A8;
+	color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.tb5 {
+	/* border:2px solid #111; */
+	border-radius:10px;
+	height: 22px;
+	width: 470px;
+}
+textarea {
+	width:100%;
+	overflow:visible;
+	
+	/* border: 2px solid #000000; */
+	border-radius: 10px;
+} 
+
+.shadow{
+	box-shadow:2px 2px 5px #08088A;
+}
+.divRadius{
+	border-radius: 4px;
+}
+
+.divPadding{
+	padding: 10px;
+}
+.accordion {
+	width: 100%;
+	/* border: 1px solid red; */
+}
+.testBorder2 {
+	border: 1px solid red;
+}
+#profileImg {
+	width: 30px;
+	height: 30px;
+}
+
+/* combobox 관련 */
+.styled-select select {
+       background: transparent;
+       width: 120px;
+       padding: 5px;
+       font-size: 16px;
+
+       border: 1;
+       border-radius: 5;
+       height: 22px;
+       -webkit-appearance: none;
+       -moz-appearance:none;
+       appearance: none;
+       }
+
+.styled-select {
+       width: 123px;
+       height: 22px;
+       overflow: hidden;
+       background: url(img/cmbbox.png) no-repeat;
+       border: 1;
+       }
+
+
+
+</style>
+<script type="text/javascript">
+//textarea 크기 조절관련
+function resize(obj) {
+	  obj.style.height = "1px";
+	  obj.style.height = (20+obj.scrollHeight)+"px";
+	}
+
+//jplayer 관련
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			$(this).jPlayer("setMedia", {
+				title: "Bubble",
+				m4a: "http://jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+				oga: "http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			});
+		},
+		swfPath: "../../jquery/jplayer",
+		supplied: "m4a, oga",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true
+	});
+});
+
+//accodian 방식 관련..
+	$(function() {
+		$(".submenu").hide();
+		$(".write").click(function() {
+			$(".submenu:visible").slideUp("middle");
+			$(this).next('.submenu:hidden').slideDown("middle");
+			return false;
+		})
+		$(".submenu2").hide();
+		$("#btnRecord").click(function() {
+			$(".submenu2").slideToggle("middle");
+			return false;
+		})
+
+	});
+</script>
+<div class="accordion divRadius shadow divBG" >
+	<p class="write divPadding">Write & Record</p>
+	<div class="submenu bg01">
+	
+<div class="divPadding">
+
+		<!-- 제목  -->
+		<div class="title divRadius">
+			<div>
+				<label>Title </label>
+				<input class="tb5" type="text" name="title" style="width: 100%">
+			</div>
+		</div>
+
+		<!-- 내용  -->
+		<div class="content">
+			<textarea onkeyup="resize(this)"></textarea>
+		</div>
+
+		<!-- 나머지 -->
+		<div class="option">
+			
+			<div>
+				<label>태그</label>
+				<input class="tb5" type="text" name="tag" style="width: 100%"> 
+			</div>
+		<br>
+			
+		<!-- 녹음  -->
+		<div class="recoding accordion divBG2">
+			
+			<div class="submenu2 ">
+			
+			<label >녹음창이 출력될 위치 입니다.</label>
+			<br>
+			<input type='file'>
+			
+			</div>
+		</div>
+			
+			
+			<br>
+			<div>
+			<label>제한</label> <select name="band" class="styled-select">
+					<option value="">없음</option>
+					<option value="band1">밴드1</option>
+					<option value="band2">밴드2</option>
+				</select>
+
+				<div style="float: right;">
+				<input type="checkbox" name="option" value="secret">비밀글 
+				<input type="checkbox" name="option" value="main">메인
+				<br>
+				<button id='btnRecord' type='button' class="btns">녹음</button>
+				<button id='btnInsert' type='button' class="btns">등록</button>
+				</div>
+			</div>
+			
+		</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>
